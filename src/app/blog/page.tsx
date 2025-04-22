@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: 'ブログ記事の一覧ページです。',
 };
 
+export const dynamic = 'force-static'; // この行を追加して静的ページとして扱われるようにする
 export const revalidate = 3600; // 1時間ごとに再検証
 
 export default async function BlogIndexPage() {

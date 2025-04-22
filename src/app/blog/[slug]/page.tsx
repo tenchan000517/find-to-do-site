@@ -42,10 +42,9 @@ export async function generateMetadata({
 export default async function BlogPostPage({ 
   params 
 }: { 
-  params: Promise<{ slug: string }> 
+  params: { slug: string } // Promise<{ slug: string }>から変更
 }) {
-  // paramsをawaitして使用
-  const { slug } = await params;
+  const { slug } = params; // paramsをawaitする必要はない
   
   const post = await getPostBySlug(slug);
   
