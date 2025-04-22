@@ -1,0 +1,23 @@
+name: 本番デプロイ
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: Vercel CLI インストール
+        run: npm install --global vercel@latest
+
+      - name: 本番デプロイ実行
+        run: vercel --prod --token ${VERCEL_TOKEN} --confirm
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
