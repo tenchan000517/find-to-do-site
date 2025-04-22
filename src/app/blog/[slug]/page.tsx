@@ -20,11 +20,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ 
   params 
 }: { 
-  params: { slug: string } 
+  params: Promise<{ slug: string }> 
 }): Promise<Metadata> {
   // paramsをawaitして使用
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+  const { slug } = await params;
   
   const post = await getPostBySlug(slug);
   
@@ -43,11 +42,10 @@ export async function generateMetadata({
 export default async function BlogPostPage({ 
   params 
 }: { 
-  params: { slug: string } 
+  params: Promise<{ slug: string }> 
 }) {
   // paramsをawaitして使用
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+  const { slug } = await params;
   
   const post = await getPostBySlug(slug);
   
@@ -65,7 +63,7 @@ export default async function BlogPostPage({
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       <div className="mb-6">
-        <Link href="/news-blog" className="text-blue-600 hover:underline">
+        <Link href="/news-blog" className="text-blue-underline hover:underline">
           ← ブログ一覧に戻る
         </Link>
       </div>
