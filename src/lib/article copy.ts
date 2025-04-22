@@ -14,51 +14,6 @@ const RETRY_DELAY = 5000;
 const TOKEN_SIZES = [1500, 2000, 2500];
 
 /**
- * コードブロックの言語指定子を修正する
- * ビルドエラーの原因となる無効な言語指定子を検出して修正します
- */
-function fixCodeBlockLanguages(content: string): string {
-  // 安全に使用できる言語指定子のリスト
-  const safeLanguages = [
-    'tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript',
-    'json', 'html', 'css', 'markdown', 'md', 'bash', 'sh'
-  ];
-  
-  // 無効な言語指定子のリスト（問題を起こしやすいもの）
-  const invalidLanguages = ['tsxx', 'vue', 'typescriptx', 'javascriptx', 'ts-x', 'js-x', 'python', 'py'];
-  
-  // 修正処理
-  let fixedContent = content;
-  
-  // 1. 既知の無効な言語指定子を直接置換
-  invalidLanguages.forEach(lang => {
-    const regex = new RegExp("```" + lang + "\\b", "g");
-    fixedContent = fixedContent.replace(regex, "```tsx");
-  });
-  
-  // 2. 言語未指定のコードブロックをtsxに変換
-  fixedContent = fixedContent.replace(/```(?!\w)/g, "```tsx");
-  
-  // 3. 安全でない可能性のある言語指定子をすべてtsxに置換
-  const codeBlockRegex = /```(\w+)/g;
-  let match;
-  const contentCopy = fixedContent; // 元のコンテンツをコピー（正規表現マッチングのため）
-  
-  while ((match = codeBlockRegex.exec(contentCopy)) !== null) {
-    const [fullMatch, language] = match;
-    if (!safeLanguages.includes(language.toLowerCase())) {
-      // 安全なリストにない言語はtsxに置換
-      fixedContent = fixedContent.replace(
-        new RegExp("```" + language + "\\b", "g"), 
-        "```tsx"
-      );
-    }
-  }
-  
-  return fixedContent;
-}
-
-/**
  * AIを使用して記事を生成（エラー処理と再試行機能強化版）
  */
 export async function generateArticle(topic: string, category: string): Promise<{ title: string, content: string }> {
@@ -92,13 +47,10 @@ export async function generateArticle(topic: string, category: string): Promise<
       
       // Promise.raceでタイムアウト処理（型アサーションを追加）
       const startTime = Date.now();
-      const rawContent = await Promise.race([apiPromise, timeoutPromise]) as string;
+      const content = await Promise.race([apiPromise, timeoutPromise]) as string;
       const endTime = Date.now();
       
       console.log(`API呼び出し時間: ${endTime - startTime}ms`);
-      
-      // コードブロックの言語指定子を修正
-      const content = fixCodeBlockLanguages(rawContent);
       
       // タイトルを抽出（最初の# で始まる行）
       const titleMatch = content.match(/^# (.+)$/m);
@@ -159,7 +111,7 @@ export async function saveArticle(title: string, content: string, category: stri
   // スラグ生成
   let slug = generateSlug(title);
   
-  // 既存のスラグとの衝突をチェック - 必要なパラメータを渡す
+  // 既存のスラグとの衝突をチェック
   const existingSlugs = getExistingSlugs();
   if (existingSlugs.includes(slug)) {
     // スラグが既に存在する場合、日付を追加して一意にする
@@ -183,9 +135,6 @@ export async function saveArticle(title: string, content: string, category: stri
     }
   }
   
-  // コードブロックの言語指定子を最終確認（ファイル保存前の安全対策）
-  const fixedContent = fixCodeBlockLanguages(content);
-  
   // フロントマターを追加
   const frontMatter = `---
 title: "${title}"
@@ -197,7 +146,7 @@ excerpt: "${excerpt}"
 
 `;
 
-  const contentWithFrontMatter = frontMatter + fixedContent;
+  const contentWithFrontMatter = frontMatter + content;
   
   // カテゴリのディレクトリを作成
   const contentDir = path.join(process.cwd(), 'content');
