@@ -9,12 +9,13 @@ import remarkGfm from 'remark-gfm';
 // ブログ記事ディレクトリ
 const contentDirectory = path.join(process.cwd(), 'content', 'blog');
 
+// In Next.js App Router, the correct parameter type is { params: { slug: string } }
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: { slug: string } }
 ) {
   try {
-    const slug = params.slug;
+    const slug = context.params.slug;
     
     // contentディレクトリが存在しなければエラー
     if (!fs.existsSync(contentDirectory)) {
