@@ -116,22 +116,22 @@ const staggerChildren = {
 function stripMarkdown(text: string): string {
     // 見出し記号（#）を削除
     let result = text.replace(/^#+\s+/gm, '');
-    
+
     // 太字とイタリック記号を削除
     result = result.replace(/\*\*(.+?)\*\*/g, '$1');
     result = result.replace(/\*(.+?)\*/g, '$1');
     result = result.replace(/__(.+?)__/g, '$1');
     result = result.replace(/_(.+?)_/g, '$1');
-    
+
     // コードブロックを削除
     result = result.replace(/```[\s\S]*?```/g, '');
     result = result.replace(/`(.+?)`/g, '$1');
-    
+
     // リンクからテキスト部分のみ抽出
     result = result.replace(/\[(.+?)\]\(.+?\)/g, '$1');
-    
+
     return result;
-  }
+}
 
 export default function NewsBlogPage() {
     const [activeTab, setActiveTab] = useState<'all' | PostType>('all');
@@ -237,64 +237,125 @@ export default function NewsBlogPage() {
             {/* タブとフィルター */}
             <section className="py-8 md:py-12 bg-white border-b">
                 <div className="container mx-auto px-4">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        {/* タブ切り替え */}
-                        <div className="flex border border-gray-200 rounded-lg overflow-hidden">
+                    {/* PC表示 - 改善版を維持 */}
+                    <div className="hidden md:flex md:flex-row md:items-center md:justify-between gap-6">
+                        {/* PCタブ切り替え - 改善版 */}
+                        <div className="flex md:flex-nowrap md:flex-1 border border-gray-200 rounded-lg overflow-hidden">
                             <button
                                 onClick={() => setActiveTab('all')}
-                                className={`flex items-center px-4 py-2 text-sm md:text-base ${activeTab === 'all'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                                className={`flex items-center justify-center flex-1 min-w-max px-3 py-2 text-base whitespace-nowrap ${activeTab === 'all'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-white text-gray-700 hover:bg-gray-100'
                                     }`}
                             >
-                                <span className="mr-2">すべて</span>
+                                <span>すべて</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab('news')}
-                                className={`flex items-center px-4 py-2 text-sm md:text-base ${activeTab === 'news'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                                className={`flex items-center justify-center flex-1 min-w-max px-3 py-2 text-base whitespace-nowrap ${activeTab === 'news'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-white text-gray-700 hover:bg-gray-100'
                                     }`}
                             >
-                                <Newspaper className="w-4 h-4 mr-2" />
+                                <Newspaper className="w-4 h-4 mr-1" />
                                 <span>ニュース</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab('blog')}
-                                className={`flex items-center px-4 py-2 text-sm md:text-base ${activeTab === 'blog'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                                className={`flex items-center justify-center flex-1 min-w-max px-3 py-2 text-base whitespace-nowrap ${activeTab === 'blog'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-white text-gray-700 hover:bg-gray-100'
                                     }`}
                             >
-                                <Book className="w-4 h-4 mr-2" />
+                                <Book className="w-4 h-4 mr-1" />
                                 <span>オリジナルブログ</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab('ai-blog')}
-                                className={`flex items-center px-4 py-2 text-sm md:text-base ${activeTab === 'ai-blog'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                                className={`flex items-center justify-center flex-1 min-w-max px-3 py-2 text-base whitespace-nowrap ${activeTab === 'ai-blog'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-white text-gray-700 hover:bg-gray-100'
                                     }`}
                             >
-                                <Book className="w-4 h-4 mr-2" />
+                                <Book className="w-4 h-4 mr-1" />
                                 <span>AIブログ</span>
                             </button>
                         </div>
 
-                        {/* カテゴリーフィルター */}
-                        <div className="flex flex-wrap gap-2">
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setActiveCategory(category)}
-                                    className={`px-3 py-1 text-sm rounded-full border ${activeCategory === category
-                                        ? 'bg-indigo-100 border-indigo-300 text-indigo-800'
-                                        : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
-                                        }`}
-                                >
-                                    {category === 'all' ? 'すべてのカテゴリー' : category}
-                                </button>
-                            ))}
+                        {/* PCカテゴリーフィルター - セレクトボックス */}
+                        <div className="md:w-auto">
+                            <select
+                                value={activeCategory}
+                                onChange={(e) => setActiveCategory(e.target.value)}
+                                className="px-3 py-2 rounded-lg border border-gray-200 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                            >
+                                {categories.map((category) => (
+                                    <option key={category} value={category}>
+                                        {category === 'all' ? 'すべてのカテゴリー' : category}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    {/* モバイル表示用 - 新しいレイアウト */}
+                    <div className="md:hidden">
+                        {/* モバイルタブUIをグリッドで実装 */}
+                        <div className="grid grid-cols-2 gap-2 mb-4">
+                            <button
+                                onClick={() => setActiveTab('all')}
+                                className={`flex items-center justify-center py-2 px-1 rounded-lg text-sm font-medium ${activeTab === 'all'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-gray-100 text-gray-700'
+                                    }`}
+                            >
+                                すべて
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('news')}
+                                className={`flex items-center justify-center py-2 px-1 rounded-lg text-sm font-medium ${activeTab === 'news'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-gray-100 text-gray-700'
+                                    }`}
+                            >
+                                <Newspaper className="w-4 h-4 mr-1" />
+                                ニュース
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('blog')}
+                                className={`flex items-center justify-center py-2 px-1 rounded-lg text-sm font-medium ${activeTab === 'blog'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-gray-100 text-gray-700'
+                                    }`}
+                            >
+                                <Book className="w-4 h-4 mr-1" />
+                                オリジナル
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('ai-blog')}
+                                className={`flex items-center justify-center py-2 px-1 rounded-lg text-sm font-medium ${activeTab === 'ai-blog'
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-gray-100 text-gray-700'
+                                    }`}
+                            >
+                                <Book className="w-4 h-4 mr-1" />
+                                AIブログ
+                            </button>
+                        </div>
+
+                        {/* モバイルカテゴリーフィルター - 幅100% */}
+                        <div className="w-full">
+                            <select
+                                value={activeCategory}
+                                onChange={(e) => setActiveCategory(e.target.value)}
+                                className="w-full px-3 py-2 rounded-lg border border-gray-200 text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                            >
+                                {categories.map((category) => (
+                                    <option key={category} value={category}>
+                                        {category === 'all' ? 'すべてのカテゴリー' : category}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                     </div>
                 </div>
