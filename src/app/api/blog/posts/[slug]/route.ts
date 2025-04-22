@@ -9,13 +9,14 @@ import remarkGfm from 'remark-gfm';
 // ブログ記事ディレクトリ
 const contentDirectory = path.join(process.cwd(), 'content', 'blog');
 
-// In Next.js App Router, the correct parameter type is { params: { slug: string } }
+// In Next.js 15, params is now a Promise that needs to be awaited
 export async function GET(
   request: NextRequest,
-  context: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const slug = context.params.slug;
+    // Need to await params in Next.js 15
+    const { slug } = await params;
     
     // contentディレクトリが存在しなければエラー
     if (!fs.existsSync(contentDirectory)) {
