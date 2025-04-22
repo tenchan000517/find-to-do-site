@@ -1,0 +1,134 @@
+.blogContent h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+}
+
+.blogContent h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.6rem;
+    color: #111827;
+}
+
+.blogContent p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #374151;
+}
+
+.blogContent ul,
+.blogContent ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.blogContent li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.blogContent pre {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    /* 明るい色に設定 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+}
+
+
+.blogContent code {
+    background-color: #f3f4f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #1f2937;
+}
+
+.blogContent pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #f3f4f6;
+    /* pre と同じ明るい色に明示的に設定 */
+}
+
+.blogContent a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.blogContent a:hover {
+    text-decoration: underline;
+}
+
+.blogContent blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1rem 0;
+    color: #4b5563;
+}
+
+.blogContent img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.blogContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.blogContent th,
+.blogContent td {
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.blogContent th {
+    background-color: #f9fafb;
+}
+
+/* シンタックスハイライト用の追加スタイル */
+.blogContent pre .keyword {
+    color: #93c5fd;
+    /* 水色 */
+}
+
+.blogContent pre .string {
+    color: #6ee7b7;
+    /* 緑色 */
+}
+
+.blogContent pre .comment {
+    color: #9ca3af;
+    /* グレー */
+}
+
+.blogContent pre .number {
+    color: #fca5a5;
+    /* 赤系 */
+}
+
+.blogContent pre .function {
+    color: #c4b5fd;
+    /* 紫系 */
+}
+
+.blogContent pre .operator {
+    color: #fdba74;
+    /* オレンジ系 */
+}

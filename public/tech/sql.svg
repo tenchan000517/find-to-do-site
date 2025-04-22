@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="96.000000pt" height="96.000000pt" viewBox="0 0 96.000000 96.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+stroke="none">
+<!-- Database container with gradient -->
+<linearGradient id="dbGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%" style="stop-color:#0078D4;stop-opacity:1" />
+  <stop offset="100%" style="stop-color:#005EA3;stop-opacity:1" />
+</linearGradient>
+<path d="M162 477 l3 -312 46 -23 c106 -53 432 -53 538 0 l46 23 3 311 2 311
+-57 -19 c-113 -39 -451 -34 -550 7 l-33 14 2 -312z" fill="url(#dbGradient)"/>
+
+<!-- SQL Text -->
+<g fill="#FFFFFF" font-family="Arial" font-weight="bold">
+  <text x="410" y="500" font-size="70" text-anchor="middle" transform="scale(1,-1)">SQL</text>
+</g>
+
+<!-- S letter path -->
+<path d="M390 502 c-23 -29 -27 -65 -10 -95 -8 -16 -7 -25 7 -40 16 -18 16 -19 -13 -19 -16 0 -33 3
+-37 7 -4 4 -13 8 -19 9 -7 0 -20 2 -29 2 -28 3 -58 43 -58 78 0 49 33 84 80
+84 30 0 43 -6 59 -26z" fill="#FFFFFF" opacity="0"/>
+
+<!-- Q letter circle -->
+<path d="M458 465 c-15 -33 3 -75 32 -75 29 0 47 42 32 75 -7 15 -20 25 -32
+25 -12 0 -25 -10 -32 -25z" fill="#FFFFFF" opacity="0"/>
+
+<!-- Highlight effect -->
+<ellipse cx="480" cy="200" rx="260" ry="30" fill="#FFFFFF" opacity="0.1"/>
+</g>
+</svg>

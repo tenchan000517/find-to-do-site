@@ -1,0 +1,53 @@
+name: 自動ブログ記事生成
+
+on:
+  # 手動実行用のトリガー
+  workflow_dispatch:
+  
+  # 定期実行のスケジュール (毎日午前9時に実行 - UTC時間)
+  schedule:
+    - cron: '0 0 * * *'  # UTC 00:00 = JST 09:00
+
+jobs:
+  generate-blog:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
+        
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: 依存関係のインストール
+        run: npm ci
+      
+      - name: ブログ記事の生成
+        run: npx tsx scripts/generate-blog.ts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: 'gemini-1.5-flash'
+      
+      - name: 変更の確認
+        id: check_changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/blog/
+          # 変更があるか確認
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "変更が検出されました"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "変更はありません"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: 変更をコミットしてプッシュ
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git commit -m "自動ブログ記事生成 $(date '+%Y-%m-%d')"
+          git push
