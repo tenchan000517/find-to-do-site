@@ -6,12 +6,15 @@ import matter from 'gray-matter';
 // ブログ記事ディレクトリ
 const contentDirectory = path.join(process.cwd(), 'content', 'blog');
 
+// 正しい型定義
+type Params = { params: { category: string } };
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { category: string } }
+  context: Params
 ) {
   try {
-    const category = params.category;
+    const category = context.params.category;
     
     // contentディレクトリが存在しなければ空配列を返す
     if (!fs.existsSync(contentDirectory)) {
