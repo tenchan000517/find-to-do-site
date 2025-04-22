@@ -13,18 +13,21 @@ const nextConfig = {
     unoptimized: true  // 静的エクスポートに必要
   },
   
-  // 問題のあるページを静的生成から除外
-  excludePathsInExport: [
-    '/blog/nextjs-15react-1819-20254'
-  ],
-  
   // 実験的機能
   experimental: {
+    // 問題のある特定ページを除外
+    excludeRoutes: [
+      '/blog/nextjs-15react-1819-20254',
+      '/blog/vite-webpack-web-hackernoon'
+    ],
     // 動的なルートの静的生成設定
     serverActions: {
       bodySizeLimit: '2mb', // サーバーアクションのボディサイズ制限
-    },
-  }
+    }
+  },
+  
+  // 静的ページ生成を無効化（Vercelのデプロイでは不要）
+  // output: 'export', // 問題がある場合はこの行をコメントアウト
 };
 
 export default nextConfig;

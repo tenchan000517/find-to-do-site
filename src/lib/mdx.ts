@@ -74,6 +74,13 @@ export async function getPostsByCategory(category: string): Promise<PostMetadata
  */
 export async function getPostBySlug(slug: string) {
   try {
+    // 特定の問題のあるスラグの場合はnullを返す
+    const problematicSlugs = ['nextjs-15react-1819-20254', 'vite-webpack-web-hackernoon'];
+    if (problematicSlugs.includes(slug)) {
+      console.log(`Skipping problematic post: ${slug}`);
+      return null;
+    }
+    
     const posts = await getAllPosts();
     const post = posts.find(post => post.slug === slug);
     
@@ -112,30 +119,35 @@ export async function getPostBySlug(slug: string) {
     const enhancedContent = enhanceMarkdownContent(content);
     
     // マークダウンをHTMLにコンパイル
-    const mdxSource = await compileMDX({
-      source: enhancedContent,
-      options: {
-        mdxOptions: {
-          remarkPlugins: [
-            remarkGfm,
-            [remarkToc, { heading: '目次', tight: true }]
-          ],
-          rehypePlugins: [
-            rehypeHighlight,
-            [rehypePrism, { showLineNumbers: true }]
-          ],
+    try {
+      const mdxSource = await compileMDX({
+        source: enhancedContent,
+        options: {
+          mdxOptions: {
+            remarkPlugins: [
+              remarkGfm,
+              [remarkToc, { heading: '目次', tight: true }]
+            ],
+            rehypePlugins: [
+              rehypeHighlight,
+              [rehypePrism, { showLineNumbers: true }]
+            ],
+          },
+          parseFrontmatter: true,
         },
-        parseFrontmatter: true,
-      },
-    });
-    
-    return {
-      metadata: {
-        ...data,
-        category: data.category || post.category,
-      } as PostMetadata,
-      content: mdxSource.content,
-    };
+      });
+      
+      return {
+        metadata: {
+          ...data,
+          category: data.category || post.category,
+        } as PostMetadata,
+        content: mdxSource.content,
+      };
+    } catch (error) {
+      console.error(`Error compiling MDX for post ${slug}:`, error);
+      return null;
+    }
   } catch (error) {
     console.error(`Error processing post ${slug}:`, error);
     return null;
@@ -146,14 +158,15 @@ export async function getPostBySlug(slug: string) {
  * マークダウンコンテンツの前処理
  */
 function enhanceMarkdownContent(content: string): string {
-  // 無効な言語指定子（tsxxなど）をより広く捕捉して修正
-  let enhanced = content.replace(/```(typescript|ts|javascript|js|jsx|tsx|tsxx|typescriptx|javascriptx|ts-x|js-x)/g, '```tsx');
+  // 無効な言語指定子（tsxx、vueなど）をより広く捕捉して修正
+  let enhanced = content.replace(/```(typescript|ts|javascript|js|jsx|tsx|tsxx|typescriptx|javascriptx|ts-x|js-x|vue)/g, '```tsx');
   
   // 言語未指定のコードブロックをtsx指定に修正
   enhanced = enhanced.replace(/```(?!\w)/g, '```tsx');
   
   // 他の既知の無効な言語指定子を直接修正
   enhanced = enhanced.replace(/```tsxx/g, '```tsx');
+  enhanced = enhanced.replace(/```vue/g, '```tsx');
   
   // 目次用のマーカーを追加（まだなければ）
   if (!enhanced.includes('## 目次')) {
