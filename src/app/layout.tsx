@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: 'FIND to DOは、企業のDX推進を支援し、学生に実践的なスキルアップと収入機会を提供する革新的なプラットフォームです。',
     images: [
       {
-        url: 'https://findtodo.jp/images/og-image.jpg',
+        url: 'https://find-to-do.com/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'FIND to DO',
