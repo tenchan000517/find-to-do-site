@@ -1,5 +1,6 @@
-name: 自動ブログ記事生成
+# .github/workflows/generate-blog.yml
 
+name: 自動ブログ記事生成とデプロイ
 on:
   # 手動実行用のトリガー
   workflow_dispatch:
@@ -9,7 +10,7 @@ on:
     - cron: '0 0 * * *'  # UTC 00:00 = JST 09:00
 
 jobs:
-  generate-blog:
+  generate-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
@@ -51,3 +52,15 @@ jobs:
         run: |
           git commit -m "自動ブログ記事生成 $(date '+%Y-%m-%d')"
           git push
+      
+      - name: Vercel CLI インストール
+        if: steps.check_changes.outputs.changes == 'true'
+        run: npm install --global vercel@latest
+      
+      - name: 本番デプロイ実行
+        if: steps.check_changes.outputs.changes == 'true'
+        run: vercel --prod --token ${VERCEL_TOKEN} --confirm
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
