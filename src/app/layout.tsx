@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://findtodo.jp',
+    url: 'https://find-to-do.com',
     siteName: 'FIND to DO',
     title: 'FIND to DO | 企業と学生をつなぐキャリアプラットフォーム',
     description: 'FIND to DOは、企業のDX推進を支援し、学生に実践的なスキルアップと収入機会を提供する革新的なプラットフォームです。',
     images: [
       {
-        url: 'https://find-to-do.com/images/og-image.jpg',
+        url: 'https://find-to-do.com/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'FIND to DO',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@findtodo',
-    creator: '@findtodo',
+    site: '@_FIND_TO_DO',
+    creator: '@_FIND_TO_DO',
   },
 };
 
