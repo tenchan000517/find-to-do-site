@@ -7,6 +7,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus'; // Make sure to install this package
 import remarkToc from 'remark-toc'; // Make sure to install this package
+import rehypeSlug from 'rehype-slug'; // 新たにインポート
 
 // ブログ記事ディレクトリ
 const contentDirectory = path.join(process.cwd(), 'content', 'blog');
@@ -130,6 +131,7 @@ export async function getPostBySlug(slug: string) {
             ],
             rehypePlugins: [
               rehypeHighlight,
+              rehypeSlug, // これを追加
               [rehypePrism, { showLineNumbers: true }]
             ],
           },
