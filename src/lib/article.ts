@@ -55,6 +55,9 @@ function fixCodeBlockLanguages(content: string): string {
     }
   }
   
+  // 4. コードブロックの終了タグに付いた言語指定子を削除
+  fixedContent = fixedContent.replace(/```(\w+)$/gm, '```');
+  
   return fixedContent;
 }
 

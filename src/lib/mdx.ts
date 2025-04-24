@@ -158,32 +158,35 @@ export async function getPostBySlug(slug: string) {
  * マークダウンコンテンツの前処理
  */
 function enhanceMarkdownContent(content: string): string {
-  // 無効な言語指定子（tsxx、vueなど）をより広く捕捉して修正
-  let enhanced = content.replace(/```(typescript|ts|javascript|js|jsx|tsx|tsxx|typescriptx|javascriptx|ts-x|js-x|vue)/g, '```tsx');
-  
-  // 言語未指定のコードブロックをtsx指定に修正
-  enhanced = enhanced.replace(/```(?!\w)/g, '```tsx');
-  
-  // 他の既知の無効な言語指定子を直接修正
-  enhanced = enhanced.replace(/```tsxx/g, '```tsx');
-  enhanced = enhanced.replace(/```vue/g, '```tsx');
-  
-  // 目次用のマーカーを追加（まだなければ）
-  if (!enhanced.includes('## 目次')) {
-    const titleEndIndex = enhanced.indexOf('\n\n');
-    if (titleEndIndex !== -1) {
-      enhanced = enhanced.slice(0, titleEndIndex + 2) + '## 目次\n\n' + enhanced.slice(titleEndIndex + 2);
+    // 無効な言語指定子（tsxx、vueなど）をより広く捕捉して修正
+    let enhanced = content.replace(/```(typescript|ts|javascript|js|jsx|tsx|tsxx|typescriptx|javascriptx|ts-x|js-x|vue)/g, '```tsx');
+    
+    // 言語未指定のコードブロックをtsx指定に修正
+    enhanced = enhanced.replace(/```(?!\w)/g, '```tsx');
+    
+    // 他の既知の無効な言語指定子を直接修正
+    enhanced = enhanced.replace(/```tsxx/g, '```tsx');
+    enhanced = enhanced.replace(/```vue/g, '```tsx');
+    
+    // コードブロック終了タグについた言語指定子を削除
+    enhanced = enhanced.replace(/```(\w+)$/gm, '```');
+    
+    // 目次用のマーカーを追加（まだなければ）
+    if (!enhanced.includes('## 目次')) {
+      const titleEndIndex = enhanced.indexOf('\n\n');
+      if (titleEndIndex !== -1) {
+        enhanced = enhanced.slice(0, titleEndIndex + 2) + '## 目次\n\n' + enhanced.slice(titleEndIndex + 2);
+      }
     }
-  }
-  
-  // 見出しレベルの調整（# が不足している場合）
-  if (!enhanced.startsWith('# ')) {
-    const firstLineEnd = enhanced.indexOf('\n');
-    if (firstLineEnd !== -1 && !enhanced.startsWith('##')) {
-      const firstLine = enhanced.substring(0, firstLineEnd);
-      enhanced = '# ' + firstLine + enhanced.substring(firstLineEnd);
+    
+    // 見出しレベルの調整（# が不足している場合）
+    if (!enhanced.startsWith('# ')) {
+      const firstLineEnd = enhanced.indexOf('\n');
+      if (firstLineEnd !== -1 && !enhanced.startsWith('##')) {
+        const firstLine = enhanced.substring(0, firstLineEnd);
+        enhanced = '# ' + firstLine + enhanced.substring(firstLineEnd);
+      }
     }
+    
+    return enhanced;
   }
-  
-  return enhanced;
-}
