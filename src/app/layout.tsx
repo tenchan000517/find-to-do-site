@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@_FIND_TO_DO',
     creator: '@_FIND_TO_DO',
+    images: ['https://find-to-do.com/images/og-image.png'], // Twitter用に明示的に指定
   },
 };
 
