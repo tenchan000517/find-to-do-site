@@ -141,7 +141,7 @@ export function Footer() {
           className="text-center text-gray-400 text-sm border-t border-gray-800 pt-8"
         >
           <p className="mb-4">
-            〒464-0806 愛知県名古屋市昭和区花見通2-3-17
+            〒466-0831 愛知県名古屋市昭和区花見通2-3-17
           </p>
           <p>
             © {currentYear} FIND to DO Inc. All rights reserved.

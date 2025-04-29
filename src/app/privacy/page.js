@@ -123,7 +123,7 @@ export default function PrivacyPage() {
               <div className="mt-2">
                 <p className="font-medium">Find Todo</p>
                 <p>代表者：飯田思遠</p>
-                <p>〒464-0806 愛知県名古屋市昭和区花見通2-3-17</p>
+                <p>〒466-0831 愛知県名古屋市昭和区花見通2-3-17</p>
                 <p>メールアドレス：info@findtodo.jp（仮）</p>
               </div>
             </section>

@@ -28,7 +28,7 @@ export default function LegalPage() {
                   </tr>
                   <tr className="border-b border-gray-200">
                     <th className="py-3 pr-3 text-left align-top w-2/5 text-gray-700 font-semibold">所在地</th>
-                    <td className="py-3 text-gray-700">〒464-0806 愛知県名古屋市昭和区花見通2-3-17</td>
+                    <td className="py-3 text-gray-700">〒466-0831 愛知県名古屋市昭和区花見通2-3-17</td>
                   </tr>
                   <tr className="border-b border-gray-200">
                     <th className="py-3 pr-3 text-left align-top w-2/5 text-gray-700 font-semibold">連絡先</th>
