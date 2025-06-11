@@ -28,7 +28,7 @@ const services: Service[] = [
         icon: Calendar,
         title: 'イベント制作',
         description: '学生と企業の意味ある出会いを創出する効果的なキャリアイベント',
-        href: '/service/events',
+        href: '/service/event',
         color: 'orange'
     },
     {

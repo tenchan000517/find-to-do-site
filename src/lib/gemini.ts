@@ -24,7 +24,7 @@ const safetySettings = [
 // Gemini APIのモデル設定
 export const GEMINI_MODELS = {
   PRO: 'gemini-1.5-pro',
-  FLASH: 'gemini-1.5-flash',
+  FLASH: 'gemini-2.0-flash',
   FLASH_LITE: 'gemini-2.0-flash-lite'
 };
 
@@ -33,11 +33,11 @@ const defaultGenerationConfig = {
   temperature: 0.7,
   topP: 0.9,
   topK: 40,
-  maxOutputTokens: 2048, // 4096から2048に削減
+  maxOutputTokens: 6000, // 4096から2048に削減
 };
 
 // タイムアウト設定
-const API_TIMEOUT = 30000; // 30秒
+const API_TIMEOUT = 60000; // 30秒
 
 /**
  * Gemini APIを使用してコンテンツを生成（エラー処理強化版）

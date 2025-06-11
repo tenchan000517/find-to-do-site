@@ -11,7 +11,7 @@ const MAX_RETRIES = 3;
 // 再試行間の待機時間（ミリ秒）
 const RETRY_DELAY = 5000;
 // トークン量の調整用
-const TOKEN_SIZES = [1500, 2000, 2500];
+const TOKEN_SIZES = [1500, 2000, 2500, 4000];
 
 /**
  * コードブロックの言語指定子を修正する
