@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   title: 'FIND to DO | 企業と学生をつなぐキャリアプラットフォーム',
   description: 'FIND to DOは、企業のDX推進を支援し、学生に実践的なスキルアップと収入機会を提供する革新的なプラットフォームです。',
   keywords: 'インターン,DX,開発,学生,採用,キャリア,プログラミング,メンター,スキルアップ',
+
+    // ✅ この行を追加
+  verification: {
+    google: 'b4xCasGm2kFCUINzi64xjZ8Zd8riV7WOvWk0OLFAqns'
+  },
+  
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
