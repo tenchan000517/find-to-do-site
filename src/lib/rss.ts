@@ -3,6 +3,33 @@ import fs from 'fs';
 import path from 'path';
 import { getExistingSlugs } from './blog';
 
+/**
+ * コードブロックの言語指定子を修正する
+ * article.tsから移行
+ */
+function fixCodeBlockLanguages(content: string): string {
+  let fixedContent = content;
+  
+  // 最重要：記事冒頭の無効なコードブロックを完全に除去
+  if (fixedContent.match(/^```\s*\n# /)) {
+    fixedContent = fixedContent.replace(/^```\s*\n(# .*)/, '$1');
+  }
+  
+  if (fixedContent.match(/^```\s*\n/) && fixedContent.match(/\n```\s*$/)) {
+    fixedContent = fixedContent.replace(/^```\s*\n([\s\S]*?)\n```\s*$/, '$1');
+  }
+  
+  if (fixedContent.match(/^```\s*\n/)) {
+    fixedContent = fixedContent.replace(/^```\s*\n/, '');
+  }
+  
+  if (fixedContent.match(/\n```\s*$/)) {
+    fixedContent = fixedContent.replace(/\n```\s*$/, '');
+  }
+  
+  return fixedContent;
+}
+
 export interface RSSItem {
   title: string;
   link: string;
@@ -83,7 +110,10 @@ export function generateRSSItemsFromExistingBlogs(): RSSItem[] {
           const title = titleMatch[1];
           const date = new Date(dateMatch[1]).toUTCString();
           const slug = slugMatch[1];
-          const excerpt = excerptMatch ? excerptMatch[1] : title;
+          let excerpt = excerptMatch ? excerptMatch[1] : title;
+          
+          // excerptからも無効なコードブロックを除去
+          excerpt = fixCodeBlockLanguages(excerpt);
           
           items.push({
             title,
@@ -138,10 +168,13 @@ export function addNewArticleToRSS(articleData: {
   publishedAt: string;
 }): void {
   try {
+    // excerptからも無効なコードブロックを除去
+    const cleanExcerpt = fixCodeBlockLanguages(articleData.excerpt);
+    
     const newItem: RSSItem = {
       title: articleData.title,
       link: `https://find-to-do.com/news-blog/${encodeURIComponent(articleData.category)}/${articleData.slug}`,
-      description: articleData.excerpt,
+      description: cleanExcerpt,
       pubDate: new Date(articleData.publishedAt).toUTCString(),
       guid: `https://find-to-do.com/news-blog/${encodeURIComponent(articleData.category)}/${articleData.slug}`,
       category: articleData.category
