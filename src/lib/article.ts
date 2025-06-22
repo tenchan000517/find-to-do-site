@@ -4,6 +4,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import { generateWithGemini } from './gemini';
 import { getExistingSlugs, generateSlug } from './blog';
 import { createArticlePrompt } from './prompt';
+import { fetchRelatedNews } from './trends';
 
 // 最大試行回数
 const MAX_RETRIES = 3;
@@ -11,6 +12,39 @@ const MAX_RETRIES = 3;
 const RETRY_DELAY = 5000;
 // トークン量の調整用
 const TOKEN_SIZES = [3500, 4000, 4500, 6000];
+
+/**
+ * 参考情報セクションを生成する
+ */
+async function generateSourceReferences(topic: string, category: string): Promise<string> {
+  try {
+    // 関連ニュースを取得（最大3件）
+    const relatedNews = await fetchRelatedNews(topic, 3);
+    
+    if (relatedNews.length === 0) {
+      return '本記事は最新の業界情報と一般的な知識に基づいて作成しています。';
+    }
+    
+    let references = '本記事の作成にあたり、以下の情報源を参考にしました：\n\n';
+    
+    relatedNews.forEach((news, index) => {
+      references += `${index + 1}. **${news.title}**\n`;
+      references += `   ソース: ${news.source}\n`;
+      references += `   日付: ${new Date(news.pubDate).toLocaleDateString('ja-JP')}\n`;
+      if (news.link) {
+        references += `   URL: ${news.link}\n`;
+      }
+      references += '\n';
+    });
+    
+    references += '\n*※ 本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*';
+    
+    return references;
+  } catch (error) {
+    console.error('参考情報セクションの生成に失敗しました:', error);
+    return '本記事は最新の業界情報と一般的な知識に基づいて作成しています。';
+  }
+}
 
 /**
  * SEO用のキーワードを抽出する
@@ -187,7 +221,7 @@ export async function generateArticle(topic: string, category: string): Promise<
 /**
  * 生成した記事をファイルに保存
  */
-export async function saveArticle(title: string, content: string, category: string): Promise<string> {
+export async function saveArticle(title: string, content: string, category: string, topic?: string): Promise<string> {
   // スラグ生成
   let slug = generateSlug(title);
   
@@ -212,8 +246,7 @@ export async function saveArticle(title: string, content: string, category: stri
     if (!paragraph.startsWith('#') && 
         !paragraph.startsWith('```') && 
         !paragraph.startsWith('**') &&
-        paragraph.length > 20 && 
-        !paragraph.match(/^(導入部|背景・概要|主要なポイント|まとめ)$/)) {
+        paragraph.length > 20) {
       
       // マークダウン記法を除去してプレーンテキストにする
       excerpt = paragraph
@@ -229,7 +262,15 @@ export async function saveArticle(title: string, content: string, category: stri
   }
   
   // コードブロックの言語指定子を最終確認（ファイル保存前の安全対策）
-  const fixedContent = fixCodeBlockLanguages(content);
+  let fixedContent = fixCodeBlockLanguages(content);
+  
+  // 参考情報セクションを自動追加（システム側で確実に生成）
+  if (topic) {
+    const sourceReferences = await generateSourceReferences(topic, category);
+    if (sourceReferences && !fixedContent.includes('## 参考情報')) {
+      fixedContent += '\n\n## 参考情報\n\n' + sourceReferences;
+    }
+  }
   
   // SEO用のキーワード抽出（簡易版）
   const keywords = extractKeywords(title, content, category);
@@ -240,7 +281,7 @@ export async function saveArticle(title: string, content: string, category: stri
   // 読了時間を推定（日本語：600文字/分）
   const readingTime = Math.ceil(wordCount / 600);
   
-  // フロントマターを追加（SEO最適化版）
+  // フロントマターを追加（シンプル版）
   const frontMatter = `---
 title: "${title}"
 date: "${new Date().toISOString()}"
@@ -250,17 +291,7 @@ excerpt: "${excerpt}"
 keywords: ${JSON.stringify(keywords)}
 wordCount: ${wordCount}
 readingTime: ${readingTime}
-seo:
-  metaTitle: "${title.length > 60 ? title.substring(0, 57) + '...' : title}"
-  metaDescription: "${excerpt}"
-  canonicalUrl: "/blog/${category.toLowerCase()}/${slug}"
-  ogType: "article"
-  ogImage: "/og-images/blog-default.jpg"
-  twitterCard: "summary_large_image"
-author:
-  name: "FIND to DO編集部"
-  bio: "最新のテクノロジーとキャリア情報をお届けします"
-lastModified: "${new Date().toISOString()}"
+author: "FIND to DO編集部"
 ---
 
 `;

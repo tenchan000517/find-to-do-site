@@ -41,7 +41,7 @@ async function main() {
       console.log(`記事タイトル: ${title}`);
       
       // 記事を保存
-      const filePath = await saveArticle(title, content, category);
+      const filePath = await saveArticle(title, content, category, topic);
       console.log(`記事を保存しました: ${filePath}`);
       
       // RSSフィードを更新

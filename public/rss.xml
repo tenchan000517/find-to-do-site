@@ -5,26 +5,27 @@
     <link>https://find-to-do.com</link>
     <description>プログラミング初心者の学生・インターン向けの技術情報やキャリアガイドを配信</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Jun 2025 06:38:02 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2025 07:05:03 GMT</lastBuildDate>
     <generator>FIND to DO Blog System</generator>
     <webMaster>contact@find-to-do.com</webMaster>
     <managingEditor>contact@find-to-do.com</managingEditor>
     <ttl>60</ttl>
     <item>
-      <title><![CDATA[ロボットプログラミング入門：小牧市「こくり」を動かす最新手法 (2025年版)]]></title>
-      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025</link>
-      <description><![CDATA[**導入部**...]]></description>
-      <pubDate>Sun, 22 Jun 2025 06:38:02 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025</guid>
-      <category><![CDATA[プログラミング]]></category>
+      <title><![CDATA[AI研究の最前線：TTIR Japan 2025とElsevierの融合による実践的アプローチ]]></title>
+      <link>https://find-to-do.com/news-blog/AI%E6%8A%80%E8%A1%93/aittir-japan-2025elsevier</link>
+      <description><![CDATA[```
+# AI研究の最前線：TTIR Japan 2025とElsevierの融合による実践的アプローチ...]]></description>
+      <pubDate>Sun, 22 Jun 2025 07:05:03 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/AI%E6%8A%80%E8%A1%93/aittir-japan-2025elsevier</guid>
+      <category><![CDATA[AI技術]]></category>
     </item>
     <item>
-      <title><![CDATA[ロボットプログラミング入門：小牧市「こくり」を動かす最新手法 (2025年版)]]></title>
-      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025-1750574282774</link>
-      <description><![CDATA[ロボットプログラミングに興味があるけど、どこから始めたらいいかわからない…そんなあなたに朗報です！小牧市が提供するロボット「こくり」を活用したプログラミングワークショップは、初心者から経験者まで、ロボット制御の基礎と応用を学べる絶好の機会です。この記事では、city.komaki.aichi.jpの...]]></description>
-      <pubDate>Sun, 22 Jun 2025 06:38:02 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025-1750574282774</guid>
-      <category><![CDATA[プログラミング]]></category>
+      <title><![CDATA[AI研究の最前線：TTIR Japan 2025とElsevierの融合による実践的アプローチ]]></title>
+      <link>https://find-to-do.com/news-blog/ai%E6%8A%80%E8%A1%93/aittir-japan-2025elsevier</link>
+      <description><![CDATA[AI技術は、研究開発の現場からビジネスの意思決定まで、あらゆる領域に革新をもたらしています。特に、研究論文の検索・分析で世界をリードするElsevierとAIの融合は、研究者にとって新たな可能性を切り開く鍵となります。本記事では、TTIR Japan 2025をテーマに、AIの進展とこれからの研究戦...]]></description>
+      <pubDate>Sun, 22 Jun 2025 07:05:03 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/ai%E6%8A%80%E8%A1%93/aittir-japan-2025elsevier</guid>
+      <category><![CDATA[ai技術]]></category>
     </item>
     <item>
       <title><![CDATA[State of JavaScript 2024: React Continues Reign, Next.js Leads Meta Frameworks]]></title>
