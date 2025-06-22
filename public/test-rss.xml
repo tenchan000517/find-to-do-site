@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FIND to DO Blog</title>
+    <link>https://find-to-do.com</link>
+    <description>Programming support site for students and interns</description>
+    <language>ja</language>
+    <lastBuildDate>Sat, 22 Jun 2025 01:00:00 GMT</lastBuildDate>
+    <generator>FIND to DO</generator>
+    
+    <item>
+      <title>Discord RSS Bot Test Article</title>
+      <link>https://find-to-do.com/news-blog/test/discord-rss-test</link>
+      <description>This is a test article to verify Discord RSS Bot functionality. If this article appears in Discord, the RSS integration is working correctly.</description>
+      <pubDate>Sat, 22 Jun 2025 01:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/test/discord-rss-test</guid>
+    </item>
+    
+    <item>
+      <title>How to Find Programming Internships for Students</title>
+      <link>https://find-to-do.com/news-blog/intern/student-internship-guide</link>
+      <description>A comprehensive guide on how programming beginners can efficiently find internship opportunities.</description>
+      <pubDate>Fri, 21 Jun 2025 06:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/intern/student-internship-guide</guid>
+    </item>
+    
+    <item>
+      <title>Getting Started with Next.js Web App Development</title>
+      <link>https://find-to-do.com/news-blog/tech/nextjs-beginner-guide</link>
+      <description>A complete guide for React beginners to start web application development using Next.js.</description>
+      <pubDate>Thu, 20 Jun 2025 03:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/tech/nextjs-beginner-guide</guid>
+    </item>
+  </channel>
+</rss>

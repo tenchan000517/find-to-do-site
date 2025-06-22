@@ -7,6 +7,7 @@ import { CATEGORIES, getTrendingTopics, getExistingSlugs, generateSlug } from '@
 import * as dotenv from 'dotenv';
 import { createArticlePrompt } from '@/lib/prompt';
 import { generateArticle, saveArticle } from '@/lib/article';
+import { addNewArticleToRSS } from '@/lib/rss';
 
 // .env.localファイルを明示的に読み込む
 dotenv.config({ path: path.resolve(process.cwd(), '.env') });
@@ -42,6 +43,19 @@ async function main() {
       // 記事を保存
       const filePath = await saveArticle(title, content, category);
       console.log(`記事を保存しました: ${filePath}`);
+      
+      // RSSフィードを更新
+      console.log('RSSフィードを更新中...');
+      const slug = generateSlug(title);
+      const excerpt = content.split('\n\n').find(p => !p.startsWith('#') && p.trim().length > 0)?.slice(0, 150) + "..." || title;
+      
+      addNewArticleToRSS({
+        title,
+        slug,
+        category,
+        excerpt,
+        publishedAt: new Date().toISOString()
+      });
       
       console.log('ブログ記事生成が完了しました');
       process.exit(0);
