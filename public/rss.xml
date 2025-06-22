@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FIND to DO - 学生向けプログラミング支援ブログ</title>
+    <link>https://find-to-do.com</link>
+    <description>プログラミング初心者の学生・インターン向けの技術情報やキャリアガイドを配信</description>
+    <language>ja</language>
+    <lastBuildDate>Sun, 22 Jun 2025 06:38:02 GMT</lastBuildDate>
+    <generator>FIND to DO Blog System</generator>
+    <webMaster>contact@find-to-do.com</webMaster>
+    <managingEditor>contact@find-to-do.com</managingEditor>
+    <ttl>60</ttl>
+    <item>
+      <title><![CDATA[ロボットプログラミング入門：小牧市「こくり」を動かす最新手法 (2025年版)]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025</link>
+      <description><![CDATA[**導入部**...]]></description>
+      <pubDate>Sun, 22 Jun 2025 06:38:02 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[ロボットプログラミング入門：小牧市「こくり」を動かす最新手法 (2025年版)]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025-1750574282774</link>
+      <description><![CDATA[ロボットプログラミングに興味があるけど、どこから始めたらいいかわからない…そんなあなたに朗報です！小牧市が提供するロボット「こくり」を活用したプログラミングワークショップは、初心者から経験者まで、ロボット制御の基礎と応用を学べる絶好の機会です。この記事では、city.komaki.aichi.jpの...]]></description>
+      <pubDate>Sun, 22 Jun 2025 06:38:02 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/-2025-1750574282774</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[State of JavaScript 2024: React Continues Reign, Next.js Leads Meta Frameworks]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/state-of-javascript-2024-react-continues-reign-nextjs-leads-meta-frameworks</link>
+      <description><![CDATA[2024年版「State of JavaScript」調査結果が公開され、14,000人を超えるエンジニアからの回答に基づき、JavaScriptエコシステムの最新動向が明らかになりました。本記事では、特に注目すべきフロントエンドライブラリとメタフレームワークのトレンドについて、詳細に解説します。]]></description>
+      <pubDate>Sun, 22 Jun 2025 00:14:33 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/state-of-javascript-2024-react-continues-reign-nextjs-leads-meta-frameworks</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[AIに指示するだけの「バイブコーディング」もここまでできるようになった！ - PC Watchを使った効率的な開発テクニック]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-pc-watch</link>
+      <description><![CDATA[近年、AIを活用したコーディング支援ツールの進化は目覚ましく、まるでAIに指示するだけでコードが生成される「バイブコーディング」のような開発スタイルが現実味を帯びてきました。本記事では、PC Watchの記事を参考に、2025年4月時点におけるAIアシストによる効率的な開発テクニック、特に「バイブコ...]]></description>
+      <pubDate>Sat, 21 Jun 2025 00:12:57 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-pc-watch</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[TypeScript CLIツール開発入門：ASTと環境構築から始める]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/typescript-cliast</link>
+      <description><![CDATA[近年、TypeScriptを用いたCLIツールの開発が注目を集めています。その理由は、TypeScriptが提供する型安全性の高さや、JavaScriptエコシステムとの高い親和性にあります。本記事では、AST（Abstract Syntax Tree：抽象構文木）の基礎知識とTypeScriptの...]]></description>
+      <pubDate>Fri, 20 Jun 2025 00:13:14 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/typescript-cliast</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[女性エンジニアの活躍を加速！TECH PLAY Career Conference #2 Women in Tech レポート]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/tech-play-career-conference-2-women-in-tech--1750292016692</link>
+      <description><![CDATA[2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催する「TECH PLAY Career Conference #2 Women in Tech」が開催されました。本イベントは、女性エンジニアのキャリア開発と活躍促進を目的とし...]]></description>
+      <pubDate>Thu, 19 Jun 2025 00:13:36 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/tech-play-career-conference-2-women-in-tech--1750292016692</guid>
+      <category><![CDATA[キャリア]]></category>
+    </item>
+    <item>
+      <title><![CDATA[WebAssembly (Wasm)入門：2025年時点でのJavaScriptとのパフォーマンス比較と活用事例]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/webassembly-wasm2025javascript</link>
+      <description><![CDATA[WebAssembly (Wasm)は、Webブラウザで実行できるバイナリ形式の命令セットであり、近年、Webアプリケーションのパフォーマンス向上に大きく貢献しています。従来のJavaScriptに比べて高速な実行速度を実現できることから、高度な計算処理やグラフィックス処理を必要とするWebアプリケ...]]></description>
+      <pubDate>Wed, 18 Jun 2025 00:13:06 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/webassembly-wasm2025javascript</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[早稲田大学を目指す専門家にとっての現実：就職活動と就労後1～2年間の経験から学ぶこと]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/12</link>
+      <description><![CDATA[就職活動を終え、社会人生活を1～2年経験した今、改めて「働く大人」とはどのようなものだったのかを振り返ってみましょう。早稲田大学のようなトップレベルの大学を目指す学生にとって、専門家としてのキャリアパスは魅力的ですが、その道は容易ではありません。本記事では、就職活動の現実、仕事内容、そしてスキルアッ...]]></description>
+      <pubDate>Tue, 17 Jun 2025 00:13:21 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/12</guid>
+      <category><![CDATA[キャリア]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GENEROSITY inc. ウェブサイトのパフォーマンス向上戦略：2025年最新版]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/generosity-inc-2025</link>
+      <description><![CDATA[GENEROSITY inc.のブランド体験エージェンシーウェブサイト (generosity.co.jp) のパフォーマンス向上は、ビジネスの成功に直結します。本記事では、2025年4月時点の最新情報に基づき、同ウェブサイトのパフォーマンスを向上させるための具体的な戦略を解説します。ユーザーエクス...]]></description>
+      <pubDate>Mon, 16 Jun 2025 00:13:45 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/generosity-inc-2025</guid>
+      <category><![CDATA[ウェブ開発]]></category>
+    </item>
+    <item>
+      <title><![CDATA[IT and Digital Banking Transformation for ESAF Bank - A Kyndryl-Powered Growth Strategy]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/it-and-digital-banking-transformation-for-esaf-bank-a-kyndrylpowered-growth-strategy</link>
+      <description><![CDATA[ESAF Bank, a prominent player in the Indian banking sector, is undergoing a significant digital transformation journey, leveraging Kyndryl's expertise...]]></description>
+      <pubDate>Sun, 15 Jun 2025 00:14:39 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/it-and-digital-banking-transformation-for-esaf-bank-a-kyndrylpowered-growth-strategy</guid>
+      <category><![CDATA[ビジネス]]></category>
+    </item>
+    <item>
+      <title><![CDATA[女性エンジニアのキャリアパスを切り開く：TECH PLAY Career Conference #2 Women in Tech から学ぶ成長戦略]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/tech-play-career-conference-2-women-in-tech-</link>
+      <description><![CDATA[2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催した「TECH PLAY Career Conference #2 Women in Tech」が開催されました。本カンファレンスは、女性エンジニアのキャリア開発と活躍促進を目...]]></description>
+      <pubDate>Sat, 14 Jun 2025 00:12:37 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/tech-play-career-conference-2-women-in-tech-</guid>
+      <category><![CDATA[キャリア]]></category>
+    </item>
+    <item>
+      <title><![CDATA[熊本トイメディカル㈱、令和6年度フードテックビジネスコンテストで最優秀賞を受賞！ - PR TIMESから学ぶイノベーションの秘訣]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/6-pr-times</link>
+      <description><![CDATA[熊本トイメディカル㈱（以下、熊本トイメディカル）が、令和6年度フードテックビジネスコンテストで最優秀賞を受賞したというニュースは、日本のフードテック業界に大きな衝撃を与えました。PR TIMES等の報道によると、同社の革新的な技術とビジネスモデルが評価されたとのことです。本記事では、この受賞を機に、...]]></description>
+      <pubDate>Fri, 13 Jun 2025 00:13:19 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/6-pr-times</guid>
+      <category><![CDATA[ビジネス]]></category>
+    </item>
+    <item>
+      <title><![CDATA[ディズニー vs. 新興AI企業：著作権侵害訴訟とAI時代のコンテンツ創造]]></title>
+      <link>https://find-to-do.com/news-blog/ai%E6%8A%80%E8%A1%93/-vs-aiai</link>
+      <description><![CDATA[ディズニーが米新興AI企業を著作権侵害で提訴したニュースは、AI技術とクリエイティブ業界の複雑な関係を改めて浮き彫りにしました。この訴訟は、AIモデルによる学習データの著作権問題、そしてAIを活用したコンテンツ生成における倫理的な課題を提起しています。本記事では、この事件を事例に、AIとコンテンツ創...]]></description>
+      <pubDate>Thu, 12 Jun 2025 00:13:15 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/ai%E6%8A%80%E8%A1%93/-vs-aiai</guid>
+      <category><![CDATA[ai技術]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Solana Stream SDKがTypeScript ShredStreamでマルチプラットフォーム対応を実現]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/solana-stream-sdktypescript-shredstream</link>
+      <description><![CDATA[ELSOUL LABO B.V.が発表したプレスリリースによると、彼らのSolana Stream SDKがTypeScriptで記述されたShredStreamを活用し、マルチプラットフォーム対応を実現したとのことです。これは、Solanaブロックチェーン上のストリーミングデータの処理を大幅に簡素...]]></description>
+      <pubDate>Wed, 11 Jun 2025 00:13:36 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/solana-stream-sdktypescript-shredstream</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[中小・スタートアップも「AIコーディング」時代へ：開発生産性向上を加速する最新手法]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-1749514396605</link>
+      <description><![CDATA[近年、AIを活用したコーディング支援ツールの普及が加速しており、大企業だけでなく、中小・スタートアップ企業でも開発者の生産性向上に貢献する存在になりつつあります。本記事では、korit.jpのようなサービスを活用した最新のAIコーディング手法について、具体的な例を交えながら解説します。2025年4月...]]></description>
+      <pubDate>Tue, 10 Jun 2025 00:13:16 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-1749514396605</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[ティム・オライリー氏：AIはソフトウェア開発者の仕事を奪わない？その真意を探る]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-1749428044490</link>
+      <description><![CDATA[近年、生成AIの急速な進化に伴い、多くの職種がAIによる自動化の影響を受ける可能性が懸念されています。ソフトウェア開発者も例外ではなく、AIがコードを自動生成できるようになった今、その仕事が奪われるのではないかという不安の声も聞かれます。しかし、著名なテクノロジー評論家であるティム・オライリー氏は、...]]></description>
+      <pubDate>Mon, 09 Jun 2025 00:14:04 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/ai-1749428044490</guid>
+      <category><![CDATA[プログラミング]]></category>
+    </item>
+    <item>
+      <title><![CDATA[石川高専のAI Career Tech Center：AI人材育成と転職成功への道筋]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/ai-career-tech-centerai</link>
+      <description><![CDATA[石川高専が全国の高専で初めてAI学習のための教室「AI Career Tech Center」を開設しました。これは、AI分野における人材育成の重要性を示す象徴的な出来事であり、今後のAI業界の動向を占う上で重要な指標となります。本記事では、この開設を機に、AI業界での転職成功のためのポイントを深掘...]]></description>
+      <pubDate>Sun, 08 Jun 2025 00:14:32 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/ai-career-tech-centerai</guid>
+      <category><![CDATA[キャリア]]></category>
+    </item>
+    <item>
+      <title><![CDATA[ログミーBizとログミーTech統合による「ログミーBusiness」誕生：次世代ビジネスリーダー育成戦略の深掘り]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/biztechbusiness-1749255174269</link>
+      <description><![CDATA[**導入部:**]]></description>
+      <pubDate>Sat, 07 Jun 2025 00:12:54 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9/biztechbusiness-1749255174269</guid>
+      <category><![CDATA[ビジネス]]></category>
+    </item>
+    <item>
+      <title><![CDATA[フロントエンド、バックエンド、データベースが1つのCloudflare Workerに - モダンウェブ開発の新たな地平]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/1cloudflare-worker-</link>
+      <description><![CDATA[近年、ウェブ開発はますます複雑化し、開発者はフロントエンド、バックエンド、データベースといった複数の要素を連携させる必要性に直面しています。従来のアプローチでは、これらの要素を別々のサーバーやサービスに配置し、複雑なインフラ管理が必要でした。しかし、Cloudflare Workersを活用すること...]]></description>
+      <pubDate>Fri, 06 Jun 2025 00:12:56 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/1cloudflare-worker-</guid>
+      <category><![CDATA[ウェブ開発]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Webデザインスクールおすすめランキング21社徹底比較！安いのはどこ？2025年4月最新版]]></title>
+      <link>https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/web2120254</link>
+      <description><![CDATA[Webデザインを学びたいけど、どのスクールを選べば良いのか迷っていませんか？  数多くのWebデザインスクールが存在する中で、自分に最適なスクールを見つけるのは容易ではありません。本記事では、リセマムの情報も参考に、21社のWebデザインスクールを比較検討し、料金、カリキュラム、就職サポートなど様々...]]></description>
+      <pubDate>Thu, 05 Jun 2025 00:13:06 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/web2120254</guid>
+      <category><![CDATA[ウェブ開発]]></category>
+    </item>
+  </channel>
+</rss>

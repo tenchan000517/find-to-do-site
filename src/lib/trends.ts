@@ -168,11 +168,20 @@ export async function fetchRelatedNews(topic: string, count: number = 3): Promis
     // ニュース記事を抽出
     const items: any[] = [];
     $('item').slice(0, count).each((i, elem) => {
+      const $elem = $(elem);
+      const title = $elem.find('title').text();
+      const link = $elem.find('link').text();
+      const pubDate = $elem.find('pubDate').text();
+      const source = $elem.find('source').text();
+      const description = $elem.find('description').text();
+      
       items.push({
-        title: $(elem).find('title').text(),
-        link: $(elem).find('link').text(),
-        pubDate: $(elem).find('pubDate').text(),
-        source: $(elem).find('source').text(),
+        title: title,
+        link: link,
+        pubDate: pubDate,
+        source: source || 'Google News',
+        description: description,
+        searchUrl: url // 検索に使用したURLも保存
       });
     });
     

@@ -1,5 +1,4 @@
 // src/lib/article.ts
-import fs from 'fs';
 import path from 'path';
 import { mkdir, writeFile } from 'fs/promises';
 import { generateWithGemini } from './gemini';
@@ -11,7 +10,37 @@ const MAX_RETRIES = 3;
 // 再試行間の待機時間（ミリ秒）
 const RETRY_DELAY = 5000;
 // トークン量の調整用
-const TOKEN_SIZES = [1500, 2000, 2500, 4000];
+const TOKEN_SIZES = [3500, 4000, 4500, 6000];
+
+/**
+ * SEO用のキーワードを抽出する
+ */
+function extractKeywords(title: string, _content: string, category: string): string[] {
+  const keywords: string[] = [];
+  
+  // カテゴリベースのキーワード
+  const categoryKeywords: Record<string, string[]> = {
+    'プログラミング': ['プログラミング', 'コード', '開発', 'エンジニア', 'ソフトウェア'],
+    'ウェブ開発': ['ウェブ開発', 'フロントエンド', 'バックエンド', 'レスポンシブ', 'HTML', 'CSS', 'JavaScript'],
+    'AI技術': ['AI', '人工知能', '機械学習', 'ディープラーニング', 'データサイエンス'],
+    'キャリア': ['キャリア', '転職', 'スキルアップ', '年収', '面接'],
+    'ビジネス': ['ビジネス', 'スタートアップ', '戦略', 'マーケティング', 'ROI']
+  };
+  
+  // カテゴリキーワードを追加
+  if (categoryKeywords[category]) {
+    keywords.push(...categoryKeywords[category]);
+  }
+  
+  // タイトルから重要なキーワードを抽出（簡易版）
+  const titleWords = title.split(/[\s\u3000\-\[\]【】（）()]+/).filter(word => 
+    word.length > 2 && !['の', 'に', 'は', 'を', 'が', 'で', 'と', 'から', 'より'].includes(word)
+  );
+  
+  keywords.push(...titleWords.slice(0, 5)); // 最大5個
+  
+  return Array.from(new Set(keywords)); // 重複を除去
+}
 
 /**
  * コードブロックの言語指定子を修正する
@@ -45,7 +74,7 @@ function fixCodeBlockLanguages(content: string): string {
   const contentCopy = fixedContent; // 元のコンテンツをコピー（正規表現マッチングのため）
   
   while ((match = codeBlockRegex.exec(contentCopy)) !== null) {
-    const [fullMatch, language] = match;
+    const [, language] = match;
     if (!safeLanguages.includes(language.toLowerCase())) {
       // 安全なリストにない言語はtsxに置換
       fixedContent = fixedContent.replace(
@@ -179,8 +208,21 @@ export async function saveArticle(title: string, content: string, category: stri
   const paragraphs = content.split('\n\n');
   // タイトル行をスキップして最初の実際の段落を取得
   for (let i = 0; i < paragraphs.length; i++) {
-    if (!paragraphs[i].startsWith('#') && paragraphs[i].trim().length > 0) {
-      excerpt = paragraphs[i].slice(0, 150).trim();
+    const paragraph = paragraphs[i].trim();
+    if (!paragraph.startsWith('#') && 
+        !paragraph.startsWith('```') && 
+        !paragraph.startsWith('**') &&
+        paragraph.length > 20 && 
+        !paragraph.match(/^(導入部|背景・概要|主要なポイント|まとめ)$/)) {
+      
+      // マークダウン記法を除去してプレーンテキストにする
+      excerpt = paragraph
+        .replace(/```[\s\S]*?```/g, '') // コードブロック除去
+        .replace(/`([^`]+)`/g, '$1') // インラインコード除去
+        .replace(/\*\*([^*]+)\*\*/g, '$1') // 太字除去
+        .replace(/\*([^*]+)\*/g, '$1') // 斜体除去
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンク除去
+        .slice(0, 150).trim();
       if (excerpt.length >= 150) excerpt += "...";
       break;
     }
@@ -189,13 +231,36 @@ export async function saveArticle(title: string, content: string, category: stri
   // コードブロックの言語指定子を最終確認（ファイル保存前の安全対策）
   const fixedContent = fixCodeBlockLanguages(content);
   
-  // フロントマターを追加
+  // SEO用のキーワード抽出（簡易版）
+  const keywords = extractKeywords(title, content, category);
+  
+  // 文字数を計算
+  const wordCount = fixedContent.length;
+  
+  // 読了時間を推定（日本語：600文字/分）
+  const readingTime = Math.ceil(wordCount / 600);
+  
+  // フロントマターを追加（SEO最適化版）
   const frontMatter = `---
 title: "${title}"
 date: "${new Date().toISOString()}"
 category: "${category}"
 slug: "${slug}"
 excerpt: "${excerpt}"
+keywords: ${JSON.stringify(keywords)}
+wordCount: ${wordCount}
+readingTime: ${readingTime}
+seo:
+  metaTitle: "${title.length > 60 ? title.substring(0, 57) + '...' : title}"
+  metaDescription: "${excerpt}"
+  canonicalUrl: "/blog/${category.toLowerCase()}/${slug}"
+  ogType: "article"
+  ogImage: "/og-images/blog-default.jpg"
+  twitterCard: "summary_large_image"
+author:
+  name: "FIND to DO編集部"
+  bio: "最新のテクノロジーとキャリア情報をお届けします"
+lastModified: "${new Date().toISOString()}"
 ---
 
 `;
