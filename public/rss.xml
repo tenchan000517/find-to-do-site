@@ -5,18 +5,26 @@
     <link>https://find-to-do.com</link>
     <description>プログラミング初心者の学生・インターン向けの技術情報やキャリアガイドを配信</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Jun 2025 09:56:50 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2025 10:07:38 GMT</lastBuildDate>
     <generator>FIND to DO Blog System</generator>
     <webMaster>contact@find-to-do.com</webMaster>
     <managingEditor>contact@find-to-do.com</managingEditor>
     <ttl>60</ttl>
     <item>
+      <title><![CDATA[京セラみらいエンビジョンのAIサーバー提供開始をPR TIMESから読み解く！ウェブ開発者が注目すべきレスポンシブデザイン戦略]]></title>
+      <link>https://find-to-do.com/blog/article-1750586857914</link>
+      <description><![CDATA[ウェブ開発者の皆さん、こんにちは！日々進化するAI技術の動向、そしてそれを支えるインフラに目を光らせていることと思います。今回、京セラみらいエンビジョン株式会社が発表したAIサーバーの提供開始は、ウェブ開発業界にとっても大きな影響を与える可能性があります。特に、PR TIMESを活用した情報発信戦略...]]></description>
+      <pubDate>Sun, 22 Jun 2025 10:07:37 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/blog/article-1750586857914</guid>
+      <category><![CDATA[ウェブ開発]]></category>
+    </item>
+    <item>
       <title><![CDATA[DXの成果が見えない企業へ：グローバルAIアワード「世界1位」企業が教えるAI/DX成功戦略]]></title>
       <link>https://find-to-do.com/blog/article-1750586210656</link>
-      <description><![CDATA[「DX（デジタルトランスフォーメーション）に取り組んでいるものの、具体的な成果が見えない…」多くの企業が抱える共通の悩みです。多額の投資をしたにも関わらず、期待したほどの効果が得られず、焦りや不安を感じている経営者の方も少なくないでしょう。...]]></description>
+      <description><![CDATA[「DX（デジタルトランスフォーメーション）に取り組んでいるものの、具体的な成果が見えない…」多くの企業が抱える共通の悩みです。多額の投資をしたにも関わらず、期待したほどの効果が得られず、焦りや不安を感じている経営者の方も少なくないでしょう。]]></description>
       <pubDate>Sun, 22 Jun 2025 09:56:50 GMT</pubDate>
       <guid isPermaLink="true">https://find-to-do.com/blog/article-1750586210656</guid>
-      <category><![CDATA[ビジネス]]></category>
+      <category><![CDATA[business]]></category>
     </item>
     <item>
       <title><![CDATA[ローカルLLM導入完全ガイド：メリット、おすすめモデル、AIsmileyでの課題解決まで]]></title>
@@ -161,14 +169,6 @@
       <pubDate>Thu, 12 Jun 2025 00:13:15 GMT</pubDate>
       <guid isPermaLink="true">https://find-to-do.com/blog/-vs-aiai</guid>
       <category><![CDATA[ai-technology]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Solana Stream SDKがTypeScript ShredStreamでマルチプラットフォーム対応を実現]]></title>
-      <link>https://find-to-do.com/blog/solana-stream-sdktypescript-shredstream</link>
-      <description><![CDATA[ELSOUL LABO B.V.が発表したプレスリリースによると、彼らのSolana Stream SDKがTypeScriptで記述されたShredStreamを活用し、マルチプラットフォーム対応を実現したとのことです。これは、Solanaブロックチェーン上のストリーミングデータの処理を大幅に簡素...]]></description>
-      <pubDate>Wed, 11 Jun 2025 00:13:36 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/blog/solana-stream-sdktypescript-shredstream</guid>
-      <category><![CDATA[programming]]></category>
     </item>
   </channel>
 </rss>
