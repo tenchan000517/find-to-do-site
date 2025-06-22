@@ -97,11 +97,9 @@ export function getExistingSlugs(): string[] {
 }
 
 /**
- * スラグを生成（タイトルから）
+ * スラグを生成（タイムスタンプベース - 日本語タイトル対応）
  */
 export function generateSlug(title: string): string {
-    return title
-        .toLowerCase()
-        .replace(/[^\w\s]/g, '')
-        .replace(/\s+/g, '-');
+    // 日本語タイトルの場合、タイムスタンプベースのslugを生成
+    return `article-${Date.now()}`;
 }
