@@ -27,8 +27,115 @@ const staggerContainer = {
 };
 
 export default function ServicePage() {
+    // Service schema for structured data
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        '@id': 'https://find-to-do.com/service#service',
+        name: 'FIND to DO サービス',
+        description: 'インターン生とメンターによる低コストなDX支援、イベント制作、学生紹介サービス。学生のキャリア支援と企業のデジタル変革を両立。',
+        provider: {
+            '@id': 'https://find-to-do.com/#organization'
+        },
+        serviceType: [
+            'インターンシップ支援',
+            'キャリア支援',
+            'DX支援',
+            '学生コミュニティ運営',
+            'イベント制作',
+            'WEBアプリ開発'
+        ],
+        areaServed: {
+            '@type': 'Country',
+            name: '日本'
+        },
+        audience: {
+            '@type': 'Audience',
+            audienceType: ['大学生', '企業', 'インターン生', '就活生']
+        },
+        offers: [
+            {
+                '@type': 'Offer',
+                name: 'WEBアプリ・DX支援',
+                description: '通常の1/10以下のコストでWEBアプリ開発やDXを実現。インターン生が実践的なスキルを身につけながら高品質な成果物を納品。',
+                category: 'DX支援'
+            },
+            {
+                '@type': 'Offer',
+                name: 'イベント制作',
+                description: '企業と学生のマッチングを促進するイベントを企画・運営。インターン生がヤングボードとして参加。',
+                category: 'イベント制作'
+            },
+            {
+                '@type': 'Offer',
+                name: 'インターン生紹介',
+                description: '実践を通じて育成されたインターン生を企業に紹介。学生広報員システムによる企業魅力発信。',
+                category: 'インターン支援'
+            }
+        ],
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'FIND to DO サービスカタログ',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'WEBアプリケーション開発',
+                        description: 'インターン生とメンターによる高品質なWEBアプリ開発'
+                    }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: '企業DX化支援',
+                        description: '業務プロセスのデジタル化とシステム導入支援'
+                    }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: '学生イベント企画・運営',
+                        description: '企業と学生の接点創出イベントの企画から運営まで'
+                    }
+                }
+            ]
+        },
+        about: [
+            {
+                '@type': 'Thing',
+                name: 'インターンシップ',
+                description: '学生向け実践的インターンシップ機会の提供'
+            },
+            {
+                '@type': 'Thing',
+                name: 'キャリア支援',
+                description: '大学生の就職活動とスキルアップサポート'
+            },
+            {
+                '@type': 'Thing',
+                name: 'DX推進',
+                description: '企業のデジタルトランスフォーメーション支援'
+            }
+        ],
+        keywords: [
+            'インターン', '学生', '就活', 'DX', '学生広報',
+            '学生アンバサダー', '学生団体', '学生コミュニティ', 
+            'リクルート', '学生イベント', '大学生', 'キャリア',
+            'キャリア支援', 'ガクチカ', '就職活動'
+        ].join(','),
+        inLanguage: 'ja'
+    };
+
     return (
-        <div className="min-h-screen pt-0">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
+            <div className="min-h-screen pt-0">
             {/* ヒーローセクション */}
             <section className="relative bg-gradient-to-r from-blue-700 to-indigo-800 py-16 md:py-24">
                 {/* Background image */}
@@ -355,6 +462,7 @@ export default function ServicePage() {
                     </motion.div>
                 </div>
             </section>
-        </div>
+            </div>
+        </>
     );
 }

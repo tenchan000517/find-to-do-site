@@ -3,7 +3,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Users, Target, Sparkles, BarChart, Award } from 'lucide-react';
 
 // Import the BusinessModel component
@@ -30,8 +29,65 @@ const staggerContainer = {
 };
 
 export default function AboutPage() {
+    // AboutPage and Organization schema for structured data
+    const aboutPageSchema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'AboutPage',
+                '@id': 'https://find-to-do.com/about#aboutpage',
+                url: 'https://find-to-do.com/about',
+                name: '企業情報 | FIND to DO',
+                description: 'FIND to DOの企業情報、ビジョン、ミッション、社会課題認識について。学生のインターンシップ支援と企業のDX推進を通じた価値創造。',
+                mainEntity: {
+                    '@id': 'https://find-to-do.com/#organization'
+                },
+                about: [
+                    {
+                        '@type': 'Thing',
+                        name: 'インターンシップ支援',
+                        description: '学生向けインターンシップ機会の提供とキャリア開発支援'
+                    },
+                    {
+                        '@type': 'Thing',
+                        name: '企業DX推進',
+                        description: '企業のデジタルトランスフォーメーション支援とシステム開発'
+                    },
+                    {
+                        '@type': 'Thing',
+                        name: '学生コミュニティ',
+                        description: '学生の成長とネットワーク構築を支援するコミュニティ運営'
+                    }
+                ],
+                inLanguage: 'ja'
+            },
+            {
+                '@type': 'Person',
+                '@id': 'https://find-to-do.com/about#founder',
+                name: '飯田思遠',
+                jobTitle: '代表者',
+                worksFor: {
+                    '@id': 'https://find-to-do.com/#organization'
+                },
+                description: 'FIND to DO代表者。「人の夢と希望のブースターになる」をビジョンに、学生支援事業を展開。',
+                knowsAbout: [
+                    'インターンシップ',
+                    'キャリア支援',
+                    'DX推進',
+                    '学生コミュニティ運営',
+                    '人材育成'
+                ]
+            }
+        ]
+    };
+
     return (
-        <div className="min-h-screen pt-0">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+            />
+            <div className="min-h-screen pt-0">
             {/* ヒーローセクション */}
             <section className="relative bg-gradient-to-r from-blue-700 to-indigo-800 py-16 md:py-24">
                 {/* Background image */}
@@ -407,6 +463,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section> */}
-        </div>
+            </div>
+        </>
     );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, Code, CalendarDays, Users } from 'lucide-react';
 
 // 既存のContactFormをインポート
@@ -29,8 +28,94 @@ const staggerContainer = {
 };
 
 export default function ContactPage() {
+  // ContactPage and FAQ schema for structured data
+  const contactPageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ContactPage',
+        '@id': 'https://find-to-do.com/contact#contactpage',
+        url: 'https://find-to-do.com/contact',
+        name: 'お問い合わせ | FIND to DO',
+        description: 'FIND to DOへのお問い合わせページ。インターン支援、DX支援、イベント制作に関するご質問やご相談を承ります。',
+        mainEntity: {
+          '@id': 'https://find-to-do.com/#organization'
+        },
+        about: [
+          {
+            '@type': 'Thing',
+            name: 'インターンシップ支援',
+            description: '学生向けインターンシップ機会の提供と企業とのマッチング支援'
+          },
+          {
+            '@type': 'Thing',
+            name: 'DX支援サービス',
+            description: '企業のデジタルトランスフォーメーション推進とWEBアプリ開発'
+          },
+          {
+            '@type': 'Thing',
+            name: 'イベント制作',
+            description: '企業と学生の交流を促進するイベントの企画・運営'
+          }
+        ],
+        inLanguage: 'ja'
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://find-to-do.com/contact#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: '初回相談は無料ですか？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'はい、初回のご相談・お見積りは無料です。お気軽にお問い合わせください。'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'どのような企業が利用していますか？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'IT企業、製造業、小売業、サービス業など、様々な業種・規模の企業にご利用いただいています。特に採用活動や企業ブランディングに力を入れている企業様に多くご利用いただいています。'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'どのようにして通常の1/10以下のコストを実現しているのですか？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: '「インターン→メンター」の成長パスを活用した独自のビジネスモデルにより、若手人材の活用と経験豊富なメンターの監修を両立させています。これにより、高品質な成果物を低コストで提供することが可能になっています。'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: '学生広報員システムとは何ですか？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'インターン生が企業の「ファン」として活動する新しい広報モデルです。採用に直結しなくても企業価値向上に貢献し、若者視点で企業の魅力をSNSなどで発信します。同世代への訴求力が高く、自然な情報拡散が期待できます。'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'インターン生の質は担保されていますか？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'はい、すべてのインターン生は経験豊富なメンターの指導のもとで活動し、成果物は専門家によるレビューを受けています。品質管理プロセスを徹底しているため、安心してご利用いただけます。'
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen pt-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <div className="min-h-screen pt-0">
       {/* ヒーローセクション */}
       <section className="bg-gradient-to-r from-blue-700 to-indigo-800 py-16 md:py-20">
         <div className="container mx-auto px-4">
@@ -258,6 +343,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

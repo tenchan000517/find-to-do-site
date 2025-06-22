@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
 };
 
-// 構造化データの定義
+// 構造化データの定義（学生支援・インターン関連情報を強化）
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -88,7 +88,7 @@ const jsonLd = {
       '@id': 'https://find-to-do.com/#website',
       url: 'https://find-to-do.com',
       name: 'FIND to DO',
-      description: 'FIND to DOは、企業のDX推進を支援し、学生に実践的なスキルアップと収入機会を提供する革新的なプラットフォームです。',
+      description: 'FIND to DOは、学生のインターンシップ支援、キャリア開発、企業のDX推進を通じて、ミスマッチのない社会を創造する革新的なプラットフォームです。',
       publisher: {
         '@id': 'https://find-to-do.com/#organization'
       },
@@ -100,12 +100,35 @@ const jsonLd = {
         },
         'query-input': 'required name=search_term_string'
       },
+      about: [
+        {
+          '@type': 'Thing',
+          name: 'インターンシップ',
+          description: '学生向けインターンシップ機会の提供とキャリア支援'
+        },
+        {
+          '@type': 'Thing',
+          name: '学生コミュニティ',
+          description: '大学生の成長とネットワーク構築を支援するコミュニティ運営'
+        },
+        {
+          '@type': 'Thing',
+          name: 'キャリア支援',
+          description: '就職活動、ガクチカ作成、スキルアップの総合的な支援'
+        }
+      ],
+      keywords: [
+        'インターン', '学生', '就活', 'DX', '学生広報', '学生アンバサダー',
+        '学生団体', '学生コミュニティ', 'リクルート', '学生イベント',
+        '大学生', 'キャリア', 'キャリア支援', 'ガクチカ', '就職活動'
+      ].join(','),
       inLanguage: 'ja'
     },
     {
       '@type': 'Organization',
       '@id': 'https://find-to-do.com/#organization',
       name: 'FIND to DO',
+      alternateName: 'ファインドトゥードゥー',
       url: 'https://find-to-do.com',
       logo: {
         '@type': 'ImageObject',
@@ -115,12 +138,94 @@ const jsonLd = {
         height: 60,
         caption: 'FIND to DO'
       },
+      slogan: '人の夢と希望のブースターになる',
+      foundingDate: '2025',
+      founder: {
+        '@type': 'Person',
+        name: '飯田思遠',
+        jobTitle: '代表者'
+      },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '花見通2-3-17',
+        addressLocality: '名古屋市昭和区',
+        addressRegion: '愛知県',
+        postalCode: '464-0806',
+        addressCountry: 'JP'
+      },
       sameAs: [
         'https://twitter.com/_FIND_TO_DO',
         'https://www.facebook.com/findtodo',
-        'https://www.linkedin.com/company/find-to-do'
+        'https://www.linkedin.com/company/find-to-do',
+        'https://discord.gg/xQM6NgmwPk'
       ],
-      description: 'FIND to DOは、企業のDX推進を支援し、学生に実践的なスキルアップと収入機会を提供する革新的なプラットフォームです。'
+      description: 'FIND to DOは、学生のインターンシップ支援、キャリア開発、企業のDX推進を通じて、人々が自分らしい人生を歩める社会の実現を目指しています。',
+      knowsAbout: [
+        'インターンシップ',
+        '学生支援', 
+        'キャリア開発',
+        'DX推進',
+        'WEBアプリ開発',
+        'イベント制作',
+        '学生コミュニティ運営',
+        '人材育成',
+        '就職活動支援'
+      ],
+      serviceArea: {
+        '@type': 'Country',
+        name: '日本'
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: '日本'
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'FIND to DO サービス',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'インターンシップ支援',
+              description: '学生向けインターンシップ機会の紹介と企業とのマッチング支援'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'キャリア支援',
+              description: '就職活動、ガクチカ作成、スキルアップの総合的なサポート'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'DX支援',
+              description: '企業のデジタルトランスフォーメーション推進とWEBアプリ開発'
+            }
+          }
+        ]
+      },
+      audience: [
+        {
+          '@type': 'Audience',
+          audienceType: '大学生',
+          description: 'インターンシップや就職活動を行う大学生'
+        },
+        {
+          '@type': 'Audience',
+          audienceType: '企業',
+          description: 'インターン生の受け入れやDX推進を検討している企業'
+        },
+        {
+          '@type': 'Audience',
+          audienceType: '就活生',
+          description: 'キャリア開発と就職活動に取り組む学生'
+        }
+      ]
     }
   ]
 };
