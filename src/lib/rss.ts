@@ -183,8 +183,10 @@ export function addNewArticleToRSS(articleData: {
     // 既存のアイテムを取得
     const existingItems = generateRSSItemsFromExistingBlogs();
     
-    // 新しいアイテムを先頭に追加（重複チェック）
-    const allItems = [newItem, ...existingItems.filter(item => item.guid !== newItem.guid)];
+    // 新しいアイテムを先頭に追加（重複チェック：GUIDとタイトルの両方をチェック）
+    const allItems = [newItem, ...existingItems.filter(item => 
+      item.guid !== newItem.guid && item.title !== newItem.title
+    )];
     
     // 最新20件まで
     const latestItems = allItems.slice(0, 20);

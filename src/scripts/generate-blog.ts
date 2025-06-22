@@ -41,17 +41,16 @@ async function main() {
       console.log(`記事タイトル: ${title}`);
       
       // 記事を保存
-      const filePath = await saveArticle(title, content, category, topic);
+      const { filePath, actualSlug } = await saveArticle(title, content, category, topic);
       console.log(`記事を保存しました: ${filePath}`);
       
       // RSSフィードを更新
       console.log('RSSフィードを更新中...');
-      const slug = generateSlug(title);
       const excerpt = content.split('\n\n').find(p => !p.startsWith('#') && p.trim().length > 0)?.slice(0, 150) + "..." || title;
       
       addNewArticleToRSS({
         title,
-        slug,
+        slug: actualSlug,
         category,
         excerpt,
         publishedAt: new Date().toISOString()

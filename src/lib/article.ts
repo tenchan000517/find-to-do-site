@@ -279,7 +279,7 @@ export async function generateArticle(topic: string, category: string): Promise<
 /**
  * 生成した記事をファイルに保存
  */
-export async function saveArticle(title: string, content: string, category: string, topic?: string): Promise<string> {
+export async function saveArticle(title: string, content: string, category: string, topic?: string): Promise<{ filePath: string; actualSlug: string }> {
   // スラグ生成
   let slug = generateSlug(title);
   
@@ -384,5 +384,5 @@ author: "FIND to DO編集部"
   await writeFile(filePath, contentWithFrontMatter, 'utf8');
   console.log(`ファイルを保存しました: ${filePath}`);
   
-  return filePath;
+  return { filePath, actualSlug: slug };
 }
