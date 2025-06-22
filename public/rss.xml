@@ -5,27 +5,42 @@
     <link>https://find-to-do.com</link>
     <description>プログラミング初心者の学生・インターン向けの技術情報やキャリアガイドを配信</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Jun 2025 08:22:39 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2025 08:47:08 GMT</lastBuildDate>
     <generator>FIND to DO Blog System</generator>
     <webMaster>contact@find-to-do.com</webMaster>
     <managingEditor>contact@find-to-do.com</managingEditor>
     <ttl>60</ttl>
     <item>
-      <title><![CDATA[横浜のWebデザインスクールおすすめ11選【2025年6月最新】 - 株式会社イードでウェブサイトのパフォーマンスを向上させる方法]]></title>
-      <link>https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/article-1750580558993</link>
-      <description><![CDATA[```
-# 横浜のWebデザインスクールおすすめ11選【2025年6月最新】 - 株式会社イードでウェブサイトのパフォーマンスを向上させる方法...]]></description>
-      <pubDate>Sun, 22 Jun 2025 08:22:38 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA/article-1750580558993</guid>
-      <category><![CDATA[ウェブ開発]]></category>
+      <title><![CDATA[エッジAIで製造業を革新！三菱電機言語モデル開発の全貌と実践的活用術]]></title>
+      <link>https://find-to-do.com/news-blog/ai-technology/article-1750581843310</link>
+      <description><![CDATA[製造業の現場では、日々膨大なデータが生成されています。これらのデータをリアルタイムに分析し、迅速な意思決定や効率的な業務改善につなげるためには、エッジデバイスで動作するAI技術の活用が不可欠です。三菱電機が開発する製造業向け言語モデルは、まさにそのニーズに応えるものであり、現場の課題解決に大きく貢献...]]></description>
+      <pubDate>Sun, 22 Jun 2025 08:44:03 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/ai-technology/article-1750581843310</guid>
+      <category><![CDATA[ai-technology]]></category>
     </item>
     <item>
-      <title><![CDATA[横浜のWebデザインスクールおすすめ11選【2025年6月最新】 - 株式会社イードでウェブサイトのパフォーマンスを向上させる方法]]></title>
-      <link>https://find-to-do.com/news-blog/web-development/article-1750580558884</link>
-      <description><![CDATA[Webデザインのスキルは、現代のデジタル社会においてますます重要になっています。特に、横浜のような活気ある都市では、Webデザイナーの需要が高く、キャリアアップや新しい挑戦を考えている方も多いのではないでしょうか。しかし、数多くのWebデザインスクールの中から、自分に最適なスクールを見つけるのは容易...]]></description>
-      <pubDate>Sun, 22 Jun 2025 08:22:38 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/web-development/article-1750580558884</guid>
-      <category><![CDATA[web-development]]></category>
+      <title><![CDATA[アップル、AI検索のPerplexity買収検討：次世代検索エンジン戦略と実践的活用]]></title>
+      <link>https://find-to-do.com/news-blog/ai-technology/article-1750581410689</link>
+      <description><![CDATA[近年、AI技術の進化は目覚ましく、検索エンジンの分野においても革新的な変化が起きています。特に、質問応答に特化したAI検索エンジンであるPerplexity AIは、その高い精度と利便性から注目を集めています。本記事では、アップルがPerplexity AIの買収を検討しているという報道を基に、AI...]]></description>
+      <pubDate>Sun, 22 Jun 2025 08:36:50 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/ai-technology/article-1750581410689</guid>
+      <category><![CDATA[ai-technology]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026年IBM新卒採用：米国で輝くためのスキルセット完全攻略ガイド]]></title>
+      <link>https://find-to-do.com/news-blog/career/article-1750581201133</link>
+      <description><![CDATA[IBMへの就職、特に米国でのキャリアは、多くの優秀な学生にとって魅力的な目標です。しかし、グローバル企業であるIBMで、しかも競争の激しい米国市場で成功するためには、単なる学歴や知識だけでは不十分です。2026年新卒採用に向けて、IBMが求める人材像を深く理解し、今から具体的なスキルセットを磨き、戦...]]></description>
+      <pubDate>Sun, 22 Jun 2025 08:33:21 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/career/article-1750581201133</guid>
+      <category><![CDATA[career]]></category>
+    </item>
+    <item>
+      <title><![CDATA[楽しみながら実践的なAWSスキルを獲得し、Amazon.comのスペシャリストへ！]]></title>
+      <link>https://find-to-do.com/news-blog/career/article-1750581073783</link>
+      <description><![CDATA[AWS（Amazon Web Services）は、クラウドコンピューティングのデファクトスタンダードとして、あらゆる業界でその重要性を増しています。2025年現在、AWSスキルを持つエンジニアやアーキテクトの需要は非常に高く、Amazon.com自身も、その専門家を常に求めています。しかし、「AW...]]></description>
+      <pubDate>Sun, 22 Jun 2025 08:31:13 GMT</pubDate>
+      <guid isPermaLink="true">https://find-to-do.com/news-blog/career/article-1750581073783</guid>
+      <category><![CDATA[career]]></category>
     </item>
     <item>
       <title><![CDATA[スマホで動く！画像認識LLM「Gemma 3n」徹底レビュー：実践的活用法と未来展望]]></title>
@@ -154,22 +169,6 @@
       <pubDate>Mon, 09 Jun 2025 00:14:04 GMT</pubDate>
       <guid isPermaLink="true">https://find-to-do.com/news-blog/programming/ai-1749428044490</guid>
       <category><![CDATA[programming]]></category>
-    </item>
-    <item>
-      <title><![CDATA[石川高専のAI Career Tech Center：AI人材育成と転職成功への道筋]]></title>
-      <link>https://find-to-do.com/news-blog/career/ai-career-tech-centerai</link>
-      <description><![CDATA[石川高専が全国の高専で初めてAI学習のための教室「AI Career Tech Center」を開設しました。これは、AI分野における人材育成の重要性を示す象徴的な出来事であり、今後のAI業界の動向を占う上で重要な指標となります。本記事では、この開設を機に、AI業界での転職成功のためのポイントを深掘...]]></description>
-      <pubDate>Sun, 08 Jun 2025 00:14:32 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/career/ai-career-tech-centerai</guid>
-      <category><![CDATA[career]]></category>
-    </item>
-    <item>
-      <title><![CDATA[ログミーBizとログミーTech統合による「ログミーBusiness」誕生：次世代ビジネスリーダー育成戦略の深掘り]]></title>
-      <link>https://find-to-do.com/news-blog/business/biztechbusiness-1749255174269</link>
-      <description><![CDATA[**導入部:**]]></description>
-      <pubDate>Sat, 07 Jun 2025 00:12:54 GMT</pubDate>
-      <guid isPermaLink="true">https://find-to-do.com/news-blog/business/biztechbusiness-1749255174269</guid>
-      <category><![CDATA[business]]></category>
     </item>
   </channel>
 </rss>

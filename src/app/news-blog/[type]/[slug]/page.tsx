@@ -1,6 +1,9 @@
 // /src/app/news-blog/[type]/[slug]/page.tsx
 'use client';
 
+// This is a client component, so we don't need generateStaticParams
+// The page will be rendered dynamically on the client side
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';

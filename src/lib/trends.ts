@@ -171,9 +171,7 @@ export async function fetchRelatedNews(topic: string, count: number = 3): Promis
     });
     
     const $ = cheerio.load(response.data, { 
-      xmlMode: true,
-      decodeEntities: true,
-      normalizeWhitespace: true
+      xmlMode: true
     });
     
     // ニュース記事を抽出

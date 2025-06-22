@@ -10,11 +10,17 @@ export const revalidate = 3600; // 1時間ごとに再検証
 // 静的ページを生成するためのパスを定義
 export async function generateStaticParams() {
   const posts = await getAllPosts();
+  
+  // ビルド時には最新の20記事のみ静的生成し、残りはオンデマンドで生成
+  const recentPosts = posts.slice(0, 20);
 
-  return posts.map(post => ({
+  return recentPosts.map(post => ({
     slug: post.slug,
   }));
 }
+
+// 動的パラメータを許可（generateStaticParamsに含まれないページもオンデマンドで生成）
+export const dynamicParams = true;
 
 // メタデータを動的に生成
 export async function generateMetadata({ 

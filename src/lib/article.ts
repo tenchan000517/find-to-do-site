@@ -14,6 +14,21 @@ const RETRY_DELAY = 5000;
 const TOKEN_SIZES = [3500, 4000, 4500, 6000];
 
 /**
+ * カテゴリ名を英語ディレクトリ名にマッピング
+ */
+function getCategoryDirectoryName(category: string): string {
+  const categoryMapping: Record<string, string> = {
+    'プログラミング': 'programming',
+    'ウェブ開発': 'web-development', 
+    'AI技術': 'ai-technology',
+    'キャリア': 'career',
+    'ビジネス': 'business'
+  };
+  
+  return categoryMapping[category] || category.toLowerCase().replace(/[\s　]+/g, '-');
+}
+
+/**
  * 参考情報セクションを生成する
  */
 async function generateSourceReferences(topic: string, _category: string): Promise<string> {
@@ -104,6 +119,30 @@ function extractKeywords(title: string, _content: string, category: string): str
  * ビルドエラーの原因となる無効な言語指定子を検出して修正します
  */
 function fixCodeBlockLanguages(content: string): string {
+  // 修正処理
+  let fixedContent = content;
+  
+  // 最重要：記事冒頭の無効なコードブロックを完全に除去
+  // パターン1: ```\n# タイトル で始まる場合
+  if (fixedContent.match(/^```\s*\n# /)) {
+    fixedContent = fixedContent.replace(/^```\s*\n(# .*)/, '$1');
+  }
+  
+  // パターン2: ```\n で始まって、最後に ``` で終わる場合（記事全体がコードブロック）
+  if (fixedContent.match(/^```\s*\n/) && fixedContent.match(/\n```\s*$/)) {
+    fixedContent = fixedContent.replace(/^```\s*\n([\s\S]*?)\n```\s*$/, '$1');
+  }
+  
+  // パターン3: 単純に ```\n で始まる場合
+  if (fixedContent.match(/^```\s*\n/)) {
+    fixedContent = fixedContent.replace(/^```\s*\n/, '');
+  }
+  
+  // パターン4: 末尾の ```\n を除去
+  if (fixedContent.match(/\n```\s*$/)) {
+    fixedContent = fixedContent.replace(/\n```\s*$/, '');
+  }
+  
   // 安全に使用できる言語指定子のリスト
   const safeLanguages = [
     'tsx', 'ts', 'jsx', 'js', 'javascript', 'typescript',
@@ -113,27 +152,23 @@ function fixCodeBlockLanguages(content: string): string {
   // 無効な言語指定子のリスト（問題を起こしやすいもの）
   const invalidLanguages = ['tsxx', 'vue', 'typescriptx', 'javascriptx', 'ts-x', 'js-x', 'python', 'py'];
   
-  // 修正処理
-  let fixedContent = content;
-  
-  // 1. 既知の無効な言語指定子を直接置換
+  // 既知の無効な言語指定子を直接置換
   invalidLanguages.forEach(lang => {
     const regex = new RegExp("```" + lang + "\\b", "g");
     fixedContent = fixedContent.replace(regex, "```tsx");
   });
   
-  // 2. 言語未指定のコードブロックをtsxに変換
+  // 言語未指定のコードブロックをtsxに変換
   fixedContent = fixedContent.replace(/```(?!\w)/g, "```tsx");
   
-  // 3. 安全でない可能性のある言語指定子をすべてtsxに置換
+  // 安全でない可能性のある言語指定子をすべてtsxに置換
   const codeBlockRegex = /```(\w+)/g;
   let match;
-  const contentCopy = fixedContent; // 元のコンテンツをコピー（正規表現マッチングのため）
+  const contentCopy = fixedContent;
   
   while ((match = codeBlockRegex.exec(contentCopy)) !== null) {
     const [, language] = match;
     if (!safeLanguages.includes(language.toLowerCase())) {
-      // 安全なリストにない言語はtsxに置換
       fixedContent = fixedContent.replace(
         new RegExp("```" + language + "\\b", "g"), 
         "```tsx"
@@ -141,7 +176,7 @@ function fixCodeBlockLanguages(content: string): string {
     }
   }
   
-  // 4. コードブロックの終了タグに付いた言語指定子を削除
+  // コードブロックの終了タグに付いた言語指定子を削除
   fixedContent = fixedContent.replace(/```(\w+)$/gm, '```');
   
   return fixedContent;
@@ -328,10 +363,11 @@ author: "FIND to DO編集部"
 
   const contentWithFrontMatter = frontMatter + fixedContent;
   
-  // カテゴリのディレクトリを作成
+  // カテゴリのディレクトリを作成（英語名を使用）
   const contentDir = path.join(process.cwd(), 'content');
   const blogDir = path.join(contentDir, 'blog');
-  const categoryDir = path.join(blogDir, category.toLowerCase());
+  const categoryDirName = getCategoryDirectoryName(category);
+  const categoryDir = path.join(blogDir, categoryDirName);
   
   // ディレクトリが存在しない場合は作成
   try {
