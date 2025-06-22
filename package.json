@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "tsx src/scripts/generate-blog.ts"
+    "generate": "tsx src/scripts/generate-blog.ts",
+    "rss:regenerate": "tsx src/scripts/regenerate-rss.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",

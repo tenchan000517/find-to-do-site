@@ -117,10 +117,10 @@ export function generateRSSItemsFromExistingBlogs(): RSSItem[] {
           
           items.push({
             title,
-            link: `https://find-to-do.com/news-blog/${encodeURIComponent(category)}/${slug}`,
+            link: `https://find-to-do.com/blog/${slug}`,
             description: excerpt,
             pubDate: date,
-            guid: `https://find-to-do.com/news-blog/${encodeURIComponent(category)}/${slug}`,
+            guid: `https://find-to-do.com/blog/${slug}`,
             category
           });
         }
@@ -173,10 +173,10 @@ export function addNewArticleToRSS(articleData: {
     
     const newItem: RSSItem = {
       title: articleData.title,
-      link: `https://find-to-do.com/news-blog/${encodeURIComponent(articleData.category)}/${articleData.slug}`,
+      link: `https://find-to-do.com/blog/${articleData.slug}`,
       description: cleanExcerpt,
       pubDate: new Date(articleData.publishedAt).toUTCString(),
-      guid: `https://find-to-do.com/news-blog/${encodeURIComponent(articleData.category)}/${articleData.slug}`,
+      guid: `https://find-to-do.com/blog/${articleData.slug}`,
       category: articleData.category
     };
 
