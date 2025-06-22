@@ -161,9 +161,20 @@ export async function fetchRelatedNews(topic: string, count: number = 3): Promis
     // Google News検索URL
     const url = `https://news.google.com/rss/search?q=${encodeURIComponent(topic)}&hl=ja&gl=JP&ceid=JP:ja`;
     
-    // RSSフィードを取得
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data, { xmlMode: true });
+    // RSSフィードを取得（タイムアウトとエンコーディング設定）
+    const response = await axios.get(url, {
+      timeout: 10000, // 10秒タイムアウト
+      responseType: 'text',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; NewsBot/1.0)'
+      }
+    });
+    
+    const $ = cheerio.load(response.data, { 
+      xmlMode: true,
+      decodeEntities: true,
+      normalizeWhitespace: true
+    });
     
     // ニュース記事を抽出
     const items: any[] = [];

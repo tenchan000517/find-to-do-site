@@ -16,33 +16,56 @@ const TOKEN_SIZES = [3500, 4000, 4500, 6000];
 /**
  * 参考情報セクションを生成する
  */
-async function generateSourceReferences(topic: string, category: string): Promise<string> {
+async function generateSourceReferences(topic: string, _category: string): Promise<string> {
   try {
+    console.log('参考情報セクション生成開始:', topic);
+    
     // 関連ニュースを取得（最大3件）
     const relatedNews = await fetchRelatedNews(topic, 3);
     
     if (relatedNews.length === 0) {
-      return '本記事は最新の業界情報と一般的な知識に基づいて作成しています。';
+      console.log('ニュースが取得できなかったためフォールバックを使用');
+      return `本記事は最新の業界情報と一般的な知識に基づいて作成しています。
+
+*※本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*`;
     }
+    
+    console.log(`取得したニュース数: ${relatedNews.length}`);
     
     let references = '本記事の作成にあたり、以下の情報源を参考にしました：\n\n';
     
     relatedNews.forEach((news, index) => {
-      references += `${index + 1}. **${news.title}**\n`;
-      references += `   ソース: ${news.source}\n`;
-      references += `   日付: ${new Date(news.pubDate).toLocaleDateString('ja-JP')}\n`;
-      if (news.link) {
-        references += `   URL: ${news.link}\n`;
+      try {
+        // 各フィールドを安全に処理
+        const title = (news.title || 'タイトルなし').trim();
+        const source = (news.source || 'Google News').trim();
+        const pubDate = news.pubDate ? new Date(news.pubDate).toLocaleDateString('ja-JP') : '日付不明';
+        const link = (news.link || '').trim();
+        
+        references += `${index + 1}. **${title}**\n`;
+        references += `   ソース: ${source}\n`;
+        references += `   日付: ${pubDate}\n`;
+        
+        // URLが有効である場合のみ追加
+        if (link && link.startsWith('http')) {
+          references += `   URL: ${link}\n`;
+        }
+        references += '\n';
+      } catch (newsError) {
+        console.error('ニュースアイテム処理エラー:', newsError);
+        references += `${index + 1}. 情報源処理エラー\n\n`;
       }
-      references += '\n';
     });
     
     references += '\n*※ 本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*';
     
+    console.log('参考情報セクション生成完了');
     return references;
   } catch (error) {
     console.error('参考情報セクションの生成に失敗しました:', error);
-    return '本記事は最新の業界情報と一般的な知識に基づいて作成しています。';
+    return `本記事は最新の業界情報と一般的な知識に基づいて作成しています。
+
+*※本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*`;
   }
 }
 
@@ -266,9 +289,16 @@ export async function saveArticle(title: string, content: string, category: stri
   
   // 参考情報セクションを自動追加（システム側で確実に生成）
   if (topic) {
-    const sourceReferences = await generateSourceReferences(topic, category);
-    if (sourceReferences && !fixedContent.includes('## 参考情報')) {
-      fixedContent += '\n\n## 参考情報\n\n' + sourceReferences;
+    try {
+      const sourceReferences = await generateSourceReferences(topic, category);
+      if (sourceReferences && sourceReferences.trim() && !fixedContent.includes('## 参考情報')) {
+        fixedContent += '\n\n## 参考情報\n\n' + sourceReferences;
+        console.log('参考情報セクションを追加しました');
+      }
+    } catch (refError) {
+      console.error('参考情報セクション追加エラー:', refError);
+      // エラー時でもフォールバック情報を追加
+      fixedContent += '\n\n## 参考情報\n\n本記事は最新の業界情報と一般的な知識に基づいて作成しています。';
     }
   }
   
