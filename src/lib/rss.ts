@@ -184,7 +184,7 @@ export function addNewArticleToRSS(articleData: {
     const existingItems = generateRSSItemsFromExistingBlogs();
     
     // 新しいアイテムを先頭に追加（重複チェック：GUIDとタイトルの両方をチェック）
-    const allItems = [newItem, ...existingItems.filter(item => 
+    const allItems = [newItem, ...existingItems.filter((item: any) => 
       item.guid !== newItem.guid && item.title !== newItem.title
     )];
     

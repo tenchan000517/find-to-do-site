@@ -178,7 +178,7 @@ export function categorizeAndExtractKeywords(trends: TrendItem[]): CategoryResul
     '週間総合': []
   };
 
-  trends.forEach(item => {
+  trends.forEach((item: any) => {
     const category = classifyItem(item);
     if (category && result[category]) {
       result[category].push(item);
@@ -237,14 +237,14 @@ export function extractTodaysTrends(categorizedTrends: CategoryResult): Record<s
   Object.entries(categorizedTrends).forEach(([category, items]) => {
     // 各カテゴリから上位5件のタイトルを抽出
     const topTitles = items
-      .sort((a, b) => {
+      .sort((a: TrendItem, b: TrendItem) => {
         // スコア順、いいね順、コメント順でソート
         const scoreA = a.score || a.likes || 0;
         const scoreB = b.score || b.likes || 0;
         return scoreB - scoreA;
       })
       .slice(0, 5)
-      .map(item => item.title);
+      .map((item: TrendItem) => item.title);
     
     if (topTitles.length > 0) {
       todaysTrends[category] = topTitles;
@@ -332,16 +332,16 @@ export function getCategoryStats(categorizedTrends: CategoryResult): Record<stri
   Object.entries(categorizedTrends).forEach(([category, items]) => {
     const totalItems = items.length;
     const avgQuality = totalItems > 0 ? 
-      items.reduce((sum, item) => sum + calculateQualityScore(item), 0) / totalItems : 0;
+      items.reduce((sum: number, item: TrendItem) => sum + calculateQualityScore(item), 0) / totalItems : 0;
     
-    const highQualityCount = items.filter(item => calculateQualityScore(item) > 70).length;
+    const highQualityCount = items.filter((item: TrendItem) => calculateQualityScore(item) > 70).length;
     
     stats[category] = {
       totalItems,
       avgQuality: Math.round(avgQuality),
       highQualityCount,
       highQualityRatio: totalItems > 0 ? Math.round((highQualityCount / totalItems) * 100) : 0,
-      sources: Array.from(new Set(items.map(item => item.source)))
+      sources: Array.from(new Set(items.map((item: TrendItem) => item.source)))
     };
   });
   

@@ -16,6 +16,7 @@ export interface TrendItem {
   publishedAt: string;
   topics?: string[];
   category?: string;
+  description?: string;
 }
 
 /**
@@ -620,8 +621,7 @@ export async function getGenerativeAITrends(): Promise<TrendItem[]> {
         const response = await fetch(rssUrl, {
           headers: { 
             'User-Agent': 'Mozilla/5.0 (compatible; NewsBot/1.0)' 
-          },
-          timeout: 10000
+          }
         });
         
         if (response.ok) {
@@ -637,7 +637,7 @@ export async function getGenerativeAITrends(): Promise<TrendItem[]> {
           const maxItems = isClaudeOrVibeCoding ? 8 : 5; // Claude code系は多めに取得
           
           const relevantItems = items
-            .filter(item => calculateGenAIRelevance(item.title, item.description || '') > relevanceThreshold)
+            .filter((item: any) => calculateGenAIRelevance(item.title, item.description || '') > relevanceThreshold)
             .slice(0, maxItems);
           
           results.push(...relevantItems.map(item => ({
@@ -912,7 +912,7 @@ function removeDuplicates(items: TrendItem[]): TrendItem[] {
   const seen = new Set<string>();
   const uniqueItems: TrendItem[] = [];
   
-  items.forEach(item => {
+  items.forEach((item: any) => {
     // URL基準で重複チェック
     if (!seen.has(item.url)) {
       seen.add(item.url);

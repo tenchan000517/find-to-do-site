@@ -45,3 +45,10 @@ next-env.d.ts
 
 /doc/
 .vercel
+
+# test and debug files
+/temp-test-files/
+test-*.ts
+test-*.js
+debug-*.ts
+check-*.ts

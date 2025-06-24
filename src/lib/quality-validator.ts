@@ -280,8 +280,8 @@ function evaluateTrendReflection(content: string, trendData: any[]): TrendMetric
     if (title.length < 5) return false;
     
     // タイトルの一部または全体が含まれているかチェック
-    const titleWords = title.split(/[\s\-\[\]【】（）()]+/).filter(word => word.length > 2);
-    return titleWords.some(word => content.includes(word)) || content.includes(source);
+    const titleWords = title.split(/[\s\-\[\]【】（）()]+/).filter((word: string) => word.length > 2);
+    return titleWords.some((word: string) => content.includes(word)) || content.includes(source);
   });
   
   const trendsReferenced = referencedTrends.length;
