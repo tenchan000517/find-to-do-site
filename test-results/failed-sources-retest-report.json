@@ -1,0 +1,281 @@
+{
+  "executionDate": "2025-06-24T03:32:07.032Z",
+  "processingTime": "31.5",
+  "retestResults": [
+    {
+      "source": "はてなブックマークIT (再テスト)",
+      "count": 30,
+      "target": 53,
+      "success": true,
+      "items": [
+        {
+          "title": "社内でVibe Coding Hackathonを開催してみた - CADDi Tech Blog",
+          "url": "https://caddi.tech/2025/06/24/113128",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2
+        },
+        {
+          "title": "AIを使うと脳が衰えていく？　AIツール長期使用の脳への影響を測定（生成AIクローズアップ） | テクノエッジ TechnoEdge",
+          "url": "https://www.techno-edge.net/article/2025/06/24/4439.html",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 49369
+        },
+        {
+          "title": "商品クリック58%増・経由受注26%増の裏側 - Two-Towerモデル×Vertex AI Vector Searchで実現したZOZOTOWN ホーム画面のパーソナライズ - ZOZO TECH BLOG",
+          "url": "https://techblog.zozo.com/entry/home-module-contents-personalization",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 358
+        },
+        {
+          "title": "【2025年版】企業のコンプライアンス違反事例20選と対策",
+          "url": "https://ldcube.jp/blog/compliance451",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2025
+        },
+        {
+          "title": "クラウド会計を使用しても税理士は必要？選択する基準などを解説",
+          "url": "https://www.ht-tax.or.jp/kigyou-guide/cloud-accounting-tax-accountant",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2025
+        },
+        {
+          "title": "スマホ新法、アップルの示した「懸念」の意味とは【西田宗千佳のイマトミライ】",
+          "url": "https://www.watch.impress.co.jp/docs/series/nishida/2024691.html",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2024929
+        },
+        {
+          "title": "LLMは因果推論を理解できるのか？最新研究から探る生成AIの因果推論の可能性と課題 - Insight Edge Tech Blog",
+          "url": "https://techblog.insightedge.jp/entry/genai-causal-inference",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 1
+        },
+        {
+          "title": "生成AI(Claude Code)がエンジニアリングの何を変えるのか - GoTheDistance",
+          "url": "https://gothedistance.hatenadiary.jp/entry/2025/06/23/110000",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2
+        },
+        {
+          "title": "プログラマ不要論が度々話題に上がる一方、正確な要件定義とちゃんとした成果物レビューが求められているが、それってプログラミング能力そのものなのでは？",
+          "url": "https://togetter.com/li/2567083",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2025
+        },
+        {
+          "title": "個人開発者のためのStripe超入門①",
+          "url": "https://zenn.dev/ideagarage/articles/a2f5a4f04d7dcb",
+          "source": "はてブ (https://b.hatena.ne.jp/hotentry/it)",
+          "pattern": 4,
+          "users": 2024748
+        }
+      ],
+      "debugInfo": {
+        "testedUrls": 4,
+        "totalRawEntries": 74,
+        "afterDeduplication": 30
+      }
+    },
+    {
+      "source": "キャリア系トレンド (改善版)",
+      "count": 68,
+      "target": 16,
+      "success": true,
+      "items": [
+        {
+          "title": "転職の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "転職",
+          "rank": 1,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "キャリアの2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "キャリア",
+          "rank": 2,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "就活の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "就活",
+          "rank": 3,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "働き方の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "働き方",
+          "rank": 4,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "スキルアップの2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "スキルアップ",
+          "rank": 5,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "副業の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "副業",
+          "rank": 6,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "フリーランスの2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "フリーランス",
+          "rank": 7,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "新卒の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "新卒",
+          "rank": 8,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "インターンの2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "インターン",
+          "rank": 9,
+          "type": "trend_keyword"
+        },
+        {
+          "title": "面接の2025年最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "面接",
+          "rank": 10,
+          "type": "trend_keyword"
+        }
+      ],
+      "breakdown": {
+        "keywords": 15,
+        "rssNews": 48,
+        "seasonal": 5
+      }
+    },
+    {
+      "source": "勉強・自己啓発系 (拡充版)",
+      "count": 39,
+      "target": 20,
+      "success": true,
+      "items": [
+        {
+          "title": "7つの習慣の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "7つの習慣",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "アドラー心理学の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "アドラー心理学",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "ISSUE DRIVENの実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "ISSUE DRIVEN",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "バレットジャーナルの実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "バレットジャーナル",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "タスク管理の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "タスク管理",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "生産性向上の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "生産性向上",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "時間管理術の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "時間管理術",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "Getting Things Doneの実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "Getting Things Done",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "マインドフルネスの実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "マインドフルネス",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        },
+        {
+          "title": "ポジティブ心理学の実践的活用法 - ビジネス書・自己啓発編",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "ポジティブ心理学",
+          "type": "book_review",
+          "subCategory": "ビジネス書・自己啓発"
+        }
+      ],
+      "breakdown": {
+        "bookContent": 24,
+        "newsContent": 0,
+        "progressContent": 15
+      }
+    }
+  ],
+  "summary": {
+    "totalCount": 137,
+    "totalTarget": 89,
+    "achievementRate": 153.9,
+    "successfulSources": 3
+  }
+}

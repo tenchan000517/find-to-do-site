@@ -1,0 +1,631 @@
+{
+  "executionDate": "2025-06-24T03:25:45.555Z",
+  "processingTime": "25.0",
+  "summary": {
+    "totalSources": 6,
+    "successfulSources": 4,
+    "totalItems": 202,
+    "targetItems": 281,
+    "averageQuality": 33.333333333333336
+  },
+  "sources": [
+    {
+      "source": "GitHub Trending",
+      "count": 89,
+      "target": 102,
+      "success": true,
+      "items": [
+        {
+          "name": "/login?return_to=%2FuBlockOrigin%2FuBOL-home",
+          "url": "https://github.com/login?return_to=%2FuBlockOrigin%2FuBOL-home",
+          "language": "javascript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2Fmermaid-js%2Fmermaid-cli",
+          "url": "https://github.com/login?return_to=%2Fmermaid-js%2Fmermaid-cli",
+          "language": "javascript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2FTheOdinProject%2Fjavascript-exercises",
+          "url": "https://github.com/login?return_to=%2FTheOdinProject%2Fjavascript-exercises",
+          "language": "javascript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2FMHSanaei%2F3x-ui",
+          "url": "https://github.com/login?return_to=%2FMHSanaei%2F3x-ui",
+          "language": "javascript",
+          "period": "daily"
+        },
+        {
+          "name": "sponsors/stdlib-js",
+          "url": "https://github.com/sponsors/stdlib-js",
+          "language": "javascript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2Fkortix-ai%2Fsuna",
+          "url": "https://github.com/login?return_to=%2Fkortix-ai%2Fsuna",
+          "language": "typescript",
+          "period": "daily"
+        },
+        {
+          "name": "sponsors/Dokploy",
+          "url": "https://github.com/sponsors/Dokploy",
+          "language": "typescript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2FTriliumNext%2FTrilium",
+          "url": "https://github.com/login?return_to=%2FTriliumNext%2FTrilium",
+          "language": "typescript",
+          "period": "daily"
+        },
+        {
+          "name": "sponsors/louislam",
+          "url": "https://github.com/sponsors/louislam",
+          "language": "typescript",
+          "period": "daily"
+        },
+        {
+          "name": "/login?return_to=%2Fantiwork%2Fhelper",
+          "url": "https://github.com/login?return_to=%2Fantiwork%2Fhelper",
+          "language": "typescript",
+          "period": "daily"
+        }
+      ],
+      "quality": 30
+    },
+    {
+      "source": "はてなブックマークIT",
+      "count": 0,
+      "target": 53,
+      "success": false,
+      "items": [],
+      "quality": 0
+    },
+    {
+      "source": "Hacker News",
+      "count": 30,
+      "target": 10,
+      "success": true,
+      "items": [
+        {
+          "id": 44356890,
+          "title": "Vera C. Rubin Observatory first images",
+          "url": "https://rubinobservatory.org/news/rubin-first-look/cosmic-treasure-chest",
+          "score": 308,
+          "by": "phsilva",
+          "time": "2025-06-23T15:41:00.000Z",
+          "descendants": 73
+        },
+        {
+          "id": 44356248,
+          "title": "Backyard Coffee and Jazz in Kyoto",
+          "url": "https://thedeletedscenes.substack.com/p/backyard-coffee-and-jazz-in-kyoto",
+          "score": 426,
+          "by": "wyclif",
+          "time": "2025-06-23T14:37:05.000Z",
+          "descendants": 182
+        },
+        {
+          "id": 44362165,
+          "title": "Excalidraw+ Is Now SoC 2 Certified",
+          "url": "https://plus.excalidraw.com/blog/excalidraw-soc2",
+          "score": 38,
+          "by": "gmays",
+          "time": "2025-06-24T01:54:12.000Z",
+          "descendants": 15
+        },
+        {
+          "id": 44327163,
+          "title": "'Dragon prince' dinosaur discovery 'rewrites' T.rex family tree",
+          "url": "https://www.bbc.com/news/articles/cy8dzv3vp5jo",
+          "score": 23,
+          "by": "gmays",
+          "time": "2025-06-20T12:43:07.000Z",
+          "descendants": 0
+        },
+        {
+          "id": 44328575,
+          "title": "Is Mathematics Mostly Chaos or Mostly Order?",
+          "url": "https://www.quantamagazine.org/is-mathematics-mostly-chaos-or-mostly-order-20250620/",
+          "score": 13,
+          "by": "baruchel",
+          "time": "2025-06-20T15:21:26.000Z",
+          "descendants": 0
+        },
+        {
+          "id": 44333033,
+          "title": "The FPGA turns 40",
+          "url": "https://www.adiuvoengineering.com/post/the-fpga-turns-40",
+          "score": 59,
+          "by": "voxadam",
+          "time": "2025-06-20T23:19:52.000Z",
+          "descendants": 31
+        },
+        {
+          "id": 44356788,
+          "title": "Fairphone 6 is switching to a new design that's even more sustainable",
+          "url": "https://www.androidcentral.com/phones/fairphone-6-official-render-leaks-showcase-its-sustainable-design",
+          "score": 155,
+          "by": "Bluestein",
+          "time": "2025-06-23T15:29:51.000Z",
+          "descendants": 173
+        },
+        {
+          "id": 44356646,
+          "title": "How I use my terminal",
+          "url": "https://jyn.dev/how-i-use-my-terminal/",
+          "score": 310,
+          "by": "todsacerdoti",
+          "time": "2025-06-23T15:14:29.000Z",
+          "descendants": 152
+        },
+        {
+          "id": 44361480,
+          "title": "Marble Blast",
+          "url": "https://marbleblast.vaniverse.io/",
+          "score": 28,
+          "by": "sunday_serif",
+          "time": "2025-06-24T00:01:16.000Z",
+          "descendants": 4
+        },
+        {
+          "id": 44326382,
+          "title": "A Deep Dive into Solid Queue for Ruby on Rails",
+          "url": "https://blog.appsignal.com/2025/06/18/a-deep-dive-into-solid-queue-for-ruby-on-rails.html",
+          "score": 68,
+          "by": "fbuilesv",
+          "time": "2025-06-20T10:31:09.000Z",
+          "descendants": 28
+        }
+      ],
+      "quality": 70
+    },
+    {
+      "source": "Zenn API",
+      "count": 70,
+      "target": 80,
+      "success": true,
+      "highQualityCount": 16,
+      "items": [
+        {
+          "id": 422179,
+          "title": "Claude Code 逆引きコマンド事典",
+          "slug": "84e92429698177",
+          "url": "https://zenn.dev/ml_bear/articles/84e92429698177",
+          "emoji": "📝",
+          "topics": [],
+          "published_at": "2025-06-23T08:01:48.381+09:00",
+          "body_letters_count": 13052,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 173,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422613,
+          "title": "普通のエンジニアが、 4 年かけて個人開発の OSS で GitHub Star 2.3k を獲得するまでに考えたこと",
+          "slug": "25581c19b45c5f",
+          "url": "https://zenn.dev/yohamta/articles/25581c19b45c5f",
+          "emoji": "🌐",
+          "topics": [],
+          "published_at": "2025-06-22T20:36:00.369+09:00",
+          "body_letters_count": 10946,
+          "article_type": "idea",
+          "comments_count": 0,
+          "liked_count": 122,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422582,
+          "title": "全人類、いますぐ Discord を使い倒そう",
+          "slug": "discord-yatteiki-2025",
+          "url": "https://zenn.dev/oliver/articles/discord-yatteiki-2025",
+          "emoji": "💬",
+          "topics": [],
+          "published_at": "2025-06-22T17:33:19.553+09:00",
+          "body_letters_count": 2323,
+          "article_type": "idea",
+          "comments_count": 0,
+          "liked_count": 97,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 421648,
+          "title": "Claude Code を初めて使う人向けの実践ガイド",
+          "slug": "86d1edb33da61a",
+          "url": "https://zenn.dev/hokuto_tech/articles/86d1edb33da61a",
+          "emoji": "🐼",
+          "topics": [],
+          "published_at": "2025-06-20T10:14:55.696+09:00",
+          "body_letters_count": 7897,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 423,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422651,
+          "title": "そろそろスマホから開発してみませんか？移動中も開発したくないですか？",
+          "slug": "49369e1f5fb450",
+          "url": "https://zenn.dev/r_kaga/articles/49369e1f5fb450",
+          "emoji": "📱",
+          "topics": [],
+          "published_at": "2025-06-23T13:47:47.713+09:00",
+          "body_letters_count": 5298,
+          "article_type": "idea",
+          "comments_count": 0,
+          "liked_count": 66,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 421829,
+          "title": "Claude Codeを超えたかも！？OpenHands CLIで抽象的な指示から完動するコードを一発生成",
+          "slug": "openhands-cli",
+          "url": "https://zenn.dev/minedia/articles/openhands-cli",
+          "emoji": "🔥",
+          "topics": [],
+          "published_at": "2025-06-20T11:08:02.208+09:00",
+          "body_letters_count": 11829,
+          "article_type": "tech",
+          "comments_count": 2,
+          "liked_count": 127,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422724,
+          "title": "ClaudeのMaxプランによって変わった個人開発のスタイル",
+          "slug": "24768b727ff27c",
+          "url": "https://zenn.dev/ryosuke_horie/articles/24768b727ff27c",
+          "emoji": "🔎",
+          "topics": [],
+          "published_at": "2025-06-23T00:09:38.412+09:00",
+          "body_letters_count": 5547,
+          "article_type": "idea",
+          "comments_count": 0,
+          "liked_count": 66,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422251,
+          "title": "Claude Code中心の開発のためのPythonテンプレートの設計",
+          "slug": "claude-code-python-template",
+          "url": "https://zenn.dev/discus0434/articles/claude-code-python-template",
+          "emoji": "🎯",
+          "topics": [],
+          "published_at": "2025-06-21T17:27:45.022+09:00",
+          "body_letters_count": 10790,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 100,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 423042,
+          "title": "Biome v2の型推論を試して限界を知る",
+          "slug": "biome-v2-type-inference",
+          "url": "https://zenn.dev/uhyo/articles/biome-v2-type-inference",
+          "emoji": "🌳",
+          "topics": [],
+          "published_at": "2025-06-23T21:43:17.561+09:00",
+          "body_letters_count": 7885,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 60,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422839,
+          "title": "Claude Code時代のアプリ開発手法",
+          "slug": "f8f1d6ff662a92",
+          "url": "https://zenn.dev/itome/articles/f8f1d6ff662a92",
+          "emoji": "📱",
+          "topics": [],
+          "published_at": "2025-06-23T15:27:25.946+09:00",
+          "body_letters_count": 3530,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 47,
+          "source": "Zenn (いいね順)"
+        }
+      ],
+      "quality": 90
+    },
+    {
+      "source": "キャリア系トレンド",
+      "count": 3,
+      "target": 16,
+      "success": false,
+      "items": [
+        {
+          "title": "転職の最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "転職",
+          "rank": 1
+        },
+        {
+          "title": "インターンの最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "インターン",
+          "rank": 2
+        },
+        {
+          "title": "スキルアップの最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "スキルアップ",
+          "rank": 3
+        }
+      ],
+      "quality": 0
+    },
+    {
+      "source": "勉強・自己啓発系",
+      "count": 10,
+      "target": 20,
+      "success": true,
+      "items": [
+        {
+          "title": "7つの習慣の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "7つの習慣",
+          "type": "book_review"
+        },
+        {
+          "title": "アドラー心理学の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "アドラー心理学",
+          "type": "book_review"
+        },
+        {
+          "title": "ISSUE DRIVENの実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "ISSUE DRIVEN",
+          "type": "book_review"
+        },
+        {
+          "title": "バレットジャーナルの実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "バレットジャーナル",
+          "type": "book_review"
+        },
+        {
+          "title": "タスク管理の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "タスク管理",
+          "type": "book_review"
+        },
+        {
+          "title": "生産性向上の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "生産性向上",
+          "type": "book_review"
+        },
+        {
+          "title": "営業力の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "営業力",
+          "type": "book_review"
+        },
+        {
+          "title": "マーケティングの実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "マーケティング",
+          "type": "book_review"
+        },
+        {
+          "title": "失敗の本質の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "失敗の本質",
+          "type": "book_review"
+        },
+        {
+          "title": "孫氏の兵法の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "孫氏の兵法",
+          "type": "book_review"
+        }
+      ],
+      "quality": 10
+    }
+  ],
+  "categorization": {
+    "categories": {
+      "プログラミング": [
+        {
+          "id": 422179,
+          "title": "Claude Code 逆引きコマンド事典",
+          "slug": "84e92429698177",
+          "url": "https://zenn.dev/ml_bear/articles/84e92429698177",
+          "emoji": "📝",
+          "topics": [],
+          "published_at": "2025-06-23T08:01:48.381+09:00",
+          "body_letters_count": 13052,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 173,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 421648,
+          "title": "Claude Code を初めて使う人向けの実践ガイド",
+          "slug": "86d1edb33da61a",
+          "url": "https://zenn.dev/hokuto_tech/articles/86d1edb33da61a",
+          "emoji": "🐼",
+          "topics": [],
+          "published_at": "2025-06-20T10:14:55.696+09:00",
+          "body_letters_count": 7897,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 423,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 421829,
+          "title": "Claude Codeを超えたかも！？OpenHands CLIで抽象的な指示から完動するコードを一発生成",
+          "slug": "openhands-cli",
+          "url": "https://zenn.dev/minedia/articles/openhands-cli",
+          "emoji": "🔥",
+          "topics": [],
+          "published_at": "2025-06-20T11:08:02.208+09:00",
+          "body_letters_count": 11829,
+          "article_type": "tech",
+          "comments_count": 2,
+          "liked_count": 127,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422251,
+          "title": "Claude Code中心の開発のためのPythonテンプレートの設計",
+          "slug": "claude-code-python-template",
+          "url": "https://zenn.dev/discus0434/articles/claude-code-python-template",
+          "emoji": "🎯",
+          "topics": [],
+          "published_at": "2025-06-21T17:27:45.022+09:00",
+          "body_letters_count": 10790,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 100,
+          "source": "Zenn (いいね順)"
+        },
+        {
+          "id": 422839,
+          "title": "Claude Code時代のアプリ開発手法",
+          "slug": "f8f1d6ff662a92",
+          "url": "https://zenn.dev/itome/articles/f8f1d6ff662a92",
+          "emoji": "📱",
+          "topics": [],
+          "published_at": "2025-06-23T15:27:25.946+09:00",
+          "body_letters_count": 3530,
+          "article_type": "tech",
+          "comments_count": 0,
+          "liked_count": 47,
+          "source": "Zenn (いいね順)"
+        }
+      ],
+      "AI技術": [
+        {
+          "id": 44356788,
+          "title": "Fairphone 6 is switching to a new design that's even more sustainable",
+          "url": "https://www.androidcentral.com/phones/fairphone-6-official-render-leaks-showcase-its-sustainable-design",
+          "score": 155,
+          "by": "Bluestein",
+          "time": "2025-06-23T15:29:51.000Z",
+          "descendants": 173
+        },
+        {
+          "id": 44326382,
+          "title": "A Deep Dive into Solid Queue for Ruby on Rails",
+          "url": "https://blog.appsignal.com/2025/06/18/a-deep-dive-into-solid-queue-for-ruby-on-rails.html",
+          "score": 68,
+          "by": "fbuilesv",
+          "time": "2025-06-20T10:31:09.000Z",
+          "descendants": 28
+        }
+      ],
+      "ウェブ開発": [],
+      "キャリア": [
+        {
+          "title": "転職の最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "転職",
+          "rank": 1
+        },
+        {
+          "title": "スキルアップの最新トレンド",
+          "source": "トレンドキーワード生成",
+          "category": "キャリア",
+          "keyword": "スキルアップ",
+          "rank": 3
+        }
+      ],
+      "ビジネス": [
+        {
+          "title": "マーケティングの実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "マーケティング",
+          "type": "book_review"
+        }
+      ],
+      "勉強・自己啓発": [
+        {
+          "title": "7つの習慣の実践的活用法",
+          "source": "書籍コンテンツ",
+          "category": "勉強・自己啓発",
+          "theme": "7つの習慣",
+          "type": "book_review"
+        }
+      ]
+    },
+    "totalCategorized": 11,
+    "categorizeRate": 25.6
+  },
+  "recommendations": [
+    {
+      "source": "GitHub Trending",
+      "action": "INVESTIGATE_ALTERNATIVES",
+      "priority": "LOW",
+      "reason": "現状では信頼性が低い"
+    },
+    {
+      "source": "はてなブックマークIT",
+      "action": "INVESTIGATE_ALTERNATIVES",
+      "priority": "LOW",
+      "reason": "現状では信頼性が低い"
+    },
+    {
+      "source": "Hacker News",
+      "action": "IMPLEMENT",
+      "priority": "HIGH",
+      "reason": "高品質で安定した情報源"
+    },
+    {
+      "source": "Zenn API",
+      "action": "IMPLEMENT",
+      "priority": "HIGH",
+      "reason": "高品質で安定した情報源"
+    },
+    {
+      "source": "キャリア系トレンド",
+      "action": "INVESTIGATE_ALTERNATIVES",
+      "priority": "LOW",
+      "reason": "現状では信頼性が低い"
+    },
+    {
+      "source": "勉強・自己啓発系",
+      "action": "INVESTIGATE_ALTERNATIVES",
+      "priority": "LOW",
+      "reason": "現状では信頼性が低い"
+    },
+    {
+      "feature": "重複回避システム",
+      "action": "IMPLEMENT",
+      "priority": "HIGH",
+      "reason": "記事の質向上に必須"
+    },
+    {
+      "feature": "曜日別ローテーション",
+      "action": "IMPLEMENT",
+      "priority": "MEDIUM",
+      "reason": "コンテンツの多様性確保"
+    }
+  ]
+}

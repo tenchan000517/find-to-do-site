@@ -127,7 +127,7 @@ export async function getPostBySlug(slug: string) {
           mdxOptions: {
             remarkPlugins: [
               remarkGfm,
-              [remarkToc, { heading: '目次', tight: true }]
+              [remarkToc, { heading: 'Table of Contents', tight: true }]
             ],
             rehypePlugins: [
               rehypeHighlight,
@@ -174,10 +174,10 @@ function enhanceMarkdownContent(content: string): string {
     enhanced = enhanced.replace(/```(\w+)$/gm, '```');
     
     // 目次用のマーカーを追加（まだなければ）
-    if (!enhanced.includes('## 目次')) {
+    if (!enhanced.includes('## Table of Contents') && !enhanced.includes('## 目次')) {
       const titleEndIndex = enhanced.indexOf('\n\n');
       if (titleEndIndex !== -1) {
-        enhanced = enhanced.slice(0, titleEndIndex + 2) + '## 目次\n\n' + enhanced.slice(titleEndIndex + 2);
+        enhanced = enhanced.slice(0, titleEndIndex + 2) + '## Table of Contents\n\n' + enhanced.slice(titleEndIndex + 2);
       }
     }
     

@@ -9,9 +9,75 @@ export const CATEGORIES = [
     'プログラミング',
     'ウェブ開発',
     'AI技術',
+    '生成AI',
     'キャリア',
     'ビジネス',
 ];
+
+/**
+ * 曜日別カテゴリ選択機能
+ */
+export function getDayOfWeekCategory(): string {
+  const dayOfWeek = new Date().getDay();
+  const categoryMap = {
+    0: 'ウェブ開発',           // 日曜日
+    1: 'キャリア',             // 月曜日
+    2: '生成AI',               // 火曜日
+    3: 'ビジネス',             // 水曜日
+    4: 'プログラミング',       // 木曜日
+    5: '勉強・自己啓発',       // 金曜日
+    6: 'データサイエンス・AI開発' // 土曜日
+  };
+  return categoryMap[dayOfWeek as keyof typeof categoryMap] || 'プログラミング';
+}
+
+/**
+ * 曜日名を取得
+ */
+export function getDayOfWeekString(): string {
+  const dayOfWeek = new Date().getDay();
+  const dayNames = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'];
+  return dayNames[dayOfWeek];
+}
+
+/**
+ * 強化されたトレンド取得機能
+ */
+export async function getTrendingTopicsEnhanced(category?: string): Promise<{
+  topics: string[],
+  trendData: any[],
+  selectedCategory: string
+}> {
+  try {
+    const selectedCategory = category || getDayOfWeekCategory();
+    console.log(`📅 選択されたカテゴリ: ${selectedCategory} (${getDayOfWeekString()})`);
+    
+    // 新トレンドシステムから取得
+    const { getTodaysTrendsByCategory } = await import('./trends');
+    const todaysTrends = await getTodaysTrendsByCategory();
+    const categoryTrends = todaysTrends[selectedCategory] || [];
+    
+    console.log(`📊 ${selectedCategory}のトレンド: ${categoryTrends.length}件`);
+    
+    return {
+      topics: categoryTrends.slice(0, 5),
+      trendData: categoryTrends.slice(0, 15), // プロンプト用詳細データ
+      selectedCategory
+    };
+  } catch (error) {
+    console.error('強化トレンド取得エラー:', error);
+    
+    // フォールバック: 既存システム
+    const selectedCategory = category || getDayOfWeekCategory();
+    const topics = await getTrendingTopics(selectedCategory);
+    
+    return {
+      topics,
+      trendData: [],
+      selectedCategory
+    };
+  }
+}
 
 /**
  * トレンドトピックの取得（変更済み）

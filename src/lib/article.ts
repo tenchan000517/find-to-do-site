@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import { generateWithGemini } from './gemini';
 import { getExistingSlugs, generateSlug } from './blog';
 import { createArticlePrompt } from './prompt';
-import { fetchRelatedNews } from './trends';
+import { fetchRelatedNews, fetchRelatedNewsFromTrends } from './trends';
 
 // 最大試行回数
 const MAX_RETRIES = 3;
@@ -29,59 +29,170 @@ function getCategoryDirectoryName(category: string): string {
 }
 
 /**
- * 参考情報セクションを生成する
+ * 参考情報セクションを生成する（改善版）
  */
-async function generateSourceReferences(topic: string, _category: string): Promise<string> {
-  try {
-    console.log('参考情報セクション生成開始:', topic);
-    
-    // 関連ニュースを取得（最大3件）
-    const relatedNews = await fetchRelatedNews(topic, 3);
-    
-    if (relatedNews.length === 0) {
-      console.log('ニュースが取得できなかったためフォールバックを使用');
-      return `本記事は最新の業界情報と一般的な知識に基づいて作成しています。
-
-*※本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*`;
-    }
-    
-    console.log(`取得したニュース数: ${relatedNews.length}`);
-    
-    let references = '本記事の作成にあたり、以下の情報源を参考にしました：\n\n';
-    
-    relatedNews.forEach((news, index) => {
-      try {
-        // 各フィールドを安全に処理
-        const title = (news.title || 'タイトルなし').trim();
-        const source = (news.source || 'Google News').trim();
-        const pubDate = news.pubDate ? new Date(news.pubDate).toLocaleDateString('ja-JP') : '日付不明';
-        const link = (news.link || '').trim();
-        
-        references += `${index + 1}. **${title}**\n`;
-        references += `   ソース: ${source}\n`;
-        references += `   日付: ${pubDate}\n`;
-        
-        // URLが有効である場合のみ追加
-        if (link && link.startsWith('http')) {
-          references += `   URL: ${link}\n`;
-        }
-        references += '\n';
-      } catch (newsError) {
-        console.error('ニュースアイテム処理エラー:', newsError);
-        references += `${index + 1}. 情報源処理エラー\n\n`;
+async function generateSourceReferences(topic: string, category: string): Promise<string> {
+  const MAX_RETRIES = 3;
+  let lastError = null;
+  
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      console.log(`🔗 参考情報セクション生成開始 (試行 ${attempt}/${MAX_RETRIES}):`, topic);
+      
+      // 🆕 新システム: トレンドベースの関連ニュース取得を優先
+      let relatedNews = await fetchRelatedNewsFromTrends(topic, 5);
+      
+      // フォールバック1: 通常のニュース検索
+      if (relatedNews.length === 0) {
+        console.log('🔄 トレンドベース取得失敗、従来方式にフォールバック');
+        relatedNews = await fetchRelatedNews(topic, 5);
       }
-    });
-    
-    references += '\n*※ 本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*';
-    
-    console.log('参考情報セクション生成完了');
-    return references;
-  } catch (error) {
-    console.error('参考情報セクションの生成に失敗しました:', error);
-    return `本記事は最新の業界情報と一般的な知識に基づいて作成しています。
-
-*※本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*`;
+      
+      // フォールバック2: 短縮されたトピックで再試行
+      if (relatedNews.length === 0 && topic.length > 20) {
+        const shortTopic = topic.split(/[：:・を]/)[0].trim();
+        console.log(`🔄 短縮トピック再試行: "${shortTopic}"`);
+        relatedNews = await fetchRelatedNews(shortTopic, 5);
+      }
+      
+      // 品質フィルタリング: 実在URLのみ選択
+      const qualityNews = relatedNews.filter(news => {
+        const link = (news.link || '').trim();
+        return link && 
+               link.startsWith('http') && 
+               !link.includes('example.com') &&
+               !link.includes('localhost') &&
+               news.title && 
+               news.title.length > 10;
+      });
+      
+      console.log(`✅ 品質フィルタ後: ${qualityNews.length}件 (元: ${relatedNews.length}件)`);
+      
+      // 最低3件確保できた場合のみ続行
+      if (qualityNews.length >= 3) {
+        let references = '本記事の作成にあたり、以下の情報源を参考にしました：\n\n';
+        
+        qualityNews.slice(0, 5).forEach((news, index) => {
+          try {
+            // 各フィールドを安全に処理
+            const title = news.title.trim();
+            const source = (news.source || 'Google News').trim();
+            const pubDate = news.pubDate ? new Date(news.pubDate).toLocaleDateString('ja-JP') : '日付不明';
+            const link = news.link.trim();
+            
+            references += `${index + 1}. **${title}**\n`;
+            references += `   ソース: ${source}\n`;
+            references += `   日付: ${pubDate}\n`;
+            references += `   URL: ${link}\n`;
+            
+            // トレンドスコアがある場合は表示
+            if (news.trendScore) {
+              references += `   評価: ${news.trendScore}ポイント\n`;
+            }
+            
+            references += '\n';
+          } catch (newsError) {
+            console.error('ニュースアイテム処理エラー:', newsError);
+            references += `${index + 1}. 情報源処理エラー\n\n`;
+          }
+        });
+        
+        references += '\n*※ 本記事の情報は執筆時点でのものであり、最新の情報については各公式サイトをご確認ください。*';
+        
+        console.log('🔗 参考情報セクション生成完了');
+        return references;
+      }
+      
+      // 品質基準を満たさない場合はリトライ
+      if (attempt < MAX_RETRIES) {
+        console.log(`⚠️ 品質基準未達成 (${qualityNews.length}件)、${2000}ms後に再試行...`);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+      
+    } catch (error) {
+      lastError = error;
+      console.error(`参考情報取得エラー (試行 ${attempt}):`, error);
+      
+      if (attempt < MAX_RETRIES) {
+        console.log(`${1000 * attempt}ms後に再試行...`);
+        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+      }
+    }
   }
+  
+  // 全ての試行が失敗した場合はフォールバック
+  console.log('📝 全試行失敗、カテゴリ別フォールバックを使用');
+  console.error('最終エラー:', lastError);
+  return generateCategorySpecificFallback(category);
+}
+
+/**
+ * カテゴリ別フォールバック情報生成
+ */
+function generateCategorySpecificFallback(category: string): string {
+  const categoryFallbacks: Record<string, string> = {
+    'プログラミング': `本記事は最新のプログラミング技術動向と一般的な開発知識に基づいて作成しています。
+
+参考となる情報源：
+1. **MDN Web Docs** - Mozilla Developer Network
+   URL: https://developer.mozilla.org/
+2. **Stack Overflow** - 開発者コミュニティ
+   URL: https://stackoverflow.com/
+3. **GitHub** - オープンソースプロジェクト
+   URL: https://github.com/
+
+*※本記事の情報は執筆時点でのものであり、最新の情報については各公式ドキュメントをご確認ください。*`,
+
+    'AI技術': `本記事は最新のAI・機械学習技術動向と研究情報に基づいて作成しています。
+
+参考となる情報源：
+1. **OpenAI Research** - AI研究の最前線
+   URL: https://openai.com/research/
+2. **Hugging Face** - AI/MLコミュニティ
+   URL: https://huggingface.co/
+3. **Papers with Code** - 論文と実装
+   URL: https://paperswithcode.com/
+
+*※本記事の情報は執筆時点でのものであり、最新の研究動向については各機関の公式発表をご確認ください。*`,
+
+    'ウェブ開発': `本記事は最新のウェブ開発技術動向と業界標準に基づいて作成しています。
+
+参考となる情報源：
+1. **Web.dev** - Google Web Fundamentals
+   URL: https://web.dev/
+2. **Can I Use** - ブラウザ対応状況
+   URL: https://caniuse.com/
+3. **W3C Standards** - Web標準仕様
+   URL: https://www.w3.org/standards/
+
+*※本記事の情報は執筆時点でのものであり、最新のブラウザ対応状況については各仕様書をご確認ください。*`,
+
+    'キャリア': `本記事は最新の転職・キャリア市場動向と業界情報に基づいて作成しています。
+
+参考となる情報源：
+1. **厚生労働省** - 雇用統計・労働市場データ
+   URL: https://www.mhlw.go.jp/
+2. **リクルート キャリア総研** - 転職市場レポート
+   URL: https://www.recruit-career.co.jp/
+3. **経済産業省** - IT人材需給予測
+   URL: https://www.meti.go.jp/
+
+*※本記事の情報は執筆時点でのものであり、最新の市場動向については各機関の公式発表をご確認ください。*`,
+
+    'ビジネス': `本記事は最新のビジネス動向と市場分析に基づいて作成しています。
+
+参考となる情報源：
+1. **日本経済新聞** - 経済・ビジネス情報
+   URL: https://www.nikkei.com/
+2. **東洋経済オンライン** - ビジネス分析
+   URL: https://toyokeizai.net/
+3. **総務省統計局** - 経済統計データ
+   URL: https://www.stat.go.jp/
+
+*※本記事の情報は執筆時点でのものであり、最新の市場情報については各機関の公式発表をご確認ください。*`
+  };
+
+  return categoryFallbacks[category] || categoryFallbacks['プログラミング'];
 }
 
 /**
@@ -184,6 +295,106 @@ function fixCodeBlockLanguages(content: string): string {
 
 /**
  * AIを使用して記事を生成（エラー処理と再試行機能強化版）
+ */
+/**
+ * 強化記事生成（新トレンドデータ対応版）
+ */
+export async function generateEnhancedArticle(
+  topic: string, 
+  category: string,
+  trendData: any[] = []
+): Promise<{ title: string, content: string }> {
+  let lastError = null;
+  
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      console.log(`強化記事生成試行 ${attempt}/${MAX_RETRIES} (トレンド: ${trendData.length}件)`);
+      
+      // 強化プロンプトを生成
+      const { createEnhancedArticlePrompt } = await import('./prompt');
+      const prompt = await createEnhancedArticlePrompt(topic, category, trendData);
+      console.log(`強化プロンプト長: ${prompt.length}文字`);
+      
+      // 各試行でトークン数を調整
+      const maxOutputTokens = TOKEN_SIZES[attempt - 1] || TOKEN_SIZES[TOKEN_SIZES.length - 1];
+      console.log(`出力トークン上限: ${maxOutputTokens}`);
+      
+      // 環境変数からAPIキーを取得
+      const apiKey = process.env.GEMINI_API_KEY;
+      
+      // タイムアウト設定付きでGemini API呼び出し
+      const timeout = 45000; // 45秒
+      
+      // タイムアウトPromiseを作成
+      const timeoutPromise = new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error('API_TIMEOUT')), timeout);
+      });
+      
+      // API呼び出しPromise
+      const apiPromise = generateWithGemini(prompt, { maxOutputTokens }, apiKey);
+      
+      // Promise.raceでタイムアウト処理
+      const startTime = Date.now();
+      const rawContent = await Promise.race([apiPromise, timeoutPromise]) as string;
+      const endTime = Date.now();
+      
+      console.log(`API呼び出し時間: ${endTime - startTime}ms`);
+      
+      // コードブロックの言語指定子を修正
+      const content = fixCodeBlockLanguages(rawContent);
+      
+      // タイトルを抽出（最初の# で始まる行）
+      const titleMatch = content.match(/^# (.+)$/m);
+      if (!titleMatch) {
+        console.warn('タイトルが見つかりませんでした。トピックをタイトルとして使用します。');
+      }
+      const title = titleMatch ? titleMatch[1] : topic;
+      
+      console.log(`タイトル: ${title}`);
+      console.log(`生成された記事の長さ: ${content.length}文字`);
+      console.log(`トレンドデータ活用: ${trendData.length}件`);
+      
+      return { title, content };
+    } catch (error: any) {
+      lastError = error;
+      
+      // エラー処理（既存と同じ）
+      let errorType = 'unknown';
+      let errorMessage = error.message || '不明なエラー';
+      
+      if (errorMessage === 'API_TIMEOUT') {
+        errorType = 'timeout';
+        console.error(`[${errorType}] APIがタイムアウトしました。プロンプトが長すぎるか、サーバーが応答していません。`);
+      } else if (error.status === 429 || errorMessage.includes('rate') || errorMessage.includes('quota')) {
+        errorType = 'rate_limit';
+        console.error(`[${errorType}] API制限に達しました。しばらく待ってから再試行してください。`);
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * 3));
+      } else if (error.status === 401 || errorMessage.includes('auth') || errorMessage.includes('key')) {
+        errorType = 'auth';
+        console.error(`[${errorType}] 認証エラー: APIキーが無効または期限切れです。`);
+        break;
+      } else if (errorMessage.includes('fetch')) {
+        errorType = 'network';
+        console.error(`[${errorType}] ネットワークエラー: APIサーバーに接続できません。インターネット接続を確認してください。`);
+      } else {
+        console.error(`[${errorType}] エラー: ${errorMessage}`);
+      }
+      
+      console.error(`詳細: ${JSON.stringify(error, null, 2)}`);
+      
+      if (attempt < MAX_RETRIES && errorType !== 'auth') {
+        console.log(`${RETRY_DELAY/1000}秒後に再試行します (${attempt}/${MAX_RETRIES})...`);
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+      }
+    }
+  }
+  
+  // すべての試行が失敗した場合
+  throw new Error(`強化記事生成に失敗しました。${MAX_RETRIES}回試行しましたが成功しませんでした。最後のエラー: ${lastError?.message || '不明なエラー'}`);
+}
+
+/**
+ * 既存の記事生成（フォールバック用）
  */
 export async function generateArticle(topic: string, category: string): Promise<{ title: string, content: string }> {
   let lastError = null;
