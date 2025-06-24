@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Users, Lightbulb, Play, Briefcase, Sparkles } from 'lucide-react';
+import { useEffect } from 'react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -117,6 +118,30 @@ const cases = [
 ];
 
 export default function EventServicePage() {
+  // GA4 イベント制作ページビュー追跡
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      // 基本的なページビュー追跡
+      window.gtag('event', 'service_view', {
+        event_category: 'service_engagement',
+        service_type: 'event',
+        event_label: window.location.pathname
+      });
+
+      // Enhanced Ecommerce: サービス詳細閲覧（商品ビュー相当）
+      window.gtag('event', 'view_item', {
+        currency: 'JPY',
+        value: 30000,
+        items: [{
+          item_id: 'event_service',
+          item_name: 'イベント制作',
+          item_category: 'service',
+          price: 30000
+        }]
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-0">
       {/* ヒーローセクション */}

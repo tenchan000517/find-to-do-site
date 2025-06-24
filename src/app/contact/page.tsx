@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Code, CalendarDays, Users } from 'lucide-react';
+import { useEffect } from 'react';
 
 // 既存のContactFormをインポート
 import { ContactForm } from '@/components/contact/ContactForm';
@@ -28,6 +29,22 @@ const staggerContainer = {
 };
 
 export default function ContactPage() {
+  // GA4 お問い合わせ開始追跡（購入開始相当）
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'begin_checkout', {
+        currency: 'JPY',
+        value: 50000,
+        items: [{
+          item_id: 'general_service',
+          item_name: 'FIND to DO サービス',
+          item_category: 'service',
+          price: 50000
+        }]
+      });
+    }
+  }, []);
+
   // ContactPage and FAQ schema for structured data
   const contactPageSchema = {
     '@context': 'https://schema.org',

@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import { AnimatePresence } from 'framer-motion';
 import { CommonSection } from '@/components/layout/CommonSection';
 import { Breadcrumb } from '@/components/seo/Breadcrumb';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -262,6 +263,20 @@ export default function RootLayout({
           </AnimatePresence>
           <Footer />
         </div>
+        
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -221,6 +221,15 @@ export function DiscordJoin() {
                             className="px-12 py-6 bg-orange-500 text-white rounded-lg text-2xl hover:bg-orange-600 transition-colors"
                             target="_blank" // 別タブで開く
                             rel="noopener noreferrer" // セキュリティのために追加
+                            onClick={() => {
+                                if (typeof window !== 'undefined' && window.gtag) {
+                                    window.gtag('event', 'discord_join_click', {
+                                        event_category: 'community_engagement',
+                                        event_label: 'discord_invite',
+                                        outbound: true
+                                    });
+                                }
+                            }}
                         >
                             すぐに参加する
                         </a>

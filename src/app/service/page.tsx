@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Code, CalendarDays, Users, ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -27,6 +28,17 @@ const staggerContainer = {
 };
 
 export default function ServicePage() {
+    // GA4 サービスページビュー追跡
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'service_view', {
+                event_category: 'service_engagement',
+                service_type: 'general',
+                event_label: window.location.pathname
+            });
+        }
+    }, []);
+
     // Service schema for structured data
     const serviceSchema = {
         '@context': 'https://schema.org',

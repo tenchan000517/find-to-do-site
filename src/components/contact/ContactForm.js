@@ -77,6 +77,16 @@ export function ContactForm() {
       }
       
       setSubmitSuccess(true);
+      
+      // GA4 コンバージョン追跡
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'contact_form_submit', {
+          event_category: 'lead_generation',
+          event_label: 'main_contact_form',
+          value: 1
+        });
+      }
+      
       setFormData({
         company: '',
         name: '',

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Users, ListChecks, Medal, BarChart, Clock, Search, MessageSquare, Shield, UserPlus, Trophy, Check } from 'lucide-react';
+import { useEffect } from 'react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -159,6 +160,30 @@ const cases = [
 ];
 
 export default function InternServicePage() {
+  // GA4 インターン生紹介ページビュー追跡
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      // 基本的なページビュー追跡
+      window.gtag('event', 'service_view', {
+        event_category: 'service_engagement',
+        service_type: 'intern',
+        event_label: window.location.pathname
+      });
+
+      // Enhanced Ecommerce: サービス詳細閲覧（商品ビュー相当）
+      window.gtag('event', 'view_item', {
+        currency: 'JPY',
+        value: 20000,
+        items: [{
+          item_id: 'intern_service',
+          item_name: 'インターン生紹介',
+          item_category: 'service',
+          price: 20000
+        }]
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-0">
       {/* ヒーローセクション */}
