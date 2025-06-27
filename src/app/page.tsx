@@ -12,6 +12,8 @@ import { CommonSection } from '@/components/layout/CommonSection';
 // 新しいコンポーネントのインポート
 import { BusinessModel } from '@/components/sections/BusinessModel';
 import { DiscordJoin } from '@/components/community/DiscordJoin';
+import StudentOpportunityHighlight from '@/components/sections/StudentOpportunityHighlight';
+import EnterpriseValueHighlight from '@/components/sections/EnterpriseValueHighlight';
 
 import { fadeInUp, staggerContainer } from '@/utils/animations';
 
@@ -35,8 +37,14 @@ export default function Home() {
         {/* 企業向け価格比較セクション */}
         <PriceComparisonSection />
         
+        {/* 企業向け価値ハイライト - ROI・従来採用比較 */}
+        <EnterpriseValueHighlight />
+        
         {/* 「インターン→メンター」の循環を説明する新セクション */}
         <BusinessModel />
+        
+        {/* 学生向け機会ハイライト - リアル体験・挑戦機会 */}
+        <StudentOpportunityHighlight />
         
         {/* 開発サービス紹介セクション（3サービスラインに更新） */}
         <ServicesSection />
