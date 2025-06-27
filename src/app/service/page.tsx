@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Code, CalendarDays, Users, ArrowRight } from 'lucide-react';
+import { Code, CalendarDays, Users, ArrowRight, TrendingUp, Target, Clock } from 'lucide-react';
 import { useEffect } from 'react';
 
 const fadeInUp = {
@@ -375,6 +375,67 @@ export default function ServicePage() {
                 </div>
             </section>
 
+            {/* ROIセクション */}
+            <section className="py-16 md:py-24 bg-blue-50">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            教育投資としての持続可能な価値創造
+                        </h2>
+                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            単なるコスト削減ではなく、社会的価値と経済的価値を両立する新しいビジネスモデル
+                        </p>
+                    </motion.div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            {
+                                icon: TrendingUp,
+                                title: "コスト効率",
+                                value: "1/10以下",
+                                description: "従来の外注コストと比較して異次元のコストパフォーマンスを実現",
+                                color: "blue"
+                            },
+                            {
+                                icon: Target,
+                                title: "人材育成ROI",
+                                value: "200%+",
+                                description: "インターン生がメンターに成長、長期的な人材パイプラインを入手",
+                                color: "green"
+                            },
+                            {
+                                icon: Clock,
+                                title: "ブランディング価値",
+                                value: "永続的",
+                                description: "次世代育成に貢献する企業としての長期的ブランディング効果",
+                                color: "orange"
+                            }
+                        ].map((metric, index) => (
+                            <motion.div
+                                key={index}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeInUp}
+                                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                            >
+                                <metric.icon className={`w-12 h-12 text-${metric.color}-600 mb-4`} />
+                                <h3 className="text-xl font-bold mb-2">{metric.title}</h3>
+                                <div className={`text-2xl font-bold text-${metric.color}-600 mb-2`}>{metric.value}</div>
+                                <p className="text-gray-600">{metric.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* 共通価値セクション */}
             <section className="py-16 md:py-24 bg-gray-50">
                 <div className="container mx-auto px-4 max-w-6xl">
@@ -438,6 +499,87 @@ export default function ServicePage() {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* 従来採用との比較セクション */}
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            従来の採用 vs FIND to DO方式
+                        </h2>
+                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            今までの採用手法とは一線を画す新しいアプローチ
+                        </p>
+                    </motion.div>
+                    
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="overflow-x-auto"
+                    >
+                        <table className="w-full bg-white rounded-lg shadow-lg">
+                            <thead className="bg-blue-600 text-white">
+                                <tr>
+                                    <th className="p-4 text-left">項目</th>
+                                    <th className="p-4 text-left">従来の採用</th>
+                                    <th className="p-4 text-left">FIND to DO方式</th>
+                                    <th className="p-4 text-left">優位性</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    {
+                                        aspect: "コスト",
+                                        traditional: "中途採用費100-300万円\n+ 人件費・面接費",
+                                        findToDo: "プロジェクト型で成果連動\nコストは成果物代のみ",
+                                        advantage: "最大90%コスト削減"
+                                    },
+                                    {
+                                        aspect: "ミスマッチリスク",
+                                        traditional: "面接では見えない\n実務能力が不明",
+                                        findToDo: "実際の業務で能力を確認\n相互理解が深まる",
+                                        advantage: "ミスマッチ発生率が低い"
+                                    },
+                                    {
+                                        aspect: "時間コスト",
+                                        traditional: "書類選考・面接調整\n大量の人事リソースが必要",
+                                        findToDo: "プロジェクト進行中に\n自然に面接・選考が進む",
+                                        advantage: "人事リソースを大幅節約"
+                                    },
+                                    {
+                                        aspect: "企業ブランディング",
+                                        traditional: "求人情報でのアピール\n一方的な情報発信",
+                                        findToDo: "学生が体験した生の声\nリアルな企業魅力を伝達",
+                                        advantage: "信頼性の高い情報発信"
+                                    },
+                                    {
+                                        aspect: "成果物",
+                                        traditional: "人材確保のみ",
+                                        findToDo: "人材確保 + 実用的な\nシステム・成果物",
+                                        advantage: "ダブルメリットを実現"
+                                    }
+                                ].map((row, index) => (
+                                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                                        <td className="p-4 font-medium text-gray-800">{row.aspect}</td>
+                                        <td className="p-4 text-red-600 text-sm whitespace-pre-line">{row.traditional}</td>
+                                        <td className="p-4 text-blue-600 text-sm whitespace-pre-line">{row.findToDo}</td>
+                                        <td className="p-4 text-green-600 font-medium text-sm">{row.advantage}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </motion.div>
                 </div>
             </section>
 

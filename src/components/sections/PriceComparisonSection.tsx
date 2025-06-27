@@ -43,9 +43,9 @@ export default function PriceComparisonSection() {
   // モバイル表示用に短縮されたラベル
   const getLabels = () => {
     if (windowWidth < 768) {
-      return ['Web DX', 'Web3', 'モバイル', 'UI/UX'];
+      return ['小規模DX', '中規模開発', '大規模DX'];
     }
-    return ['WebアプリケーションDX', 'Web3開発', 'モバイルアプリ開発', 'UI/UXデザイン'];
+    return ['小規模DXプロジェクト', '中規模システム開発', '大規模DX推進'];
   };
 
   // Chart data
@@ -53,15 +53,15 @@ export default function PriceComparisonSection() {
     labels: getLabels(),
     datasets: [
       {
-        label: '一般的な外注価格',
-        data: [1000, 1500, 800, 500],
+        label: '従来の外注価格',
+        data: [225, 350, 750],
         backgroundColor: 'rgba(239, 68, 68, 0.7)',
         borderColor: 'rgba(239, 68, 68, 1)',
         borderWidth: 1,
       },
       {
         label: 'FIND to DOの価格',
-        data: [100, 150, 80, 50],
+        data: [20, 55, 140],
         backgroundColor: 'rgba(59, 130, 246, 0.7)',
         borderColor: 'rgba(59, 130, 246, 1)',
         borderWidth: 1,
@@ -108,7 +108,7 @@ export default function PriceComparisonSection() {
       },
       title: {
         display: true,
-        text: windowWidth < 768 ? 'FIND to DOの料金比較' : '一般的な外注価格とFIND to DOの料金比較',
+        text: windowWidth < 768 ? 'FIND to DOの料金比較' : '従来の外注価格とFIND to DOの料金比較',
         font: {
           size: windowWidth < 768 ? 14 : 16,
         }
@@ -138,9 +138,9 @@ export default function PriceComparisonSection() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">開発コストを<span className="text-blue-600">最大90%削減</span></h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">通常の<span className="text-blue-600">1/10以下のコスト</span>で企業DXを実現</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            通常のフリーランスや開発会社への外注より圧倒的なコストパフォーマンスを実現。
+            教育投資としての社会的価値と圧倒的なコスト効率を両立。
             プロの監修による高品質な成果物をお届けします。
           </p>
         </motion.div>
@@ -157,13 +157,20 @@ export default function PriceComparisonSection() {
           </div>
           
           {/* コスト削減メリットの強調表示 */}
-          <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-            {chartData.labels.map((label, index) => (
-              <div key={index} className="bg-blue-50 p-2 md:p-3 rounded-lg text-center">
-                <p className="text-sm md:text-base font-medium">{label}</p>
-                <p className="text-blue-600 font-bold text-lg md:text-xl">
-                  {calculateSavings(chartData.datasets[0].data[index], chartData.datasets[1].data[index])}%削減
-                </p>
+          <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+            {[
+              { category: "小規模DXプロジェクト", traditional: "150-300万円", findToDo: "10-30万円", savings: "最大90%削減", value: "実践的人材育成 + 企業課題解決" },
+              { category: "中規模システム開発", traditional: "200-500万円", findToDo: "30-80万円", savings: "最大84%削減", value: "優秀な人材パイプライン構築" },
+              { category: "大規模DX推進", traditional: "500-1000万円", findToDo: "80-200万円", savings: "最大80%削減", value: "長期的ブランディング価値" }
+            ].map((item, index) => (
+              <div key={index} className="bg-blue-50 p-3 md:p-4 rounded-lg">
+                <p className="text-sm md:text-base font-medium mb-2">{item.category}</p>
+                <div className="space-y-1">
+                  <p className="text-xs md:text-sm text-gray-600">従来: {item.traditional}</p>
+                  <p className="text-xs md:text-sm text-blue-600 font-medium">FIND to DO: {item.findToDo}</p>
+                  <p className="text-blue-600 font-bold text-sm md:text-base">{item.savings}</p>
+                  <p className="text-xs text-green-600 font-medium">{item.value}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -178,16 +185,16 @@ export default function PriceComparisonSection() {
         >
           {[
             {
-              title: '高品質なサービス',
-              description: 'プロフェッショナルメンターによる品質管理と監修で安心のクオリティ',
+              title: '教育投資価値',
+              description: '単なるコスト削減ではなく、優秀な人材発掘・育成への長期投資として機能',
             },
             {
-              title: '迅速な納品',
-              description: '複数のインターン生による並行作業で効率的に開発を進行',
+              title: '社会的インパクト',
+              description: '学生の成長支援を通じて企業ブランディングと社会貢献を同時実現',
             },
             {
-              title: '柔軟な対応',
-              description: '要件の変更や追加にも柔軟に対応し、ご要望に沿った開発を実現',
+              title: 'リスク分散',
+              description: '複数の学生による並行開発でリスクを分散、プロメンターが品質を保証',
             }
           ].map((item, index) => (
             <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-md">

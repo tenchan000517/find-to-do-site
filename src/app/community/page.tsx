@@ -9,6 +9,8 @@ import {
     Smartphone, Monitor, Puzzle, Zap, Play,
     Code, Database, Globe, BarChart3
 } from 'lucide-react';
+import RealExperienceStories from '@/components/sections/RealExperienceStories';
+import UnlimitedOpportunities from '@/components/sections/UnlimitedOpportunities';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -133,25 +135,39 @@ export default function CommunityPage() {
                         variants={fadeInUp}
                         className="text-center text-white max-w-4xl mx-auto"
                     >
-                        <h1 className="text-3xl md:text-5xl font-bold mb-6">コミュニティに参加する</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold mb-6">教科書では学べない「本物の仕事」がここにある</h1>
                         <p className="text-xl mb-8">
-                            FIND to DOのコミュニティに参加して、プロと一緒に学び、実践的なスキルを身につけましょう。
-                            「インターン→メンター」の成長パスで自分のキャリアを築く第一歩を踏み出してください。
+                            理系・文系の果を超えて、リアルな業務を体験し、自分の可能性を発見しよう。
+                            「こんなに面白い仕事があるんだ！」という発見と出会いを。
                         </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
+                                <h3 className="font-bold text-lg mb-2">教育用の模擬体験ではなく</h3>
+                                <p className="text-sm">企業の実際の課題解決に挑戦</p>
+                            </div>
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
+                                <h3 className="font-bold text-lg mb-2">「こんなに面白い仕事が！」</h3>
+                                <p className="text-sm">という発見と出会い</p>
+                            </div>
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
+                                <h3 className="font-bold text-lg mb-2">専攻に関係なく</h3>
+                                <p className="text-sm">様々な職種・業界に挑戦できる環境</p>
+                            </div>
+                        </div>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a
                                 href="https://discord.gg/xQM6NgmwPk"
                                 className="px-8 py-4 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors"
-                                target="_blank" // 別タブで開く
-                                rel="noopener noreferrer" // セキュリティのために追加
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                すぐに参加する
+                                本物の仕事に、本気で挑戦してみませんか？
                             </a>
                             <a
-                                href="#growth-path"
+                                href="#real-experience"
                                 className="px-8 py-4 bg-white text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                             >
-                                成長パスを見る
+                                リアル体験ストーリーを見る
                             </a>
                         </div>
                     </motion.div>
@@ -319,6 +335,12 @@ export default function CommunityPage() {
                     </motion.div>
                 </div>
             </section>
+
+            {/* リアル体験ストーリーセクション */}
+            <RealExperienceStories />
+
+            {/* 制限のない挑戦機会セクション */}
+            <UnlimitedOpportunities />
 
             {/* コミュニティ情報タブ */}
             <section className="py-16 md:py-24 bg-gray-50">
