@@ -14,6 +14,7 @@ import { BusinessModel } from '@/components/sections/BusinessModel';
 import { DiscordJoin } from '@/components/community/DiscordJoin';
 import StudentOpportunityHighlight from '@/components/sections/StudentOpportunityHighlight';
 import EnterpriseValueHighlight from '@/components/sections/EnterpriseValueHighlight';
+import EnterpriseRecruitmentRevolution from '@/components/sections/EnterpriseRecruitmentRevolution';
 
 import { fadeInUp, staggerContainer } from '@/utils/animations';
 
@@ -34,29 +35,29 @@ export default function Home() {
         variants={fadeInUp} 
         className="w-full"
       >
-        {/* 企業向け価格比較セクション */}
-        <PriceComparisonSection />
+        {/* 採用パラダイムシフト説明セクション */}
+        <EnterpriseRecruitmentRevolution />
         
-        {/* 企業向け価値ハイライト - ROI・従来採用比較 */}
+        {/* 企業向け価値ハイライト - 独自価値の強調 */}
         <EnterpriseValueHighlight />
         
-        {/* 「インターン→メンター」の循環を説明する新セクション */}
-        <BusinessModel />
+        {/* 企業向け価格比較セクション - 具体的コスト比較 */}
+        <PriceComparisonSection />
         
         {/* 学生向け機会ハイライト - リアル体験・挑戦機会 */}
         <StudentOpportunityHighlight />
         
-        {/* 開発サービス紹介セクション（3サービスラインに更新） */}
+        {/* 「インターン→メンター」の循環を説明する新セクション - 社会的意義 */}
+        <BusinessModel />
+        
+        {/* 開発サービス紹介セクション - 具体的な進め方 */}
         <ServicesSection />
+        
+        {/* 企業向け品質保証セクション - CTA・信頼性 */}
+        <QualityAssuranceSection />
         
         {/* 技術スタックセクション */}
         <TechStackSection />
-        
-        {/* Discord参加セクション（StudentJoinProcessSectionの代わり） */}
-        {/* <DiscordJoin /> */}
-        
-        {/* 企業向け品質保証セクション */}
-        <QualityAssuranceSection />
 
       </motion.div>
     </motion.div>

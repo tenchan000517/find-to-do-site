@@ -138,10 +138,10 @@ export default function PriceComparisonSection() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">通常の<span className="text-blue-600">1/10以下のコスト</span>で企業DXを実現</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">「成果物への対価」で<span className="text-blue-600">1/10のコスト</span>を実現</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            教育投資としての社会的価値と圧倒的なコスト効率を両立。
-            プロの監修による高品質な成果物をお届けします。
+            教育投資ではなく、具体的な成果物（HP、システム、DX施策等）への正当な対価。
+            プロメンター監修で従来外注と同等以上の品質を保証します。
           </p>
         </motion.div>
 
@@ -159,9 +159,9 @@ export default function PriceComparisonSection() {
           {/* コスト削減メリットの強調表示 */}
           <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
             {[
-              { category: "小規模DXプロジェクト", traditional: "150-300万円", findToDo: "10-30万円", savings: "最大90%削減", value: "実践的人材育成 + 企業課題解決" },
-              { category: "中規模システム開発", traditional: "200-500万円", findToDo: "30-80万円", savings: "最大84%削減", value: "優秀な人材パイプライン構築" },
-              { category: "大規模DX推進", traditional: "500-1000万円", findToDo: "80-200万円", savings: "最大80%削減", value: "長期的ブランディング価値" }
+              { category: "小規模DXプロジェクト", traditional: "150-300万円", findToDo: "10-30万円", savings: "最大90%削減", value: "成果物 + 未来の人材接点" },
+              { category: "中規模システム開発", traditional: "200-500万円", findToDo: "30-80万円", savings: "最大84%削減", value: "ダブルメリット + 信頼関係構築" },
+              { category: "大規模DX推進", traditional: "500-1000万円", findToDo: "80-200万円", savings: "最大80%削減", value: "社会貢献 + 長期ブランド価値" }
             ].map((item, index) => (
               <div key={index} className="bg-blue-50 p-3 md:p-4 rounded-lg">
                 <p className="text-sm md:text-base font-medium mb-2">{item.category}</p>
@@ -185,16 +185,16 @@ export default function PriceComparisonSection() {
         >
           {[
             {
-              title: '教育投資価値',
-              description: '単なるコスト削減ではなく、優秀な人材発掘・育成への長期投資として機能',
+              title: '成果物への対価',
+              description: '教育投資ではなく、具体的なHP・システム・DX施策など猫の手も借りたい業務への正当な対価のみ',
             },
             {
-              title: '社会的インパクト',
-              description: '学生の成長支援を通じて企業ブランディングと社会貢献を同時実現',
+              title: 'ダブルメリット',
+              description: '成果物の獲得 + 未来の優秀な人材との早期接点創造を同時実現',
             },
             {
-              title: 'リスク分散',
-              description: '複数の学生による並行開発でリスクを分散、プロメンターが品質を保証',
+              title: '品質担保',
+              description: '学生作業 + プロメンター監修 = 従来外注と同等以上の高品質な成果物',
             }
           ].map((item, index) => (
             <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-md">

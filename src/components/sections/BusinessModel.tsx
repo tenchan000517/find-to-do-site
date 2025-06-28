@@ -14,48 +14,48 @@ type Step = {
 const businessModelSteps: Step[] = [
   {
     icon: GraduationCap,
-    title: "インターン生として参加",
-    description: "多様な選択肢と出会いの場を提供し、実践を通じた学びの機会を作ります。",
+    title: "コミュニティ参加",
+    description: "学生主導のコミュニティに参加し、ビジネス・技術・マネジメントを実践学習。",
     color: "blue"
   },
   {
     icon: Award,
-    title: "実践的なスキルを習得",
-    description: "メンターの指導のもと、実際の案件に参加してスキルを身につけます。",
+    title: "企業案件で実践",
+    description: "コミュニティが受注した企業案件で、営業・開発・マネジメントを実体験。",
     color: "green"
   },
   {
     icon: TrendingUp,
-    title: "成長してメンターに昇格",
-    description: "経験を積んだインターン生がメンターに昇格する明確なキャリアパス。",
+    title: "組織運営参画",
+    description: "企業交渉、意思決定、後輩指導など、年次に関係なく実力でリーダーに。",
     color: "orange"
   },
   {
     icon: Users,
-    title: "新たなインターン生を指導",
-    description: "メンターは教えることで報酬を得られるインセンティブ設計。",
+    title: "マネジメント経験",
+    description: "大学生で企業交渉・組織運営の希少な実体験を積み、就活で圧倒的差別化。",
     color: "purple"
   }
 ];
 
 const features: Step[] = [
   {
-    icon: Zap,
-    title: "コスト効率の高さ",
-    description: "通常の1/10以下のコストでDX・システム開発を実現します。",
-    color: "red"
-  },
-  {
     icon: Users,
-    title: "学生広報員システム",
-    description: "インターン生が企業の「ファン」として情報発信することで企業価値を向上します。",
-    color: "cyan"
+    title: "コミュニティメンバー主導運営",
+    description: "年次に関係なく実力でリーダーになれる組織運営・意思決定の希少体験。",
+    color: "blue"
   },
   {
     icon: BadgeCheck,
-    title: "実践型教育モデル",
-    description: "単なる見学ではなく、実際に手を動かして成果物を作り上げる実践的な学び。",
-    color: "yellow"
+    title: "企業交渉経験",
+    description: "大学生で企業との交渉や関係構築を実体験できる唯一無二の機会。",
+    color: "green"
+  },
+  {
+    icon: Zap,
+    title: "サードプレイス",
+    description: "学校・バイトとは違う、実践的成長と仲間との出会いがある居場所。",
+    color: "orange"
   }
 ];
 
@@ -94,7 +94,7 @@ export function BusinessModel() {
             variants={fadeInUp}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            実践を通じた学びと価値創出の循環
+            メンバー主導の<span className="text-blue-600">コミュニティ運営</span>システム
           </motion.h2>
           <motion.div 
             variants={fadeInUp}
@@ -104,8 +104,8 @@ export function BusinessModel() {
             variants={fadeInUp}
             className="text-lg text-gray-600 max-w-3xl mx-auto"
           >
-            FIND to DOの事業モデルは、「インターン生」→「メンター」への成長パスを通じて、
-            学びと価値創出が循環する仕組みを構築します
+            コミュニティメンバーが自分たちで運営し、企業交渉・組織運営・意思決定を実践する
+            新しい形のコミュニティ型ビジネスモデル
           </motion.p>
         </motion.div>
 

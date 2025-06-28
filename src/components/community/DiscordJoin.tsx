@@ -231,7 +231,7 @@ export function DiscordJoin() {
                                 }
                             }}
                         >
-                            すぐに参加する
+                            今ならコミュニティに誰でも参加できます
                         </a>
                     </div>
                     <p className="mt-4 text-gray-600">

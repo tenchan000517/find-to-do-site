@@ -38,11 +38,11 @@ export default function EnterpriseValueHighlight() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        単なるコスト削減ではない、<span className="text-blue-600">持続可能な価値創造</span>
+                        面接で『選ぶ』より、<span className="text-blue-600">育てて『選ばれる』採用が勝つ時代</span>
                     </h2>
                     <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        教育投資としての社会的価値と圧倒的なコスト効率を両立する新しいビジネスモデル
+                        学生の成長支援を通じて築く信頼関係が、90%の採用成功率を生み出す新手法
                     </p>
                 </motion.div>
 
@@ -64,9 +64,9 @@ export default function EnterpriseValueHighlight() {
                         },
                         {
                             icon: Target,
-                            title: "人材育成ROI",
-                            value: "200%+",
-                            description: "インターン生がメンターに成長、長期的な人材パイプラインを入手",
+                            title: "採用成功率",
+                            value: "90%",
+                            description: "実務体験を通じた相互理解により、ミスマッチを大幅に削減",
                             color: "green"
                         },
                         {
@@ -211,9 +211,9 @@ export default function EnterpriseValueHighlight() {
                     className="text-center"
                 >
                     <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold mb-4">コスト削減と社会貢献を両立する新しいアプローチ</h3>
+                        <h3 className="text-2xl font-bold mb-4">「質の高い採用を本気で考える企業様」限定</h3>
                         <p className="text-gray-600 mb-6">
-                            従来の採用手法とは一線を画す、持続可能で価値創造型のソリューションをご提案します。
+                            母数を増やすのではなく、採用の質を劇的に高めたい企業様のための新しいアプローチです。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
