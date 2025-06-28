@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, TrendingUp, Users, BadgeCheck, Zap, ArrowRight, Building2, RefreshCw, Target, Heart } from 'lucide-react';
+import { GraduationCap, Award, TrendingUp, Users, BadgeCheck, Zap, ArrowRight, Building2, RefreshCw, Heart } from 'lucide-react';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
 import AudienceBadge from '@/components/ui/AudienceBadge';
 
@@ -273,7 +273,7 @@ export function BusinessModel() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl"
+          className="mt-20 bg-gradient-to-r from-blue-700 via-purple-600 to-green-700 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl"
         >
           <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-white`}>社会的意義</h3>
           <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} mb-8 max-w-4xl mx-auto text-white/90`}>

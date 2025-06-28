@@ -123,18 +123,18 @@ const EmpathySection: React.FC = () => {
             </p>
 
             {/* 次セクションへの期待を高める */}
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 border border-blue-200/50">
-              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-700 font-medium`}>
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl p-8 border-2 border-blue-300 shadow-lg">
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-white font-bold text-center`}>
                 従来の課題を根本から解決する革新的な手法があります
               </p>
               
               <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="mt-4"
+                className="mt-6"
               >
-                <div className="w-6 h-6 mx-auto border-2 border-blue-400 rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <div className="w-8 h-8 mx-auto border-2 border-white rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
               </motion.div>
             </div>

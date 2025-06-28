@@ -304,15 +304,15 @@ export default function EnterpriseValueHighlight() {
                     variants={fadeInUp}
                     className="text-center"
                 >
-                    <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
-                        <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-4 text-slate-800`}>質重視企業のための戦略的採用手法</h3>
-                        <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-600 mb-6`}>
+                    <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-xl p-8 md:p-12 max-w-3xl mx-auto">
+                        <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-4 text-white`}>質重視企業のための戦略的採用手法</h3>
+                        <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-white/90 mb-8`}>
                             量より質を重視する企業のための厳選サービス。確実な成果と長期的な価値創出を両立します。
                         </p>
                         <div className="flex justify-center">
                             <Link
                                 href="/contact"
-                                className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center text-center`}
+                                className="bg-white hover:bg-gray-100 text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 inline-flex items-center text-center"
                             >
                                 お問い合わせ
                                 <ArrowRight className="ml-2 w-5 h-5" />

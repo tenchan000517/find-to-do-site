@@ -114,15 +114,17 @@ const SplitHero: React.FC = () => {
               育てて選ばれる新時代へ
             </motion.h2>
             
-            {/* 共感ポイント */}
-            <motion.p 
+            {/* 共感ポイント - 強調表示 */}
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-base md:text-lg text-slate-200 mb-8"
+              className="text-center mb-8 p-6 bg-emerald-600/20 rounded-xl border-2 border-emerald-400/50"
             >
-              猫の手も借りたい業務は、<br className="md:hidden" />魅力を伝える最大のチャンス
-            </motion.p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-300 leading-tight">
+                猫の手も借りたい業務は、<br className="md:hidden" />魅力を伝える最大のチャンス
+              </p>
+            </motion.div>
             
             {/* 企業向けメッセージの明確化 */}
             <motion.div 
@@ -133,9 +135,6 @@ const SplitHero: React.FC = () => {
             >
               <div className="text-lg md:text-xl font-bold text-blue-300 mb-2">
                 【企業様向け】
-              </div>
-              <div className="text-sm text-slate-300">
-                採用コストではなく成果物への対価で人材確保
               </div>
             </motion.div>
             

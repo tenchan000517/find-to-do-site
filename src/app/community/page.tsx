@@ -383,18 +383,18 @@ export default function CommunityPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="bg-gradient-to-br from-orange-100 to-green-100 rounded-2xl p-12 text-center max-w-4xl mx-auto"
+            className="bg-gradient-to-r from-orange-500 to-green-500 rounded-2xl p-12 text-center max-w-4xl mx-auto shadow-xl"
           >
-            <h3 className={`${DESIGN_SYSTEM.typography.student.headline.small} mb-4 text-slate-800`}>
+            <h3 className={`${DESIGN_SYSTEM.typography.student.headline.small} mb-4 text-white`}>
               一生付き合える仲間と出会いませんか？
             </h3>
-            <p className={`${DESIGN_SYSTEM.typography.student.body.large} text-slate-600 mb-8 max-w-2xl mx-auto`}>
+            <p className={`${DESIGN_SYSTEM.typography.student.body.large} text-white/90 mb-8 max-w-2xl mx-auto`}>
               あなたの可能性を一緒に見つけて、個人の努力をチームの力で何倍にも大きくしませんか？
             </p>
             <div className="flex justify-center">
               <a
                 href="https://discord.gg/xQM6NgmwPk"
-                className={`${DESIGN_SYSTEM.buttons.student.primary} inline-flex items-center`}
+                className="bg-white hover:bg-gray-100 text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 inline-flex items-center"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -241,17 +241,17 @@ export default function StudentOpportunityHighlight() {
                     variants={fadeInUp}
                     className="text-center"
                 >
-                    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto">
-                        <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} mb-4 text-slate-800`}>
+                    <div className="bg-gradient-to-r from-orange-500 to-green-500 rounded-2xl shadow-xl p-8 md:p-12 max-w-3xl mx-auto">
+                        <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} mb-4 text-white`}>
                             一生付き合える仲間と出会いませんか？
                         </h3>
-                        <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-slate-600 mb-8`}>
+                        <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-white/90 mb-8`}>
                             あなたの可能性を一緒に見つけて、個人の努力をチームの力で何倍にも大きくしませんか？
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="https://discord.gg/xQM6NgmwPk"
-                                className={`${DESIGN_SYSTEM.buttons.student.primary} inline-flex items-center text-center`}
+                                className="bg-white hover:bg-gray-100 text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 inline-flex items-center text-center"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -260,7 +260,7 @@ export default function StudentOpportunityHighlight() {
                             </a>
                             <Link
                                 href="/community"
-                                className={`${DESIGN_SYSTEM.buttons.student.secondary} inline-flex items-center text-center`}
+                                className="bg-transparent hover:bg-white/20 text-white hover:text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl border-2 border-white inline-flex items-center text-center"
                             >
                                 コミュニティの詳細を見る
                             </Link>
