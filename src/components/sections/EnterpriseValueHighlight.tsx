@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { TrendingUp, Target, Clock, ArrowRight, CheckCircle, Users, Award, Zap } from 'lucide-react';
+import { TrendingUp, Target, Clock, ArrowRight, CheckCircle, Users, Award, Zap, Building2, DollarSign } from 'lucide-react';
+import { DESIGN_SYSTEM } from '@/styles/design-system';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -27,9 +28,30 @@ const staggerContainer = {
 };
 
 export default function EnterpriseValueHighlight() {
+    const [successRate, setSuccessRate] = useState(0);
+    
+    // 90%のカウントアップアニメーション
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const interval = setInterval(() => {
+                setSuccessRate(prev => {
+                    if (prev >= 90) {
+                        clearInterval(interval);
+                        return 90;
+                    }
+                    return prev + 1;
+                });
+            }, 30);
+            return interval;
+        }, 500);
+        
+        return () => clearTimeout(timer);
+    }, []);
+    
     return (
-        <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-            <div className="container mx-auto px-4 max-w-6xl">
+        <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100`}>
+            <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+                {/* 90%成功率を大きく前面に */}
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -37,16 +59,100 @@ export default function EnterpriseValueHighlight() {
                     variants={fadeInUp}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        面接で『選ぶ』より、<span className="text-blue-600">育てて『選ばれる』採用が勝つ時代</span>
-                    </h2>
-                    <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        学生の成長支援を通じて築く信頼関係が、90%の採用成功率を生み出す新手法
-                    </p>
+                    {/* 90%成功率の巨大表示 */}
+                    <motion.div
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-12 text-white max-w-4xl mx-auto mb-12"
+                    >
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                            <div className="text-center">
+                                <motion.div
+                                    className={`${DESIGN_SYSTEM.typography.enterprise.stats.large} font-bold`}
+                                >
+                                    {successRate}%
+                                </motion.div>
+                                <div className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} opacity-90`}>
+                                    採用成功率
+                                </div>
+                            </div>
+                            <div className="h-px md:h-16 w-16 md:w-px bg-white/30"></div>
+                            <div className="text-center md:text-left max-w-md">
+                                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.medium} mb-2`}>
+                                    従来の採用手法では実現できない高い成功率
+                                </h3>
+                                <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} opacity-90`}>
+                                    業務体験を通じた相互理解により、ミスマッチを根本から解決
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                    
+                    {/* 新しいアプローチの説明 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                    >
+                        <h2 className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}>
+                            <span className="text-red-500">採用費で母数を稼ぐ</span>から、<br className="md:hidden" />
+                            <span className="text-green-600">育てることで選ばれる</span>新時代へ
+                        </h2>
+                        <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-600 max-w-4xl mx-auto`}>
+                            新しい対価モデル：<span className="font-bold text-slate-800">採用コストを支払うのではなく成果物に対してのみ支払う</span>
+                        </p>
+                    </motion.div>
                 </motion.div>
 
-                {/* ROI指標 */}
+                {/* パイプライン価値を強調 */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16 border border-blue-200"
+                >
+                    <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-8 text-slate-800`}>
+                        成果物を得ながら、優秀な人材パイプラインを構築
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                            <div className="flex items-center mb-4">
+                                <Target className="text-blue-600 mr-3" size={24} />
+                                <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-blue-800`}>
+                                    Immediate Value
+                                </h4>
+                            </div>
+                            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-blue-700`}>
+                                猫の手も借りたい業務を高品質で完遂。成果物という確実な価値を即座に獲得
+                            </p>
+                        </div>
+                        
+                        <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                            <div className="flex items-center mb-4">
+                                <Building2 className="text-green-600 mr-3" size={24} />
+                                <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-green-800`}>
+                                    Long-term Value
+                                </h4>
+                            </div>
+                            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-green-700`}>
+                                継続的な優秀人材パイプラインを構築。戦略的な人材確保システムを資産化
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="text-center bg-gradient-to-r from-slate-100 to-blue-100 rounded-xl p-6">
+                        <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-800 font-bold`}>
+                            一石二鳥の戦略的アプローチ
+                        </p>
+                    </div>
+                </motion.div>
+                
+                {/* 質重視メッセージ */}
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -56,38 +162,41 @@ export default function EnterpriseValueHighlight() {
                 >
                     {[
                         {
-                            icon: TrendingUp,
-                            title: "コスト効率",
-                            value: "1/10以下",
-                            description: "従来の外注コストと比較して異次元のパフォーマンスを実現",
-                            color: "blue"
+                            icon: DollarSign,
+                            title: "新しい対価モデル",
+                            value: "成果物のみ",
+                            description: "採用費ではなく、確実な成果物に対してのみ支払う革新的モデル",
+                            color: "blue",
+                            bgColor: "from-blue-500 to-blue-700"
                         },
                         {
                             icon: Target,
                             title: "採用成功率",
                             value: "90%",
-                            description: "実務体験を通じた相互理解により、ミスマッチを大幅に削減",
-                            color: "green"
+                            description: "従来手法では実現不可能な圧倒的な成功率を実現",
+                            color: "green",
+                            bgColor: "from-green-500 to-green-700"
                         },
                         {
-                            icon: Clock,
-                            title: "ブランディング価値",
-                            value: "永続的",
-                            description: "次世代育成に貢献する企業としての長期的ブランディング効果",
-                            color: "orange"
+                            icon: TrendingUp,
+                            title: "質重視アプローチ",
+                            value: "厳選",
+                            description: "量より質を重視する企業のための戦略的サービス",
+                            color: "orange",
+                            bgColor: "from-orange-500 to-orange-700"
                         }
                     ].map((metric, index) => (
                         <motion.div
                             key={index}
                             variants={fadeInUp}
-                            className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+                            className={`bg-gradient-to-br ${metric.bgColor} text-white rounded-2xl p-8 shadow-lg hover:shadow-xl ${DESIGN_SYSTEM.animations.transition.medium} hover:-translate-y-1 text-center`}
                         >
-                            <div className={`w-16 h-16 bg-${metric.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                                <metric.icon className={`w-8 h-8 text-${metric.color}-600`} />
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <metric.icon className="w-8 h-8 text-white" />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">{metric.title}</h3>
-                            <div className={`text-3xl font-bold text-${metric.color}-600 mb-3`}>{metric.value}</div>
-                            <p className="text-gray-600 text-sm">{metric.description}</p>
+                            <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3 text-white`}>{metric.title}</h3>
+                            <div className={`${DESIGN_SYSTEM.typography.enterprise.stats.medium} text-white mb-4`}>{metric.value}</div>
+                            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-white/90`}>{metric.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -100,7 +209,7 @@ export default function EnterpriseValueHighlight() {
                     variants={fadeInUp}
                     className="bg-white rounded-xl shadow-lg p-8 mb-12"
                 >
-                    <h3 className="text-2xl font-bold text-center mb-8">従来の採用 vs FIND to DO方式</h3>
+                    <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-8 text-slate-800`}>従来手法との圧倒的な違い</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* 従来の採用 */}
                         <div className="space-y-4">
@@ -211,23 +320,23 @@ export default function EnterpriseValueHighlight() {
                     className="text-center"
                 >
                     <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold mb-4">「質の高い採用を本気で考える企業様」限定</h3>
-                        <p className="text-gray-600 mb-6">
-                            母数を増やすのではなく、採用の質を劇的に高めたい企業様のための新しいアプローチです。
+                        <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-4 text-slate-800`}>質重視企業のための戦略的採用手法</h3>
+                        <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-600 mb-6`}>
+                            量より質を重視する企業のための厳選サービス。確実な成果と長期的な価値創出を両立します。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 href="/contact"
-                                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                                className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center text-center`}
                             >
-                                詳細資料を請求する
+                                新しい採用戦略の詳細を見る
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                             <Link
                                 href="/service"
-                                className="inline-flex items-center px-8 py-4 bg-white text-blue-700 border-2 border-blue-700 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center text-center`}
                             >
-                                事例・比較を見る
+                                導入事例・効果を確認
                             </Link>
                         </div>
                     </div>

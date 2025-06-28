@@ -1,8 +1,9 @@
-// components/sections/BusinessCycleSection.tsx
+// components/sections/BusinessModel.tsx
 'use client';
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, TrendingUp, Users, BadgeCheck, Zap } from 'lucide-react';
+import { GraduationCap, Award, TrendingUp, Users, BadgeCheck, Zap, ArrowRight, Building2, RefreshCw, Target, Heart } from 'lucide-react';
+import { DESIGN_SYSTEM } from '@/styles/design-system';
 
 type Step = {
   icon: React.ElementType;
@@ -81,8 +82,8 @@ const staggerChildren = {
 
 export function BusinessModel() {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-slate-50 via-orange-50 to-green-50 overflow-hidden`}>
+      <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -92,9 +93,9 @@ export function BusinessModel() {
         >
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
           >
-            メンバー主導の<span className="text-blue-600">コミュニティ運営</span>システム
+            企業 ←→ 学生 ←→ 成果物 ←→ 成長 ←→ 採用 ←→ <span className="text-orange-600">循環システム</span>
           </motion.h2>
           <motion.div 
             variants={fadeInUp}
@@ -102,17 +103,95 @@ export function BusinessModel() {
           />
           <motion.p 
             variants={fadeInUp}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-600 max-w-4xl mx-auto`}
           >
-            コミュニティメンバーが自分たちで運営し、企業交渉・組織運営・意思決定を実践する
-            新しい形のコミュニティ型ビジネスモデル
+            学生主導のコミュニティが企業と学生をつなぎ、<br className="md:hidden" />誰もが成長し続ける持続可能なエコシステム
           </motion.p>
         </motion.div>
 
-        {/* ビジネスモデルの説明 */}
+        {/* エコシステム全体の視覚化 */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mb-20 bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-orange-200"
+        >
+          <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-12 text-slate-800`}>
+            FIND to DO エコシステム
+          </h3>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            {/* 企業 */}
+            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 text-center">
+              <Building2 className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-blue-800 mb-3`}>
+                企業
+              </h4>
+              <ul className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-blue-700 space-y-2`}>
+                <li>• 実課題の提供</li>
+                <li>• 成果物の評価</li>
+                <li>• 人材発掘・採用</li>
+                <li>• パイプライン構築</li>
+              </ul>
+            </div>
+            
+            {/* 学生コミュニティ */}
+            <div className="bg-orange-50 rounded-xl p-6 border-2 border-orange-200 text-center">
+              <Users className="w-12 h-12 text-orange-600 mx-auto mb-4" />
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-orange-800 mb-3`}>
+                学生コミュニティ
+              </h4>
+              <ul className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-orange-700 space-y-2`}>
+                <li>• 自主運営・意思決定</li>
+                <li>• 企業交渉・マネジメント</li>
+                <li>• 技術・ビジネス学習</li>
+                <li>• 後輩指導・メンター</li>
+              </ul>
+            </div>
+            
+            {/* 社会 */}
+            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200 text-center">
+              <Heart className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-green-800 mb-3`}>
+                社会
+              </h4>
+              <ul className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-green-700 space-y-2`}>
+                <li>• 雇用ミスマッチ解消</li>
+                <li>• 早期離職率削減</li>
+                <li>• 若者成長機会創出</li>
+                <li>• 地域活性化</li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* 循環の矢印 */}
+          <div className="flex justify-center items-center space-x-4 mb-8">
+            <ArrowRight className="text-blue-500" size={24} />
+            <RefreshCw className="text-orange-500" size={32} />
+            <ArrowRight className="text-green-500" size={24} />
+          </div>
+          
+          <div className="text-center bg-gradient-to-r from-orange-100 to-green-100 rounded-xl p-6">
+            <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-800 font-bold`}>
+              持続可能な価値創造サイクル
+            </p>
+          </div>
+        </motion.div>
+        
+        {/* 循環システムの詳細説明 */}
         <div className="mb-20">
+          <motion.h3 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-12 text-slate-800`}
+          >
+            循環システム：現役学生 → 卒業 → 社会人 → メンター → 次世代指導
+          </motion.h3>
+          
           <div className="relative">
-
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {businessModelSteps.map((step, index) => (
                 <motion.div
@@ -124,11 +203,11 @@ export function BusinessModel() {
                   className="relative z-10"
                 >
                   <div className="flex flex-col items-center">
-                    <div className={`w-16 h-16 rounded-full bg-${step.color}-100 flex items-center justify-center mb-4 border-4 border-white`}>
-                      <step.icon className={`w-8 h-8 text-${step.color}-600`} />
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${step.color === 'blue' ? 'from-blue-400 to-blue-600' : step.color === 'green' ? 'from-green-400 to-green-600' : step.color === 'orange' ? 'from-orange-400 to-orange-600' : 'from-purple-400 to-purple-600'} flex items-center justify-center mb-4 border-4 border-white shadow-lg`}>
+                      <step.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2 text-center">{step.title}</h3>
-                    <p className="text-gray-600 text-center">{step.description}</p>
+                    <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-2 text-center text-slate-800`}>{step.title}</h3>
+                    <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-slate-600 text-center`}>{step.description}</p>
                   </div>
                   {index < businessModelSteps.length - 1 && (
                     <div className="hidden md:block absolute top-8 right-0 w-full h-1 transform translate-x-1/2">
@@ -143,7 +222,7 @@ export function BusinessModel() {
           </div>
         </div>
 
-        {/* 特徴 */}
+        {/* 学生主導コミュニティの強調 */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -153,15 +232,15 @@ export function BusinessModel() {
         >
           <motion.h3 
             variants={fadeInUp}
-            className="text-2xl md:text-3xl font-bold mb-4"
+            className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-4 text-slate-800`}
           >
-            独自のビジネスモデルの特徴
+            学生が<span className="text-orange-600">自分たちで運営</span>するコミュニティ
           </motion.h3>
           <motion.p 
             variants={fadeInUp}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-600 max-w-4xl mx-auto`}
           >
-            FIND to DOならではの価値提供を支える3つの特徴
+            企業との交渉・マネジメント経験も積める、他では体験できない成長機会
           </motion.p>
         </motion.div>
 
@@ -173,13 +252,13 @@ export function BusinessModel() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className={`bg-${feature.color}-50 border border-${feature.color}-200 rounded-lg p-6 md:p-8`}
+              className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg border-2 ${feature.color === 'blue' ? 'border-blue-200 hover:border-blue-300' : feature.color === 'green' ? 'border-green-200 hover:border-green-300' : 'border-orange-200 hover:border-orange-300'} ${DESIGN_SYSTEM.animations.transition.medium} hover:-translate-y-1 hover:shadow-xl`}
             >
-              <div className={`w-14 h-14 rounded-full bg-${feature.color}-100 flex items-center justify-center mb-6`}>
-                <feature.icon className={`w-7 h-7 text-${feature.color}-600`} />
+              <div className={`w-14 h-14 rounded-full bg-gradient-to-r ${feature.color === 'blue' ? 'from-blue-400 to-blue-600' : feature.color === 'green' ? 'from-green-400 to-green-600' : 'from-orange-400 to-orange-600'} flex items-center justify-center mb-6 shadow-lg`}>
+                <feature.icon className="w-7 h-7 text-white" />
               </div>
-              <h4 className="text-xl font-bold mb-3">{feature.title}</h4>
-              <p className="text-gray-700">{feature.description}</p>
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3 text-slate-800`}>{feature.title}</h4>
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-slate-600`}>{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -190,25 +269,24 @@ export function BusinessModel() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 md:p-12 text-white text-center"
+          className="mt-20 bg-gradient-to-r from-orange-500 to-green-500 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">社会的インパクト</h3>
-          <p className="mb-8 max-w-3xl mx-auto">
-            キャリア選択ミスマッチの減少、産学連携の新しいモデル構築、実践型人材育成の仕組み確立、
-            DX人材不足への対応、若者の地域定着促進など、社会課題の解決に貢献します。
+          <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-white`}>社会的意義</h3>
+          <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} mb-8 max-w-4xl mx-auto text-white/90`}>
+            雇用ミスマッチの解消、早期離職率の削減、若者の成長機会創出など、<br className="md:hidden" />社会課題の根本的解決に貢献する持続可能なエコシステム
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="font-bold text-lg mb-2">学生へ</h4>
-              <p className="text-sm">実践を通じた確かなスキル習得とキャリアの選択肢拡大</p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-white mb-3`}>雇用ミスマッチの解消</h4>
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-white/90`}>実際の業務体験による相互理解で適性マッチング向上</p>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="font-bold text-lg mb-2">企業へ</h4>
-              <p className="text-sm">低コストでのDX推進と優秀な人材との接点創出</p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-white mb-3`}>早期離職率の削減</h4>
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-white/90`}>事前の相互理解により入社後のギャップを最小化</p>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="font-bold text-lg mb-2">社会へ</h4>
-              <p className="text-sm">意図しない離職の減少と若者の地域定着促進</p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+              <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-white mb-3`}>若者の成長機会創出</h4>
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-white/90`}>実践的な学習機会と自信を持てる居場所の提供</p>
             </div>
           </div>
         </motion.div>

@@ -15,6 +15,9 @@ import { DiscordJoin } from '@/components/community/DiscordJoin';
 import StudentOpportunityHighlight from '@/components/sections/StudentOpportunityHighlight';
 import EnterpriseValueHighlight from '@/components/sections/EnterpriseValueHighlight';
 import EnterpriseRecruitmentRevolution from '@/components/sections/EnterpriseRecruitmentRevolution';
+import EmpathySection from '@/components/sections/EmpathySection';
+import ValueDiscoverySection from '@/components/sections/ValueDiscoverySection';
+import PipelineValueSection from '@/components/sections/PipelineValueSection';
 
 import { fadeInUp, staggerContainer } from '@/utils/animations';
 
@@ -30,33 +33,32 @@ export default function Home() {
       {/* ヒーローセクション - 分割デザイン */}
       <SplitHero />
 
-      {/* メインコンテンツ */}
+      {/* メインコンテンツ - 新しい最適化された情報フロー */}
       <motion.div 
         variants={fadeInUp} 
         className="w-full"
       >
-        {/* 採用パラダイムシフト説明セクション */}
-        <EnterpriseRecruitmentRevolution />
+        {/* 2. 共感セクション - 企業の悩みに共感 */}
+        <EmpathySection />
         
-        {/* 企業向け価値ハイライト - 独自価値の強調 */}
-        <EnterpriseValueHighlight />
+        {/* 3. 価値発見セクション - 一石二鳥の価値 */}
+        <ValueDiscoverySection />
         
-        {/* 企業向け価格比較セクション - 具体的コスト比較 */}
-        <PriceComparisonSection />
+        {/* 4. パイプライン価値セクション - 90%成功率 */}
+        <PipelineValueSection />
         
-        {/* 学生向け機会ハイライト - リアル体験・挑戦機会 */}
+        {/* 5. 学生価値セクション - 3つの価値軸 */}
         <StudentOpportunityHighlight />
         
-        {/* 「インターン→メンター」の循環を説明する新セクション - 社会的意義 */}
+        {/* 6. エコシステム説明 - 循環システム */}
         <BusinessModel />
         
-        {/* 開発サービス紹介セクション - 具体的な進め方 */}
+        {/* 7. 企業向け価値ハイライト - 総合的な価値提案 */}
+        <EnterpriseValueHighlight />
+        
+        {/* 従来のセクション（必要に応じて） */}
         <ServicesSection />
-        
-        {/* 企業向け品質保証セクション - CTA・信頼性 */}
         <QualityAssuranceSection />
-        
-        {/* 技術スタックセクション */}
         <TechStackSection />
 
       </motion.div>

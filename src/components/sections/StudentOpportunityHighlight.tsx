@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Heart, Users, Rocket, Home, School, Coffee, ArrowRight, Sparkles } from 'lucide-react';
+import { DESIGN_SYSTEM } from '@/styles/design-system';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -28,8 +29,8 @@ const staggerContainer = {
 
 export default function StudentOpportunityHighlight() {
     return (
-        <section className="py-16 md:py-24 bg-gradient-to-br from-green-50 via-blue-50 to-orange-50">
-            <div className="container mx-auto px-4 max-w-6xl">
+        <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-orange-50 via-green-50 to-blue-50`}>
+            <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
                 {/* メインヘッダー */}
                 <motion.div
                     initial="hidden"
@@ -38,13 +39,13 @@ export default function StudentOpportunityHighlight() {
                     variants={fadeInUp}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                        『自分には何もない』から、<br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                    <h2 className={`${DESIGN_SYSTEM.typography.student.headline.medium} mb-6 text-slate-800`}>
+                        <span className="text-gray-500">『自分には何もない』</span>から、<br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-green-500">
                             『自分にはこれがある』へ
                         </span>
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className={`${DESIGN_SYSTEM.typography.student.subheading.small} text-slate-600 max-w-3xl mx-auto`}>
                         学生主導のコミュニティで、あなたの可能性を一緒に見つけませんか？
                     </p>
                 </motion.div>
@@ -62,22 +63,25 @@ export default function StudentOpportunityHighlight() {
                             icon: Sparkles,
                             title: "可能性の発見",
                             message: "最初は誰でも初心者。ここで見つけた『得意』が、人生を変えるきっかけになる",
-                            color: "green",
-                            bgColor: "from-green-500 to-emerald-500"
+                            color: "orange",
+                            bgColor: "from-orange-400 to-orange-600",
+                            borderColor: "border-orange-200"
                         },
                         {
                             icon: Users,
                             title: "共に成長",
                             message: "一人で頑張るより、みんなで挑戦する方が圧倒的に早く成長できる",
-                            color: "blue",
-                            bgColor: "from-blue-500 to-indigo-500"
+                            color: "green",
+                            bgColor: "from-green-400 to-green-600",
+                            borderColor: "border-green-200"
                         },
                         {
                             icon: Rocket,
                             title: "力の増幅",
                             message: "個人の努力を、チームの力で何倍にも大きくできる場所",
-                            color: "orange",
-                            bgColor: "from-orange-500 to-red-500"
+                            color: "blue",
+                            bgColor: "from-blue-400 to-blue-600",
+                            borderColor: "border-blue-200"
                         }
                     ].map((value, index) => (
                         <motion.div
@@ -85,14 +89,14 @@ export default function StudentOpportunityHighlight() {
                             variants={fadeInUp}
                             className="relative"
                         >
-                            <div className="bg-white rounded-2xl shadow-lg p-8 h-full hover:shadow-xl transition-shadow duration-300">
-                                <div className={`w-16 h-16 bg-gradient-to-r ${value.bgColor} rounded-full flex items-center justify-center mb-6 mx-auto`}>
+                            <div className={`bg-white rounded-2xl shadow-lg p-8 h-full hover:shadow-xl ${DESIGN_SYSTEM.animations.transition.medium} border-2 ${value.borderColor} hover:-translate-y-1`}>
+                                <div className={`w-16 h-16 bg-gradient-to-r ${value.bgColor} rounded-full flex items-center justify-center mb-6 mx-auto shadow-lg`}>
                                     <value.icon className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-center mb-4 text-gray-800">
+                                <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.small} text-center mb-4 text-slate-800`}>
                                     {value.title}
                                 </h3>
-                                <p className="text-gray-600 text-center leading-relaxed">
+                                <p className={`${DESIGN_SYSTEM.typography.student.body.small} text-slate-600 text-center leading-relaxed`}>
                                     {value.message}
                                 </p>
                             </div>
@@ -108,8 +112,8 @@ export default function StudentOpportunityHighlight() {
                     variants={fadeInUp}
                     className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16"
                 >
-                    <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
-                        あなたの<span className="text-blue-600">サードプレイス</span>
+                    <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} text-center mb-8 text-slate-800`}>
+                        あなたの<span className="text-orange-600">サードプレイス</span>
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
@@ -129,18 +133,18 @@ export default function StudentOpportunityHighlight() {
                                 icon: Coffee,
                                 title: "FIND to DO",
                                 description: "ありのままの自分でいられる第3の居場所",
-                                color: "blue-600",
+                                color: "orange-600",
                                 highlight: true
                             }
                         ].map((place, index) => (
-                            <div key={index} className={`text-center p-6 rounded-xl ${place.highlight ? 'bg-blue-50 border-2 border-blue-200' : 'bg-gray-50'}`}>
-                                <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${place.highlight ? 'bg-blue-100' : 'bg-gray-200'}`}>
+                            <div key={index} className={`text-center p-6 rounded-xl ${place.highlight ? 'bg-orange-50 border-2 border-orange-200' : 'bg-gray-50'}`}>
+                                <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${place.highlight ? 'bg-orange-100' : 'bg-gray-200'}`}>
                                     <place.icon className={`w-8 h-8 text-${place.color}`} />
                                 </div>
-                                <h4 className={`text-lg font-bold mb-2 ${place.highlight ? 'text-blue-800' : 'text-gray-600'}`}>
+                                <h4 className={`${DESIGN_SYSTEM.typography.student.subheading.small} mb-2 ${place.highlight ? 'text-orange-800' : 'text-gray-600'}`}>
                                     {place.title}
                                 </h4>
-                                <p className={`text-sm ${place.highlight ? 'text-blue-600' : 'text-gray-500'}`}>
+                                <p className={`${DESIGN_SYSTEM.typography.student.body.small} ${place.highlight ? 'text-orange-600' : 'text-gray-500'}`}>
                                     {place.description}
                                 </p>
                             </div>
@@ -173,13 +177,13 @@ export default function StudentOpportunityHighlight() {
                         <motion.div
                             key={index}
                             variants={fadeInUp}
-                            className={`bg-gradient-to-r from-${message.color}-500 to-${message.color}-600 text-white rounded-xl p-8`}
+                            className={`bg-gradient-to-r ${index === 0 ? 'from-green-500 to-green-600' : 'from-orange-500 to-orange-600'} text-white rounded-xl p-8 shadow-lg hover:shadow-xl ${DESIGN_SYSTEM.animations.transition.medium} hover:-translate-y-1`}
                         >
                             <div className="flex items-center mb-4">
                                 <message.icon className="w-8 h-8 mr-3" />
-                                <h4 className="text-xl font-bold">{message.title}</h4>
+                                <h4 className={`${DESIGN_SYSTEM.typography.student.subheading.small} text-white`}>{message.title}</h4>
                             </div>
-                            <p className="text-white/90 leading-relaxed">{message.description}</p>
+                            <p className={`${DESIGN_SYSTEM.typography.student.body.small} text-white/90 leading-relaxed`}>{message.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -192,7 +196,7 @@ export default function StudentOpportunityHighlight() {
                     variants={fadeInUp}
                     className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-8 md:p-12 mb-16"
                 >
-                    <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
+                    <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} text-center mb-8 text-slate-800`}>
                         誰でも自分のペースで成長できる
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -217,9 +221,9 @@ export default function StudentOpportunityHighlight() {
                                 <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
                                     {index + 1}
                                 </div>
-                                <h4 className="text-lg font-bold mb-1 text-gray-800">{stage.stage}</h4>
-                                <p className="text-orange-600 text-sm font-medium mb-3">（{stage.subtitle}）</p>
-                                <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
+                                <h4 className={`${DESIGN_SYSTEM.typography.student.subheading.small} mb-1 text-slate-800`}>{stage.stage}</h4>
+                                <p className={`${DESIGN_SYSTEM.typography.student.body.small} text-orange-600 font-medium mb-3`}>（{stage.subtitle}）</p>
+                                <p className={`${DESIGN_SYSTEM.typography.student.body.small} text-slate-600 leading-relaxed`}>{stage.description}</p>
                             </div>
                         ))}
                     </div>
@@ -234,16 +238,16 @@ export default function StudentOpportunityHighlight() {
                     className="text-center"
                 >
                     <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
+                        <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} mb-4 text-slate-800`}>
                             一生付き合える仲間と出会いませんか？
                         </h3>
-                        <p className="text-lg text-gray-600 mb-8">
+                        <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-slate-600 mb-8`}>
                             あなたの可能性を一緒に見つけて、個人の努力をチームの力で何倍にも大きくしませんか？
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="https://discord.gg/xQM6NgmwPk"
-                                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl font-bold hover:from-blue-700 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                                className={`${DESIGN_SYSTEM.buttons.student.primary} inline-flex items-center text-center`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -252,7 +256,7 @@ export default function StudentOpportunityHighlight() {
                             </a>
                             <Link
                                 href="/community"
-                                className="inline-flex items-center px-8 py-4 bg-white text-blue-700 border-2 border-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-colors"
+                                className={`${DESIGN_SYSTEM.buttons.student.secondary} inline-flex items-center text-center`}
                             >
                                 コミュニティの詳細を見る
                             </Link>
