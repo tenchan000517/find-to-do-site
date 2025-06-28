@@ -5,6 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
 import { Clock, Users, TrendingUp, Zap } from 'lucide-react';
+import AudienceBadge from '@/components/ui/AudienceBadge';
 
 const EmpathySection: React.FC = () => {
   const painPoints = [
@@ -56,6 +57,9 @@ const EmpathySection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <div className="flex justify-center mb-6">
+            <AudienceBadge type="enterprise" size="medium" />
+          </div>
           <h2 className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} text-slate-800 mb-6`}>
             猫の手も借りたい業務、<br className="md:hidden" />ありませんか？
           </h2>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { TrendingUp, Target, Clock, ArrowRight, CheckCircle, Users, Award, Zap, Building2, DollarSign } from 'lucide-react';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
+import AudienceBadge from '@/components/ui/AudienceBadge';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -28,30 +29,11 @@ const staggerContainer = {
 };
 
 export default function EnterpriseValueHighlight() {
-    const [successRate, setSuccessRate] = useState(0);
-    
-    // 90%のカウントアップアニメーション
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const interval = setInterval(() => {
-                setSuccessRate(prev => {
-                    if (prev >= 90) {
-                        clearInterval(interval);
-                        return 90;
-                    }
-                    return prev + 1;
-                });
-            }, 30);
-            return interval;
-        }, 500);
-        
-        return () => clearTimeout(timer);
-    }, []);
     
     return (
         <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100`}>
             <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
-                {/* 90%成功率を大きく前面に */}
+                {/* 価値提案セクション */}
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -59,7 +41,10 @@ export default function EnterpriseValueHighlight() {
                     variants={fadeInUp}
                     className="text-center mb-16"
                 >
-                    {/* 90%成功率の巨大表示 */}
+                    <div className="flex justify-center mb-8">
+                        <AudienceBadge type="enterprise" size="medium" />
+                    </div>
+                    {/* 核心価値の表示 */}
                     <motion.div
                         initial={{ scale: 0.5, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
@@ -72,16 +57,16 @@ export default function EnterpriseValueHighlight() {
                                 <motion.div
                                     className={`${DESIGN_SYSTEM.typography.enterprise.stats.large} font-bold`}
                                 >
-                                    {successRate}%
+                                    新しい採用
                                 </motion.div>
                                 <div className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} opacity-90`}>
-                                    採用成功率
+                                    アプローチ
                                 </div>
                             </div>
                             <div className="h-px md:h-16 w-16 md:w-px bg-white/30"></div>
                             <div className="text-center md:text-left max-w-md">
                                 <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.medium} mb-2`}>
-                                    従来の採用手法では実現できない高い成功率
+                                    育てて選ばれる採用戦略
                                 </h3>
                                 <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} opacity-90`}>
                                     業務体験を通じた相互理解により、ミスマッチを根本から解決

@@ -102,7 +102,7 @@ const SplitHero: React.FC = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4"
             >
-              採用費で母数を稼ぐ時代は<span className="text-red-400">終わった</span>
+              採用費で母数を稼ぐ時代から
             </motion.h1>
             
             <motion.h2 
@@ -121,7 +121,7 @@ const SplitHero: React.FC = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="text-base md:text-lg text-slate-200 mb-8"
             >
-              猫の手も借りたい業務を、<br className="md:hidden" />優秀な学生に任せませんか？
+              猫の手も借りたい業務は、<br className="md:hidden" />魅力を伝える最大のチャンス
             </motion.p>
             
             {/* 90%成功率を強調 */}
@@ -129,10 +129,10 @@ const SplitHero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="mb-8 p-4 bg-gradient-to-r from-blue-600/20 to-green-600/20 rounded-lg border border-blue-400/30"
+              className="mb-8 p-4 bg-blue-600/10 rounded-lg border border-blue-400/30"
             >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400 mb-2">
-                90%
+              <div className="text-xl md:text-2xl font-bold text-emerald-400 mb-2">
+                高い成功率
               </div>
               <div className="text-sm text-slate-300">
                 採用成功率
@@ -149,7 +149,7 @@ const SplitHero: React.FC = () => {
                 href="/service" 
                 className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 border-2 border-transparent hover:border-emerald-400"
               >
-                新しい採用戦略を見る
+                お問い合わせ
               </Link>
             </motion.div>
           </div>
@@ -179,7 +179,7 @@ const SplitHero: React.FC = () => {
           </div>
           
           {/* 学生向けコンテンツ */}
-          <div className="relative z-10 text-center px-6 py-12 mx-4 md:px-8 md:mx-6 max-w-md md:max-w-xl bg-gradient-to-br from-orange-900/80 to-green-900/80 backdrop-blur-sm rounded-xl border border-orange-400/30">
+          <div className="relative z-10 text-center px-6 py-12 mx-4 md:px-8 md:mx-6 max-w-md md:max-w-xl bg-slate-900/80 backdrop-blur-sm rounded-xl border border-orange-400/30">
             {/* 変革のコンセプト */}
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -230,7 +230,7 @@ const SplitHero: React.FC = () => {
                 href="/community" 
                 className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 border-2 border-transparent hover:border-green-400"
               >
-                そんなコミュニティに今なら誰でも参加できます
+                コミュニティに参加
               </Link>
             </motion.div>
           </div>
@@ -238,9 +238,9 @@ const SplitHero: React.FC = () => {
       </div>
       
       {/* PC表示時の区切り線 - より目立つデザイン */}
-      <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-2 bg-gradient-to-b from-transparent via-white/40 to-transparent transform -translate-x-1/2 z-10">
+      <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-2 bg-white/20 transform -translate-x-1/2 z-10">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center">
-          <div className="w-3 h-3 bg-gradient-to-br from-blue-500 to-orange-500 rounded-full animate-pulse"></div>
+          <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
         </div>
       </div>
       

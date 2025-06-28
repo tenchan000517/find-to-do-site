@@ -7,25 +7,6 @@ import { DESIGN_SYSTEM } from '@/styles/design-system';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Target, Award, Zap, Building2 } from 'lucide-react';
 
 const PipelineValueSection: React.FC = () => {
-  const [count, setCount] = useState(0);
-  
-  // 90%のカウントアップアニメーション
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setCount(prev => {
-          if (prev >= 90) {
-            clearInterval(interval);
-            return 90;
-          }
-          return prev + 1;
-        });
-      }, 20);
-      return interval;
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   const flowSteps = [
     {
@@ -47,7 +28,7 @@ const PipelineValueSection: React.FC = () => {
     {
       icon: Award,
       title: '採用検討',
-      description: '相互理解の上で、90%の高確率で採用に繋がる',
+      description: '相互理解の上で、高い確率で採用に繋がる',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
       borderColor: 'border-orange-200'
@@ -64,10 +45,10 @@ const PipelineValueSection: React.FC = () => {
 
   const comparisonData = [
     {
-      metric: '採用成功率',
-      traditional: '10-30%',
-      findToDo: '90%',
-      improvement: '3-9倍向上'
+      metric: '採用適合度',
+      traditional: '事前判断困難',
+      findToDo: '業務体験で確認',
+      improvement: 'ミスマッチ大幅削減'
     },
     {
       metric: '初期教育コスト',
@@ -112,22 +93,22 @@ const PipelineValueSection: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-white max-w-2xl mx-auto mb-8"
           >
-            <div className="flex items-center justify-center space-x-4">
+            <div className="text-center">
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-6xl md:text-8xl font-bold"
+                className="text-4xl md:text-6xl font-bold mb-4"
               >
-                {count}%
+                成果物を得ながら
               </motion.div>
-              <div className="text-left">
+              <div>
                 <div className={`${DESIGN_SYSTEM.typography.enterprise.subheading.medium}`}>
-                  採用成功率
+                  優秀な人材パイプライン構築
                 </div>
                 <div className={`${DESIGN_SYSTEM.typography.enterprise.body.small} opacity-90`}>
-                  従来手法では実現不可能
+                  従来手法では実現不可能な一石二鳥
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Heart, Users, Rocket, Home, School, Coffee, ArrowRight, Sparkles } from 'lucide-react';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
+import AudienceBadge from '@/components/ui/AudienceBadge';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -39,6 +40,9 @@ export default function StudentOpportunityHighlight() {
                     variants={fadeInUp}
                     className="text-center mb-16"
                 >
+                    <div className="flex justify-center mb-6">
+                        <AudienceBadge type="student" size="medium" />
+                    </div>
                     <h2 className={`${DESIGN_SYSTEM.typography.student.headline.medium} mb-6 text-slate-800`}>
                         <span className="text-gray-500">『自分には何もない』</span>から、<br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-green-500">
@@ -46,7 +50,7 @@ export default function StudentOpportunityHighlight() {
                         </span>
                     </h2>
                     <p className={`${DESIGN_SYSTEM.typography.student.subheading.small} text-slate-600 max-w-3xl mx-auto`}>
-                        学生主導のコミュニティで、あなたの可能性を一緒に見つけませんか？
+                        メンバー主導のコミュニティで、あなたの可能性を一緒に見つけませんか？
                     </p>
                 </motion.div>
 
@@ -77,7 +81,7 @@ export default function StudentOpportunityHighlight() {
                         },
                         {
                             icon: Rocket,
-                            title: "力の増幅",
+                            title: "挑戦の加速",
                             message: "個人の努力を、チームの力で何倍にも大きくできる場所",
                             color: "blue",
                             bgColor: "from-blue-400 to-blue-600",
@@ -251,7 +255,7 @@ export default function StudentOpportunityHighlight() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                そんなコミュニティに今なら誰でも参加できます
+                                コミュニティに参加
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </a>
                             <Link

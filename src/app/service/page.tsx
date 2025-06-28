@@ -1,622 +1,522 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Code, CalendarDays, Users, ArrowRight, TrendingUp, Target, Clock } from 'lucide-react';
-import { useEffect } from 'react';
+import { 
+  Building2, Target, Users, ArrowRight, CheckCircle, 
+  TrendingUp, Clock, DollarSign, Award, Zap, Heart,
+  FileText, Phone, Mail
+} from 'lucide-react';
+import { DESIGN_SYSTEM } from '@/styles/design-system';
 
 const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-        }
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
     }
+  }
 };
 
 const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
     }
+  }
 };
 
 export default function ServicePage() {
-    // GA4 サービスページビュー追跡
-    useEffect(() => {
-        if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'service_view', {
-                event_category: 'service_engagement',
-                service_type: 'general',
-                event_label: window.location.pathname
-            });
-        }
-    }, []);
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+      {/* ヒーローセクション */}
+      <section className={`${DESIGN_SYSTEM.spacing.section.padding} relative overflow-hidden`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <motion.h1
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.headline.large} mb-6 text-slate-800`}
+            >
+              <span className="text-gray-500">採用費で母数を稼ぐ時代</span>から、<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+                育てて選ばれる新時代へ
+              </span>
+            </motion.h1>
+            
+            <motion.p
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.subheading.medium} text-slate-600 mb-12`}
+            >
+              猫の手も借りたい業務を、優秀な学生に任せませんか？<br/>
+              それが企業の本当の魅力を伝える最高の機会です。
+            </motion.p>
 
-    // Service schema for structured data
-    const serviceSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        '@id': 'https://find-to-do.com/service#service',
-        name: 'FIND to DO サービス',
-        description: 'インターン生とメンターによる低コストなDX支援、イベント制作、学生紹介サービス。学生のキャリア支援と企業のデジタル変革を両立。',
-        provider: {
-            '@id': 'https://find-to-do.com/#organization'
-        },
-        serviceType: [
-            'インターンシップ支援',
-            'キャリア支援',
-            'DX支援',
-            '学生コミュニティ運営',
-            'イベント制作',
-            'WEBアプリ開発'
-        ],
-        areaServed: {
-            '@type': 'Country',
-            name: '日本'
-        },
-        audience: {
-            '@type': 'Audience',
-            audienceType: ['大学生', '企業', 'インターン生', '就活生']
-        },
-        offers: [
-            {
-                '@type': 'Offer',
-                name: 'WEBアプリ・DX支援',
-                description: '通常の1/10以下のコストでWEBアプリ開発やDXを実現。インターン生が実践的なスキルを身につけながら高品質な成果物を納品。',
-                category: 'DX支援'
-            },
-            {
-                '@type': 'Offer',
-                name: 'イベント制作',
-                description: '企業と学生のマッチングを促進するイベントを企画・運営。インターン生がヤングボードとして参加。',
-                category: 'イベント制作'
-            },
-            {
-                '@type': 'Offer',
-                name: 'インターン生紹介',
-                description: '実践を通じて育成されたインターン生を企業に紹介。学生広報員システムによる企業魅力発信。',
-                category: 'インターン支援'
-            }
-        ],
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'FIND to DO サービスカタログ',
-            itemListElement: [
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'WEBアプリケーション開発',
-                        description: 'インターン生とメンターによる高品質なWEBアプリ開発'
-                    }
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: '企業DX化支援',
-                        description: '業務プロセスのデジタル化とシステム導入支援'
-                    }
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: '学生イベント企画・運営',
-                        description: '企業と学生の接点創出イベントの企画から運営まで'
-                    }
-                }
-            ]
-        },
-        about: [
-            {
-                '@type': 'Thing',
-                name: 'インターンシップ',
-                description: '学生向け実践的インターンシップ機会の提供'
-            },
-            {
-                '@type': 'Thing',
-                name: 'キャリア支援',
-                description: '大学生の就職活動とスキルアップサポート'
-            },
-            {
-                '@type': 'Thing',
-                name: 'DX推進',
-                description: '企業のデジタルトランスフォーメーション支援'
-            }
-        ],
-        keywords: [
-            'インターン', '学生', '就活', 'DX', '学生広報',
-            '学生アンバサダー', '学生団体', '学生コミュニティ', 
-            'リクルート', '学生イベント', '大学生', 'キャリア',
-            'キャリア支援', 'ガクチカ', '就職活動'
-        ].join(','),
-        inLanguage: 'ja'
-    };
-
-    return (
-        <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-            />
-            <div className="min-h-screen pt-0">
-            {/* ヒーローセクション */}
-            <section className="relative bg-gradient-to-r from-blue-700 to-indigo-800 py-16 md:py-24">
-                {/* Background image */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/service/cover-background.png"
-                        alt="Service FIND to DO"
-                        fill
-                        className="object-cover mix-blend-overlay opacity-70"
-                        priority
-                    />
-                </div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeInUp}
-                        className="text-center text-white max-w-4xl mx-auto"
-                    >
-                        <h1 className="text-3xl md:text-5xl font-bold mb-6">サービス</h1>
-                        <p className="text-xl mb-8">
-                            「インターン→メンター」の成長パスを活用した独自のビジネスモデルで、
-                            コスト効率の高いサービスと人材育成の両立を実現します
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* サービス概要セクション */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">3つの主要サービスライン</h2>
-                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            FIND to DOは、「WEBアプリ・DX支援」「イベント制作」「インターン生紹介」の3つの主要サービスラインを提供し、
-                            企業の課題解決と若者の成長支援を両立します
-                        </p>
-                    </motion.div>
-
-                    <div className="space-y-16 md:space-y-24">
-                        {/* WEBアプリ・DX支援 */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={staggerContainer}
-                            className="flex flex-col md:flex-row gap-8 md:gap-12 items-center"
-                        >
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-5/12"
-                            >
-                                <div className="relative h-64 md:h-80 overflow-hidden rounded-lg shadow-xl border-t-4 border-blue-500">
-                                    <Image
-                                        src="/service/dx.png"
-                                        alt="WEBアプリ・DX支援"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex items-end p-6">
-                                        <Code className="w-12 h-12 text-white" />
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-7/12"
-                            >
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-600">
-                                    WEBアプリ・DX支援
-                                </h3>
-                                <p className="text-gray-700 mb-6">
-                                    通常の1/10以下のコストでWEBアプリ開発やDXを実現します。実際のビジネス課題を解決しながら、インターン生が実践的なスキルを身につけます。メンターの指導のもと高品質な成果物を納品します。
-                                </p>
-                                <ul className="space-y-3 mb-8">
-                                    {[
-                                        'WEBアプリケーション開発',
-                                        '企業DX化支援',
-                                        'ブロックチェーン技術活用',
-                                        '動画編集サービス',
-                                        'WEBサイト制作'
-                                    ].map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <span className="text-blue-500 mt-1">•</span>
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    href="/service/webdev"
-                                    className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
-                                >
-                                    詳細を見る
-                                    <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </motion.div>
-                        </motion.div>
-
-                        {/* イベント制作 */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={staggerContainer}
-                            className="flex flex-col md:flex-row-reverse gap-8 md:gap-12 items-center"
-                        >
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-5/12"
-                            >
-                                <div className="relative h-64 md:h-80 overflow-hidden rounded-lg shadow-xl border-t-4 border-orange-500">
-                                    <Image
-                                        src="/service/hero.png"
-                                        alt="イベント制作"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-400/40 to-transparent flex items-end p-6">
-                                        <CalendarDays className="w-12 h-12 text-white" />
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-7/12"
-                            >
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-orange-600">
-                                    イベント制作
-                                </h3>
-                                <p className="text-gray-700 mb-6">
-                                    企業と学生のマッチングを促進するイベントを企画・運営します。インターン生がヤングボードとして参加し、イベント運営スキルを磨きます。企業の魅力を若者に効果的に伝えるイベントを実現します。
-                                </p>
-                                <ul className="space-y-3 mb-8">
-                                    {[
-                                        '業界研究セミナー',
-                                        '職種体験ワークショップ',
-                                        '企業と学生の交流会',
-                                        'キャリア探索イベント',
-                                        'スキル習得プログラム'
-                                    ].map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <span className="text-orange-500 mt-1">•</span>
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    href="/service/event"
-                                    className="inline-flex items-center px-6 py-3 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-medium transition-colors"
-                                >
-                                    詳細を見る
-                                    <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </motion.div>
-                        </motion.div>
-
-                        {/* インターン生紹介 */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={staggerContainer}
-                            className="flex flex-col md:flex-row gap-8 md:gap-12 items-center"
-                        >
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-5/12"
-                            >
-                                <div className="relative h-64 md:h-80 overflow-hidden rounded-lg shadow-xl border-t-4 border-green-500">
-                                    <Image
-                                        src="/service/1.png"
-                                        alt="インターン生紹介"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-green-200/20 to-transparent flex items-end p-6">
-                                        <Users className="w-12 h-12 text-white" />
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                variants={fadeInUp}
-                                className="w-full md:w-7/12"
-                            >
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-green-600">
-                                    インターン生紹介
-                                </h3>
-                                <p className="text-gray-700 mb-6">
-                                    実践を通じて育成されたインターン生を企業に紹介します。学生広報員システムにより、企業の魅力を学生目線で発信します。採用直結に限らない多様な関わり方を通じて、企業と学生の接点を創出します。
-                                </p>
-                                <ul className="space-y-3 mb-8">
-                                    {[
-                                        'インターン求人情報のポータルサイト掲載',
-                                        'インターン設計・運営コンサルティング',
-                                        '適性を考慮したインターン生のマッチング',
-                                        '学生広報員システム',
-                                        'インターン→採用フロー設計'
-                                    ].map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <span className="text-green-500 mt-1">•</span>
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    href="/service/intern"
-                                    className="inline-flex items-center px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors"
-                                >
-                                    詳細を見る
-                                    <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ROIセクション */}
-            <section className="py-16 md:py-24 bg-blue-50">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            教育投資としての持続可能な価値創造
-                        </h2>
-                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            単なるコスト削減ではなく、社会的価値と経済的価値を両立する新しいビジネスモデル
-                        </p>
-                    </motion.div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                icon: TrendingUp,
-                                title: "コスト効率",
-                                value: "1/10以下",
-                                description: "従来の外注コストと比較して異次元のコストパフォーマンスを実現",
-                                color: "blue"
-                            },
-                            {
-                                icon: Target,
-                                title: "人材育成ROI",
-                                value: "200%+",
-                                description: "インターン生がメンターに成長、長期的な人材パイプラインを入手",
-                                color: "green"
-                            },
-                            {
-                                icon: Clock,
-                                title: "ブランディング価値",
-                                value: "永続的",
-                                description: "次世代育成に貢献する企業としての長期的ブランディング効果",
-                                color: "orange"
-                            }
-                        ].map((metric, index) => (
-                            <motion.div
-                                key={index}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={fadeInUp}
-                                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-                            >
-                                <metric.icon className={`w-12 h-12 text-${metric.color}-600 mb-4`} />
-                                <h3 className="text-xl font-bold mb-2">{metric.title}</h3>
-                                <div className={`text-2xl font-bold text-${metric.color}-600 mb-2`}>{metric.value}</div>
-                                <p className="text-gray-600">{metric.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* 共通価値セクション */}
-            <section className="py-16 md:py-24 bg-gray-50">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">すべてのサービスに共通する価値</h2>
-                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            FIND to DOのサービスがもたらす価値は、単なるコスト削減にとどまりません
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            {
-                                title: "圧倒的なコスト効率",
-                                description: "通常の1/10以下のコストで高品質なサービスを提供します。若手人材の活用と経験豊富なメンターの監修により、効率と品質を両立しています。",
-                                color: "blue"
-                            },
-                            {
-                                title: "社会貢献との両立",
-                                description: "若者の成長機会を創出しながら、企業の課題解決を実現します。ビジネス価値と社会的価値の両立による持続可能なエコシステムを構築しています。",
-                                color: "green"
-                            },
-                            {
-                                title: "若者視点の活用",
-                                description: "Z世代・ミレニアル世代の感性や視点を取り入れることで、新たな価値創造が可能になります。若者の「生の声」を企画段階から取り入れられます。",
-                                color: "orange"
-                            },
-                            {
-                                title: "中長期的な人材確保",
-                                description: "インターンを通じて企業と学生の相互理解を深め、ミスマッチのない採用につなげます。長期的な関係構築が可能です。",
-                                color: "indigo"
-                            },
-                            {
-                                title: "柔軟な対応力",
-                                description: "多様なスキルを持つインターン生とメンターの組み合わせにより、様々なニーズに対応できます。事業拡大とともにサービス範囲も拡大します。",
-                                color: "purple"
-                            },
-                            {
-                                title: "企業ブランディング強化",
-                                description: "次世代育成に貢献する企業としてのブランディングが可能です。学生広報員による自然な情報発信で企業の魅力を若者に効果的に伝えます。",
-                                color: "red"
-                            }
-                        ].map((value, index) => (
-                            <motion.div
-                                key={index}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={fadeInUp}
-                                className={`bg-white rounded-lg shadow-md p-6 border-t-4 border-${value.color}-500 hover:shadow-lg transition-shadow`}
-                            >
-                                <h3 className={`text-xl font-bold mb-3 text-${value.color}-600`}>{value.title}</h3>
-                                <p className="text-gray-700">{value.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* 従来採用との比較セクション */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            従来の採用 vs FIND to DO方式
-                        </h2>
-                        <div className="w-32 h-1 bg-orange-500 mx-auto mb-6"></div>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            今までの採用手法とは一線を画す新しいアプローチ
-                        </p>
-                    </motion.div>
-                    
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="overflow-x-auto"
-                    >
-                        <table className="w-full bg-white rounded-lg shadow-lg">
-                            <thead className="bg-blue-600 text-white">
-                                <tr>
-                                    <th className="p-4 text-left">項目</th>
-                                    <th className="p-4 text-left">従来の採用</th>
-                                    <th className="p-4 text-left">FIND to DO方式</th>
-                                    <th className="p-4 text-left">優位性</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {[
-                                    {
-                                        aspect: "コスト",
-                                        traditional: "中途採用費100-300万円\n+ 人件費・面接費",
-                                        findToDo: "プロジェクト型で成果連動\nコストは成果物代のみ",
-                                        advantage: "最大90%コスト削減"
-                                    },
-                                    {
-                                        aspect: "ミスマッチリスク",
-                                        traditional: "面接では見えない\n実務能力が不明",
-                                        findToDo: "実際の業務で能力を確認\n相互理解が深まる",
-                                        advantage: "ミスマッチ発生率が低い"
-                                    },
-                                    {
-                                        aspect: "時間コスト",
-                                        traditional: "書類選考・面接調整\n大量の人事リソースが必要",
-                                        findToDo: "プロジェクト進行中に\n自然に面接・選考が進む",
-                                        advantage: "人事リソースを大幅節約"
-                                    },
-                                    {
-                                        aspect: "企業ブランディング",
-                                        traditional: "求人情報でのアピール\n一方的な情報発信",
-                                        findToDo: "学生が体験した生の声\nリアルな企業魅力を伝達",
-                                        advantage: "信頼性の高い情報発信"
-                                    },
-                                    {
-                                        aspect: "成果物",
-                                        traditional: "人材確保のみ",
-                                        findToDo: "人材確保 + 実用的な\nシステム・成果物",
-                                        advantage: "ダブルメリットを実現"
-                                    }
-                                ].map((row, index) => (
-                                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
-                                        <td className="p-4 font-medium text-gray-800">{row.aspect}</td>
-                                        <td className="p-4 text-red-600 text-sm whitespace-pre-line">{row.traditional}</td>
-                                        <td className="p-4 text-blue-600 text-sm whitespace-pre-line">{row.findToDo}</td>
-                                        <td className="p-4 text-green-600 font-medium text-sm">{row.advantage}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* CTA セクション */}
-            <section className="py-16 md:py-24 bg-gradient-to-r from-blue-800/50 to-indigo-800 text-white">
-                <div className="container mx-auto px-4 text-center">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                            お気軽にお問い合わせください
-                        </h2>
-                        <p className="text-xl max-w-3xl mx-auto mb-10">
-                            貴社のニーズに合わせた最適なサービスをご提案いたします。
-                            まずは資料ダウンロードや個別のご相談から始めてみませんか？
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            {/* <Link 
-                href="/documents" 
-                className="px-8 py-4 bg-white text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
+              <Link
+                href="#contact"
+                className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center`}
               >
-                資料ダウンロード
-              </Link> */}
-                            <Link
-                                href="/contact"
-                                className="px-8 py-4 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors"
-                            >
-                                お問い合わせ
-                            </Link>
-                        </div>
-                    </motion.div>
+                お問い合わせ
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link
+                href="#concept"
+                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center`}
+              >
+                詳しく知る
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 共感セクション - 企業の悩み */}
+      <section id="concept" className={`${DESIGN_SYSTEM.spacing.section.padding} bg-white`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
+            >
+              <span className="text-blue-600">猫の手も借りたい業務</span>、ありませんか？
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 max-w-3xl mx-auto`}
+            >
+              多くの企業が抱える現実的な課題に、共感を込めてお応えします。
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              {
+                icon: Clock,
+                title: "時間が足りない",
+                description: "重要な業務に集中したいのに、雑務で時間が埋まってしまう",
+                bgColor: "bg-red-50",
+                borderColor: "border-red-200",
+                iconColor: "text-red-600"
+              },
+              {
+                icon: Users,
+                title: "人手が足りない",
+                description: "正社員を雇うほどではないが、確実に人手が必要な業務がある",
+                bgColor: "bg-orange-50",
+                borderColor: "border-orange-200",
+                iconColor: "text-orange-600"
+              },
+              {
+                icon: DollarSign,
+                title: "コストを抑えたい",
+                description: "外注するには高すぎる、でも内製化するにはスキルが足りない",
+                bgColor: "bg-yellow-50",
+                borderColor: "border-yellow-200",
+                iconColor: "text-yellow-600"
+              },
+              {
+                icon: Zap,
+                title: "即戦力が欲しい",
+                description: "研修期間を短くして、すぐに戦力になってくれる人材が必要",
+                bgColor: "bg-green-50",
+                borderColor: "border-green-200",
+                iconColor: "text-green-600"
+              }
+            ].map((pain, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className={`${pain.bgColor} ${pain.borderColor} border-2 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300`}
+              >
+                <div className={`w-12 h-12 ${pain.bgColor} ${pain.iconColor} rounded-full flex items-center justify-center mx-auto mb-4 border-2 ${pain.borderColor}`}>
+                  <pain.icon className="w-6 h-6" />
                 </div>
-            </section>
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3 text-slate-800`}>
+                  {pain.title}
+                </h3>
+                <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-slate-600 leading-relaxed`}>
+                  {pain.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mt-16"
+          >
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white max-w-3xl mx-auto">
+              <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-4`}>
+                そんな状況を変える新しいアプローチがあります
+              </h3>
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} opacity-90`}>
+                業務委託で成果物を得ながら、同時に優秀な人材パイプラインを構築する戦略的手法
+              </p>
             </div>
-        </>
-    );
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 価値発見セクション - 一石二鳥の価値 */}
+      <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-blue-50 to-green-50`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
+            >
+              それが実は、企業の本当の魅力を伝える<br/>
+              <span className="text-blue-600">最高の機会</span>です
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 max-w-3xl mx-auto`}
+            >
+              業務委託と採用ブランディングの二重価値を実現する戦略的アプローチ
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-slate-800`}>
+                  従来の外注 vs FIND to DO
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    {
+                      aspect: "成果物の品質",
+                      traditional: "要件定義が曖昧で、期待と違う結果",
+                      findToDo: "業務体験を通じた相互理解で高品質",
+                      improvement: "満足度向上"
+                    },
+                    {
+                      aspect: "コスト効率",
+                      traditional: "一時的な解決で継続性なし",
+                      findToDo: "人材パイプライン構築で長期価値",
+                      improvement: "戦略的投資"
+                    },
+                    {
+                      aspect: "採用ブランディング",
+                      traditional: "効果測定困難な広告費",
+                      findToDo: "実体験に基づく口コミ効果",
+                      improvement: "信頼性向上"
+                    }
+                  ].map((comparison, index) => (
+                    <div key={index} className="border-l-4 border-blue-500 pl-4">
+                      <h4 className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} font-bold text-slate-800 mb-2`}>
+                        {comparison.aspect}
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div className="text-slate-600">
+                          <span className="font-medium text-red-600">従来:</span> {comparison.traditional}
+                        </div>
+                        <div className="text-slate-600">
+                          <span className="font-medium text-blue-600">FIND to DO:</span> {comparison.findToDo}
+                        </div>
+                        <div className="text-green-600 font-medium">
+                          → {comparison.improvement}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <div className="bg-gradient-to-br from-blue-600 to-green-600 rounded-2xl p-8 text-white">
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6`}>
+                  一石二鳥の戦略的アプローチ
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    {
+                      icon: Target,
+                      title: "成果物の獲得",
+                      description: "即座に必要な業務を高品質で完了"
+                    },
+                    {
+                      icon: Building2,
+                      title: "採用ブランディング",
+                      description: "実際の職場体験で企業の魅力を自然に伝達"
+                    },
+                    {
+                      icon: Users,
+                      title: "人材パイプライン",
+                      description: "継続的な優秀人材確保システムを構築"
+                    }
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <benefit.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} font-bold mb-1`}>
+                          {benefit.title}
+                        </h4>
+                        <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} opacity-90`}>
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* パイプライン価値セクション */}
+      <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-white`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
+            >
+              成果物を得ながら、<br/>
+              <span className="text-green-600">優秀な人材パイプライン構築</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 max-w-3xl mx-auto`}
+            >
+              新しい対価モデル：採用コストを支払うのではなく成果物に対してのみ支払う革新的手法
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              {
+                step: "1",
+                icon: Target,
+                title: "成果物提供",
+                description: "猫の手も借りたい業務を学生がしっかりと完遂",
+                color: "text-blue-600",
+                bgColor: "bg-blue-50",
+                borderColor: "border-blue-200"
+              },
+              {
+                step: "2",
+                icon: Users,
+                title: "関係構築",
+                description: "業務を通じて企業と学生の間に自然な信頼関係が構築",
+                color: "text-green-600",
+                bgColor: "bg-green-50",
+                borderColor: "border-green-200"
+              },
+              {
+                step: "3",
+                icon: Award,
+                title: "採用検討",
+                description: "相互理解の上で、高い確率で採用に繋がる",
+                color: "text-orange-600",
+                bgColor: "bg-orange-50",
+                borderColor: "border-orange-200"
+              },
+              {
+                step: "4",
+                icon: Building2,
+                title: "パイプライン",
+                description: "継続的な人材確保システムが完成",
+                color: "text-purple-600",
+                bgColor: "bg-purple-50",
+                borderColor: "border-purple-200"
+              }
+            ].map((flow, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className={`${flow.bgColor} ${flow.borderColor} border-2 rounded-xl p-6 text-center relative`}
+              >
+                <div className={`absolute -top-3 -left-3 w-8 h-8 ${flow.color} bg-white rounded-full flex items-center justify-center border-2 ${flow.borderColor} font-bold text-sm`}>
+                  {flow.step}
+                </div>
+                <div className={`w-12 h-12 ${flow.bgColor} ${flow.color} rounded-full flex items-center justify-center mx-auto mb-4 border-2 ${flow.borderColor}`}>
+                  <flow.icon className="w-6 h-6" />
+                </div>
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3 text-slate-800`}>
+                  {flow.title}
+                </h3>
+                <p className={`${DESIGN_SYSTEM.typography.enterprise.body.small} text-slate-600 leading-relaxed`}>
+                  {flow.description}
+                </p>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-300 transform -translate-y-1/2">
+                    <ArrowRight className="absolute -right-2 -top-2 w-4 h-4 text-slate-400" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 新しい対価モデル */}
+      <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-slate-50 to-blue-50`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
+            >
+              <span className="text-blue-600">育てて選ばれる</span>採用戦略
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="bg-red-50 border-2 border-red-200 rounded-xl p-8">
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-red-700`}>
+                  Before: 採用費で母数を稼ぐ
+                </h3>
+                <ul className="space-y-4">
+                  {[
+                    "大量の応募者を集めるための広告費",
+                    "面接で判断できる情報は限定的",
+                    "入社後のミスマッチが頻発",
+                    "早期離職による採用コストの無駄"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-red-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-red-600 text-sm">×</span>
+                      </div>
+                      <span className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-700`}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-8">
+                <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-green-700`}>
+                  After: 育てることで選ばれる
+                </h3>
+                <ul className="space-y-4">
+                  {[
+                    "実際の業務体験で相互理解",
+                    "スキルと人柄を実践で確認",
+                    "学生側も企業文化を十分理解",
+                    "高い定着率と即戦力人材の確保"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                      </div>
+                      <span className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-700`}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* お問い合わせ */}
+      <section id="contact" className={`${DESIGN_SYSTEM.spacing.section.padding} bg-white`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl p-12 text-center max-w-4xl mx-auto"
+          >
+            <h3 className={`${DESIGN_SYSTEM.typography.enterprise.headline.small} mb-4 text-slate-800`}>
+              新しい採用戦略を始めませんか？
+            </h3>
+            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 mb-8 max-w-2xl mx-auto`}>
+              猫の手も借りたい業務から始まる、革新的な人材確保システムをご提案します。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="mailto:contact@find-to-do.com"
+                className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center`}
+              >
+                <Mail className="mr-2 w-5 h-5" />
+                メールでお問い合わせ
+              </a>
+              <Link
+                href="/"
+                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center`}
+              >
+                トップページに戻る
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
 }

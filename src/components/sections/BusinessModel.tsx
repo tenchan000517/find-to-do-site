@@ -4,6 +4,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, TrendingUp, Users, BadgeCheck, Zap, ArrowRight, Building2, RefreshCw, Target, Heart } from 'lucide-react';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
+import AudienceBadge from '@/components/ui/AudienceBadge';
 
 type Step = {
   icon: React.ElementType;
@@ -91,6 +92,9 @@ export function BusinessModel() {
           variants={staggerChildren}
           className="text-center mb-16"
         >
+          <motion.div variants={fadeInUp} className="flex justify-center mb-6">
+            <AudienceBadge type="student" size="medium" />
+          </motion.div>
           <motion.h2 
             variants={fadeInUp}
             className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
