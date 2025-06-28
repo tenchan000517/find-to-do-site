@@ -76,10 +76,10 @@ export const Header = () => {
             <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible">
               <div className="py-1">
                 <Link 
-                  href="/service/webdev" 
+                  href="/service" 
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-l-2 border-transparent hover:border-blue-500"
                 >
-                  WEBアプリ・DX支援
+                  サービス詳細
                 </Link>
                 <Link 
                   href="/service/event" 
@@ -112,10 +112,8 @@ export const Header = () => {
           </Link>
 
           <Link 
-            href="https://discord.gg/xQM6NgmwPk" 
+            href="/community" 
             className="px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ml-2"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             コミュニティに参加
           </Link>
@@ -181,11 +179,11 @@ export const Header = () => {
               className="overflow-hidden pl-4"
             >
               <Link 
-                href="/service/webdev" 
+                href="/service" 
                 className="block py-1.5 text-gray-700 border-l-2 border-blue-500 pl-2 my-1.5"
                 onClick={closeMenu}
               >
-                WEBアプリ・DX支援
+                サービス詳細
               </Link>
               <Link 
                 href="/service/event" 
@@ -222,11 +220,9 @@ export const Header = () => {
 
           <div className="flex flex-col space-y-2 pt-1.5">
             <Link 
-              href="https://discord.gg/xQM6NgmwPk" 
+              href="/community" 
               className="py-1.5 px-4 bg-blue-600 text-white text-center rounded-lg"
               onClick={closeMenu}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               コミュニティに参加
             </Link>

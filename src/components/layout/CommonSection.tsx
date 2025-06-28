@@ -102,7 +102,7 @@ export function CommonSection() {
                 >
                     <Link
                         href="/contact"
-                        className="inline-block px-8 py-4 bg-red-500 text-white text-3xl rounded-lg font-medium hover:bg-indigo-50 transition-colors text-center mx-2"
+                        className="inline-block px-8 py-4 bg-red-500 text-white text-3xl rounded-lg font-medium hover:bg-red-600 transition-colors text-center mx-2"
                     >
                         お問い合わせ
                     </Link>

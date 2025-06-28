@@ -31,7 +31,7 @@ const staggerContainer = {
 
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-green-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-orange-50 to-green-50">
       {/* ヒーローセクション */}
       <section className={`${DESIGN_SYSTEM.spacing.section.padding} relative overflow-hidden`}>
         <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
@@ -72,12 +72,6 @@ export default function CommunityPage() {
                 コミュニティに参加
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
-              <Link
-                href="#concept"
-                className={`${DESIGN_SYSTEM.buttons.student.secondary} inline-flex items-center`}
-              >
-                詳しく知る
-              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -119,8 +113,8 @@ export default function CommunityPage() {
               {
                 icon: Home,
                 title: "家",
-                subtitle: "家族の期待とプレッシャーの場",
-                description: "「勉強頑張って」「将来のために」\n愛情ゆえの期待が、時として重荷になることも",
+                subtitle: "家族の愛に包まれた安心の場",
+                description: "「家族がいてくれるから安心」\n愛情あふれる安心できる場所。それに加えて",
                 bgColor: "bg-blue-50",
                 borderColor: "border-blue-200",
                 iconColor: "text-blue-600"
@@ -128,8 +122,8 @@ export default function CommunityPage() {
               {
                 icon: School,
                 title: "学校",
-                subtitle: "成績と競争の場",
-                description: "「他の人より上手く」「評価されるように」\n比較される環境では、素の自分を出しにくい",
+                subtitle: "学びと成長の場",
+                description: "「知識やスキルを身につけられる」\n学びと成長の場。それに加えて",
                 bgColor: "bg-green-50",
                 borderColor: "border-green-200",
                 iconColor: "text-green-600"
@@ -223,7 +217,7 @@ export default function CommunityPage() {
                 <div className={`w-16 h-16 ${value.bgColor} ${value.color} rounded-full flex items-center justify-center mx-auto mb-6`}>
                   <value.icon className="w-8 h-8" />
                 </div>
-                <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.medium} mb-4 text-slate-800`}>
+                <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.medium} mb-4 text-slate-800 text-center`}>
                   {value.title}
                 </h3>
                 <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-slate-600 leading-relaxed`}>
@@ -397,7 +391,7 @@ export default function CommunityPage() {
             <p className={`${DESIGN_SYSTEM.typography.student.body.large} text-slate-600 mb-8 max-w-2xl mx-auto`}>
               あなたの可能性を一緒に見つけて、個人の努力をチームの力で何倍にも大きくしませんか？
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
                 href="https://discord.gg/xQM6NgmwPk"
                 className={`${DESIGN_SYSTEM.buttons.student.primary} inline-flex items-center`}
@@ -407,12 +401,6 @@ export default function CommunityPage() {
                 <Users className="mr-2 w-5 h-5" />
                 コミュニティに参加
               </a>
-              <Link
-                href="/"
-                className={`${DESIGN_SYSTEM.buttons.student.secondary} inline-flex items-center`}
-              >
-                トップページに戻る
-              </Link>
             </div>
           </motion.div>
         </div>

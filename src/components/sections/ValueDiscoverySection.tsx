@@ -25,7 +25,7 @@ const ValueDiscoverySection: React.FC = () => {
         { icon: Target, text: '高品質な成果物', color: 'text-blue-600' },
         { icon: Heart, text: '信頼関係の構築', color: 'text-green-600' },
         { icon: Lightbulb, text: '企業の本当の魅力を発見・伝達', color: 'text-orange-600' },
-        { icon: Users, text: '90%の高い採用成功率', color: 'text-emerald-600' }
+        { icon: Users, text: '高い採用成功率', color: 'text-emerald-600' }
       ],
       bgColor: 'bg-gradient-to-br from-blue-50 to-green-50',
       borderColor: 'border-blue-200'
@@ -78,7 +78,7 @@ const ValueDiscoverySection: React.FC = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-block mb-6"
           >
-            <div className="bg-gradient-to-r from-orange-400 to-pink-400 text-white px-6 py-3 rounded-full font-bold text-sm tracking-wide">
+            <div className="bg-orange-500 text-white px-6 py-3 rounded-full font-bold text-sm tracking-wide">
               新発見！
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const ValueDiscoverySection: React.FC = () => {
                     <div className={`${item.color} flex-shrink-0`}>
                       <item.icon size={20} />
                     </div>
-                    <span className={`${DESIGN_SYSTEM.typography.enterprise.body.small} ${item.color}`}>
+                    <span className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} ${item.color}`}>
                       {item.text}
                     </span>
                   </motion.div>
@@ -184,13 +184,13 @@ const ValueDiscoverySection: React.FC = () => {
           className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-12 text-white text-center"
         >
           <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6`}>
-            一石二鳥の戦略的アプローチ
+            相互成長による持続可能な関係構築
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
               <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3`}>
-                Immediate Value
+                短期的成果
               </h4>
               <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium}`}>
                 今すぐ必要な成果物を<br />高品質で提供
@@ -199,7 +199,7 @@ const ValueDiscoverySection: React.FC = () => {
             
             <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
               <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} mb-3`}>
-                Long-term Value
+                長期的価値
               </h4>
               <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium}`}>
                 優秀な人材パイプラインを<br />継続的に構築

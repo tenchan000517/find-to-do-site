@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { TrendingUp, Target, Clock, ArrowRight, CheckCircle, Users, Award, Zap, Building2, DollarSign } from 'lucide-react';
+import { TrendingUp, Target, ArrowRight, CheckCircle, Users, Award, Zap, Building2, Coins } from 'lucide-react';
 import { DESIGN_SYSTEM } from '@/styles/design-system';
 import AudienceBadge from '@/components/ui/AudienceBadge';
 
@@ -57,10 +57,10 @@ export default function EnterpriseValueHighlight() {
                                 <motion.div
                                     className={`${DESIGN_SYSTEM.typography.enterprise.stats.large} font-bold`}
                                 >
-                                    新しい採用
+育てて選ばれる新時代
                                 </motion.div>
                                 <div className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} opacity-90`}>
-                                    アプローチ
+                                    採用戦略
                                 </div>
                             </div>
                             <div className="h-px md:h-16 w-16 md:w-px bg-white/30"></div>
@@ -87,7 +87,7 @@ export default function EnterpriseValueHighlight() {
                             <span className="text-green-600">育てることで選ばれる</span>新時代へ
                         </h2>
                         <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-600 max-w-4xl mx-auto`}>
-                            新しい対価モデル：<span className="font-bold text-slate-800">採用コストを支払うのではなく成果物に対してのみ支払う</span>
+                            新しい対価モデル：<span className="font-bold text-slate-800">採用コスト0円、成果物に対してのみ支払う</span>
                         </p>
                     </motion.div>
                 </motion.div>
@@ -101,7 +101,7 @@ export default function EnterpriseValueHighlight() {
                     className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16 border border-blue-200"
                 >
                     <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-8 text-slate-800`}>
-                        成果物を得ながら、優秀な人材パイプラインを構築
+                        新しい関係性で優秀な人材パイプラインを構築
                     </h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -109,7 +109,7 @@ export default function EnterpriseValueHighlight() {
                             <div className="flex items-center mb-4">
                                 <Target className="text-blue-600 mr-3" size={24} />
                                 <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-blue-800`}>
-                                    Immediate Value
+                                    即座の価値
                                 </h4>
                             </div>
                             <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-blue-700`}>
@@ -121,7 +121,7 @@ export default function EnterpriseValueHighlight() {
                             <div className="flex items-center mb-4">
                                 <Building2 className="text-green-600 mr-3" size={24} />
                                 <h4 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-green-800`}>
-                                    Long-term Value
+                                    長期的価値
                                 </h4>
                             </div>
                             <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-green-700`}>
@@ -132,7 +132,7 @@ export default function EnterpriseValueHighlight() {
                     
                     <div className="text-center bg-gradient-to-r from-slate-100 to-blue-100 rounded-xl p-6">
                         <p className={`${DESIGN_SYSTEM.typography.enterprise.subheading.small} text-slate-800 font-bold`}>
-                            一石二鳥の戦略的アプローチ
+相互成長による持続可能な関係構築
                         </p>
                     </div>
                 </motion.div>
@@ -147,26 +147,26 @@ export default function EnterpriseValueHighlight() {
                 >
                     {[
                         {
-                            icon: DollarSign,
+                            icon: Coins,
                             title: "新しい対価モデル",
-                            value: "成果物のみ",
-                            description: "採用費ではなく、確実な成果物に対してのみ支払う革新的モデル",
+                            value: "成果物への対価",
+                            description: "成果物への対価として支払う革新的モデル",
                             color: "blue",
                             bgColor: "from-blue-500 to-blue-700"
                         },
                         {
                             icon: Target,
                             title: "採用成功率",
-                            value: "90%",
-                            description: "従来手法では実現不可能な圧倒的な成功率を実現",
+                            value: "採用成功率向上",
+                            description: "業務体験による相互理解で採用成功率が向上",
                             color: "green",
                             bgColor: "from-green-500 to-green-700"
                         },
                         {
                             icon: TrendingUp,
                             title: "質重視アプローチ",
-                            value: "厳選",
-                            description: "量より質を重視する企業のための戦略的サービス",
+                            value: "質重視",
+                            description: "量より質を重視する企業のためのアプローチ",
                             color: "orange",
                             bgColor: "from-orange-500 to-orange-700"
                         }
@@ -243,7 +243,7 @@ export default function EnterpriseValueHighlight() {
                     <div className="mt-8 pt-6 border-t border-gray-200">
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             {[
-                                { label: "コスト削減", value: "最大90%" },
+                                { label: "コスト削減", value: "大幅削減" },
                                 { label: "ミスマッチ", value: "大幅減少" },
                                 { label: "人事リソース", value: "大幅節約" },
                                 { label: "成果物", value: "ダブルメリット" }
@@ -309,19 +309,13 @@ export default function EnterpriseValueHighlight() {
                         <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-600 mb-6`}>
                             量より質を重視する企業のための厳選サービス。確実な成果と長期的な価値創出を両立します。
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex justify-center">
                             <Link
                                 href="/contact"
                                 className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center text-center`}
                             >
-                                新しい採用戦略の詳細を見る
+                                お問い合わせ
                                 <ArrowRight className="ml-2 w-5 h-5" />
-                            </Link>
-                            <Link
-                                href="/service"
-                                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center text-center`}
-                            >
-                                導入事例・効果を確認
                             </Link>
                         </div>
                     </div>

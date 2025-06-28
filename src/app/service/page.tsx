@@ -60,24 +60,6 @@ export default function ServicePage() {
               それが企業の本当の魅力を伝える最高の機会です。
             </motion.p>
 
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-            >
-              <Link
-                href="#contact"
-                className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center`}
-              >
-                お問い合わせ
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                href="#concept"
-                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center`}
-              >
-                詳しく知る
-              </Link>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -266,7 +248,7 @@ export default function ServicePage() {
             <motion.div variants={fadeInUp}>
               <div className="bg-gradient-to-br from-blue-600 to-green-600 rounded-2xl p-8 text-white">
                 <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6`}>
-                  一石二鳥の戦略的アプローチ
+相互成長による持続可能な関係構築
                 </h3>
                 <div className="space-y-6">
                   {[
@@ -321,14 +303,14 @@ export default function ServicePage() {
               variants={fadeInUp}
               className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
             >
-              成果物を得ながら、<br/>
+新しい関係性で<br/>
               <span className="text-green-600">優秀な人材パイプライン構築</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 max-w-3xl mx-auto`}
             >
-              新しい対価モデル：採用コストを支払うのではなく成果物に対してのみ支払う革新的手法
+新しい対価モデル：成果物への対価としてのみ支払う革新的手法
             </motion.p>
           </motion.div>
 
@@ -499,19 +481,13 @@ export default function ServicePage() {
             <p className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 mb-8 max-w-2xl mx-auto`}>
               猫の手も借りたい業務から始まる、革新的な人材確保システムをご提案します。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:contact@find-to-do.com"
+            <div className="flex justify-center">
+              <Link
+                href="/contact"
                 className={`${DESIGN_SYSTEM.buttons.enterprise.primary} inline-flex items-center`}
               >
                 <Mail className="mr-2 w-5 h-5" />
-                メールでお問い合わせ
-              </a>
-              <Link
-                href="/"
-                className={`${DESIGN_SYSTEM.buttons.enterprise.secondary} inline-flex items-center`}
-              >
-                トップページに戻る
+                お問い合わせ
               </Link>
             </div>
           </motion.div>

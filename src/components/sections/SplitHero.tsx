@@ -109,7 +109,7 @@ const SplitHero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-400 mb-8"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-400 mb-8"
             >
               育てて選ばれる新時代へ
             </motion.h2>
@@ -124,18 +124,18 @@ const SplitHero: React.FC = () => {
               猫の手も借りたい業務は、<br className="md:hidden" />魅力を伝える最大のチャンス
             </motion.p>
             
-            {/* 90%成功率を強調 */}
+            {/* 企業向けメッセージの明確化 */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9, duration: 0.6 }}
               className="mb-8 p-4 bg-blue-600/10 rounded-lg border border-blue-400/30"
             >
-              <div className="text-xl md:text-2xl font-bold text-emerald-400 mb-2">
-                高い成功率
+              <div className="text-lg md:text-xl font-bold text-blue-300 mb-2">
+                【企業様向け】
               </div>
               <div className="text-sm text-slate-300">
-                採用成功率
+                採用コストではなく成果物への対価で人材確保
               </div>
             </motion.div>
             
@@ -149,7 +149,7 @@ const SplitHero: React.FC = () => {
                 href="/service" 
                 className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 border-2 border-transparent hover:border-emerald-400"
               >
-                お問い合わせ
+                サービスの詳細
               </Link>
             </motion.div>
           </div>
@@ -181,18 +181,23 @@ const SplitHero: React.FC = () => {
           {/* 学生向けコンテンツ */}
           <div className="relative z-10 text-center px-6 py-12 mx-4 md:px-8 md:mx-6 max-w-md md:max-w-xl bg-slate-900/80 backdrop-blur-sm rounded-xl border border-orange-400/30">
             {/* 変革のコンセプト */}
-            <motion.h1 
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8"
+              className="mb-8"
             >
-              <span className="text-gray-300">『自分には何もない』</span>
-              <br className="md:hidden" />から、
-              <br />
-              <span className="text-orange-400">『自分にはこれがある』</span>
-              <br className="md:hidden" />へ
-            </motion.h1>
+              <div className="text-lg md:text-xl font-bold text-orange-300 mb-4">
+                【学生の方向け】
+              </div>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                <span className="text-gray-300">『自分には何もない』</span>
+                <br className="md:hidden" />から、
+                <br />
+                <span className="text-orange-400">『自分にはこれがある』</span>
+                <br className="md:hidden" />へ
+              </h1>
+            </motion.div>
             
             {/* 3つの価値メッセージ */}
             <motion.div 
@@ -203,7 +208,7 @@ const SplitHero: React.FC = () => {
             >
               <div className="p-3 bg-orange-600/20 rounded-lg border border-orange-400/30">
                 <p className="text-sm md:text-base text-orange-100">
-                  最初は誰でも初心者。ここで見つけた『得意』が、人生を変えるきっかけになる
+                  ここで見つけた『得意』が、人生を変えるきっかけになる
                 </p>
               </div>
               
@@ -226,12 +231,14 @@ const SplitHero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
             >
-              <Link 
-                href="/community" 
+              <a 
+                href="https://discord.gg/xQM6NgmwPk"
                 className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 border-2 border-transparent hover:border-green-400"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 コミュニティに参加
-              </Link>
+              </a>
             </motion.div>
           </div>
         </motion.div>

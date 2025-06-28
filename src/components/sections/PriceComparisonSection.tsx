@@ -159,17 +159,17 @@ export default function PriceComparisonSection() {
           {/* コスト削減メリットの強調表示 */}
           <div className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
             {[
-              { category: "小規模DXプロジェクト", traditional: "150-300万円", findToDo: "10-30万円", savings: "最大90%削減", value: "成果物 + 未来の人材接点" },
-              { category: "中規模システム開発", traditional: "200-500万円", findToDo: "30-80万円", savings: "最大84%削減", value: "ダブルメリット + 信頼関係構築" },
-              { category: "大規模DX推進", traditional: "500-1000万円", findToDo: "80-200万円", savings: "最大80%削減", value: "社会貢献 + 長期ブランド価値" }
+              { category: "小規模DXプロジェクト", traditional: "150-300万円", findToDo: "10-30万円", savings: "大幅削減", value: "成果物 + 未来の人材接点" },
+              { category: "中規模システム開発", traditional: "200-500万円", findToDo: "30-80万円", savings: "大幅削減", value: "ダブルメリット + 信頼関係構築" },
+              { category: "大規模DX推進", traditional: "500-1000万円", findToDo: "80-200万円", savings: "大幅削減", value: "社会貢献 + 長期ブランド価値" }
             ].map((item, index) => (
               <div key={index} className="bg-blue-50 p-3 md:p-4 rounded-lg">
-                <p className="text-sm md:text-base font-medium mb-2">{item.category}</p>
+                <p className="text-base md:text-lg font-medium mb-2">{item.category}</p>
                 <div className="space-y-1">
-                  <p className="text-xs md:text-sm text-gray-600">従来: {item.traditional}</p>
-                  <p className="text-xs md:text-sm text-blue-600 font-medium">FIND to DO: {item.findToDo}</p>
-                  <p className="text-blue-600 font-bold text-sm md:text-base">{item.savings}</p>
-                  <p className="text-xs text-green-600 font-medium">{item.value}</p>
+                  <p className="text-sm md:text-base text-gray-600">従来: {item.traditional}</p>
+                  <p className="text-sm md:text-base text-blue-600 font-medium">FIND to DO: {item.findToDo}</p>
+                  <p className="text-blue-600 font-bold text-base md:text-lg">{item.savings}</p>
+                  <p className="text-sm md:text-base text-green-600 font-medium">{item.value}</p>
                 </div>
               </div>
             ))}

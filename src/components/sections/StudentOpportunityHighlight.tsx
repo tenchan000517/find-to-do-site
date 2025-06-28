@@ -117,26 +117,26 @@ export default function StudentOpportunityHighlight() {
                     className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16"
                 >
                     <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.large} text-center mb-8 text-slate-800`}>
-                        あなたの<span className="text-orange-600">サードプレイス</span>
+                        あなたの<span className="text-orange-600">第3の居場所</span>
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
                                 icon: Home,
                                 title: "家",
-                                description: "家族の期待とプレッシャーの場",
+                                description: "家族との日常生活の場",
                                 color: "gray-400"
                             },
                             {
                                 icon: School,
                                 title: "学校",
-                                description: "成績と競争の場",
+                                description: "勉強と友人関係の場",
                                 color: "gray-400"
                             },
                             {
                                 icon: Coffee,
                                 title: "FIND to DO",
-                                description: "ありのままの自分でいられる第3の居場所",
+                                description: "本当の自分で挑戦できる第3の居場所",
                                 color: "orange-600",
                                 highlight: true
                             }

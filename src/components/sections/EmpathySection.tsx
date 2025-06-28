@@ -117,15 +117,15 @@ const EmpathySection: React.FC = () => {
               これらの課題、多くの企業様が経験されているのではないでしょうか？
             </h3>
             
-            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-600 mb-8`}>
+            <p className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-600 mb-8`}>
               従来の外注や派遣では解決が難しい、これらのリアルな経営課題。<br />
               <span className="font-semibold text-slate-800">実は、これらすべてを同時に解決する新しいアプローチがあります。</span>
             </p>
 
             {/* 次セクションへの期待を高める */}
             <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 border border-blue-200/50">
-              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-700 font-medium`}>
-                そんな状況を変える新しいアプローチがあります
+              <p className={`${DESIGN_SYSTEM.typography.enterprise.body.large} text-slate-700 font-medium`}>
+                従来の課題を根本から解決する革新的な手法があります
               </p>
               
               <motion.div

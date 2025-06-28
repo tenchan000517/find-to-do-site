@@ -99,7 +99,7 @@ export function BusinessModel() {
             variants={fadeInUp}
             className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} mb-6 text-slate-800`}
           >
-            企業 ←→ 学生 ←→ 成果物 ←→ 成長 ←→ 採用 ←→ <span className="text-orange-600">循環システム</span>
+            <span className="text-orange-600">学生主導のコミュニティ</span>で実践する成長エコシステム
           </motion.h2>
           <motion.div 
             variants={fadeInUp}
@@ -192,7 +192,7 @@ export function BusinessModel() {
             variants={fadeInUp}
             className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} text-center mb-12 text-slate-800`}
           >
-            循環システム：現役学生 → 卒業 → 社会人 → メンター → 次世代指導
+            学生が企業案件で実践体験を積み、ガクチカで差別化を実現
           </motion.h3>
           
           <div className="relative">
@@ -273,7 +273,7 @@ export function BusinessModel() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mt-20 bg-gradient-to-r from-orange-500 to-green-500 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl"
+          className="mt-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl"
         >
           <h3 className={`${DESIGN_SYSTEM.typography.enterprise.subheading.large} mb-6 text-white`}>社会的意義</h3>
           <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} mb-8 max-w-4xl mx-auto text-white/90`}>

@@ -52,9 +52,9 @@ const PipelineValueSection: React.FC = () => {
     },
     {
       metric: '初期教育コスト',
-      traditional: '6ヶ月',
-      findToDo: '1ヶ月',
-      improvement: '6倍短縮'
+      traditional: '長期間必要',
+      findToDo: '実務で相互理解',
+      improvement: '大幅短縮'
     },
     {
       metric: '離職リスク',
@@ -82,7 +82,7 @@ const PipelineValueSection: React.FC = () => {
           <motion.h2 
             className={`${DESIGN_SYSTEM.typography.enterprise.headline.medium} text-slate-800 mb-8`}
           >
-            成果物を得ながら、<br className="md:hidden" />優秀な人材パイプラインを構築
+            新しい関係性の構築で<br className="md:hidden" />優秀な人材パイプラインを実現
           </motion.h2>
           
           {/* 90%成功率の大きな表示 */}
@@ -101,21 +101,21 @@ const PipelineValueSection: React.FC = () => {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="text-4xl md:text-6xl font-bold mb-4"
               >
-                成果物を得ながら
+相互成長で実現する
               </motion.div>
               <div>
                 <div className={`${DESIGN_SYSTEM.typography.enterprise.subheading.medium}`}>
                   優秀な人材パイプライン構築
                 </div>
                 <div className={`${DESIGN_SYSTEM.typography.enterprise.body.small} opacity-90`}>
-                  従来手法では実現不可能な一石二鳥
+  企業と学生の双方にとっての価値創造
                 </div>
               </div>
             </div>
           </motion.div>
 
           <p className={`${DESIGN_SYSTEM.typography.enterprise.body.medium} text-slate-600 max-w-3xl mx-auto`}>
-            新しい対価モデル：<span className="font-bold text-slate-800">採用コストを支払うのではなく成果物に対してのみ支払う</span>
+新しい対価モデル：<span className="font-bold text-slate-800">成果物への対価としてのみ支払う革新的モデル</span>
           </p>
         </motion.div>
 
