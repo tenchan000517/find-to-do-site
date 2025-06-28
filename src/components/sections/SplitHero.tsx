@@ -95,6 +95,16 @@ const SplitHero: React.FC = () => {
           
           {/* 企業向けコンテンツ */}
           <div className="relative z-10 text-center px-6 py-12 mx-4 md:px-8 md:mx-6 max-w-md md:max-w-xl bg-slate-900/80 backdrop-blur-sm rounded-xl border border-slate-700/50">
+            {/* 企業向けラベル - 最上部 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-lg md:text-xl font-bold text-blue-300 mb-6"
+            >
+              【企業様へ】
+            </motion.div>
+            
             {/* 衝撃的なヘッドライン */}
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -109,7 +119,7 @@ const SplitHero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-400 mb-8"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-400 mb-8"
             >
               育てて選ばれる新時代へ
             </motion.h2>
@@ -124,18 +134,6 @@ const SplitHero: React.FC = () => {
               <p className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-300 leading-tight">
                 猫の手も借りたい業務は、<br className="md:hidden" />魅力を伝える最大のチャンス
               </p>
-            </motion.div>
-            
-            {/* 企業向けメッセージの明確化 */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="mb-8 p-4 bg-blue-600/10 rounded-lg border border-blue-400/30"
-            >
-              <div className="text-lg md:text-xl font-bold text-blue-300 mb-2">
-                【企業様向け】
-              </div>
             </motion.div>
             
             {/* CTA */}
@@ -187,7 +185,7 @@ const SplitHero: React.FC = () => {
               className="mb-8"
             >
               <div className="text-lg md:text-xl font-bold text-orange-300 mb-4">
-                【学生の方向け】
+                【学生の方へ】
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                 <span className="text-gray-300">『自分には何もない』</span>
