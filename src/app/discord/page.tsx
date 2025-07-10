@@ -355,17 +355,6 @@ export default function DiscordPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className={`${DESIGN_SYSTEM.spacing.section.paddingSmall} bg-gray-900 text-white`}>
-        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
-          <div className="text-center">
-            <p className={`${DESIGN_SYSTEM.typography.student.body.small} text-gray-300`}>
-              © 2024 FIND to DO. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
