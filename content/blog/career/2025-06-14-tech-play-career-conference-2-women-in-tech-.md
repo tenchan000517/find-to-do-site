@@ -1,9 +1,11 @@
 ---
-title: "女性エンジニアのキャリアパスを切り開く：TECH PLAY Career Conference #2 Women in Tech から学ぶ成長戦略"
-date: "2025-06-14T00:12:37.367Z"
-category: "キャリア"
-slug: "tech-play-career-conference-2-women-in-tech-"
-excerpt: "2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催した「TECH PLAY Career Conference #2 Women in Tech」が開催されました。本カンファレンスは、女性エンジニアのキャリア開発と活躍促進を目..."
+title: '女性エンジニアのキャリアパスを切り開く：TECH PLAY Career Conference #2 Women in Tech から学ぶ成長戦略'
+date: '2025-06-14T00:12:37.367Z'
+category: キャリア
+slug: tech-play-career-conference-2-women-in-tech-
+excerpt: >-
+  2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催した「TECH PLAY
+  Career Conference #2 Women in Tech」が開催されました。本カンファレンスは、女性エンジニアのキャリア開発と活躍促進を目...
 ---
 
 # 女性エンジニアのキャリアパスを切り開く：TECH PLAY Career Conference #2 Women in Tech から学ぶ成長戦略
@@ -98,3 +100,18 @@ DX推進は、企業のデジタル化を加速させ、ITエンジニアの需�
 ## まとめ
 
 TECH PLAY Career Conference #2 Women in Techで得られた知見を基に、女性エンジニアのキャリアパスと成長戦略について考察しました。成功事例から学ぶ戦略的なキャリアデザイン、技術力とソフトスキルの両立、そして現在の業界動向を踏まえたスキルアップが重要です。  自身の強みや弱みを理解し、柔軟なキャリアプランを立て、積極的に行動することで、女性エンジニアは大きく成長し、活躍できる場を広げることができるでしょう。  今後も継続的な学習と自己研鑽を通じて、IT業界における女性エンジニアの活躍を期待します。
+
+
+## 参考情報
+
+本記事は最新の転職・キャリア市場動向と業界情報に基づいて作成しています。
+
+参考となる情報源：
+1. **厚生労働省** - 雇用統計・労働市場データ
+   URL: https://www.mhlw.go.jp/
+2. **リクルート キャリア総研** - 転職市場レポート
+   URL: https://www.recruit-career.co.jp/
+3. **経済産業省** - IT人材需給予測
+   URL: https://www.meti.go.jp/
+
+*※本記事の情報は執筆時点でのものであり、最新の市場動向については各機関の公式発表をご確認ください。*

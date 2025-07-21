@@ -226,7 +226,7 @@ export default function DiscordPage() {
       </section>
 
       {/* Community Benefits Section */}
-      <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-blue-50 to-blue-100`}>
+      {/* <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-blue-50 to-blue-100`}>
         <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
           <h2 className={`${DESIGN_SYSTEM.typography.student.headline.medium} text-center ${DESIGN_SYSTEM.spacing.element.margin.large} text-[#1f2937]`}>
             コミュニティで得られる<span className="text-[#3b82f6]">永続的価値</span>
@@ -263,6 +263,51 @@ export default function DiscordPage() {
               <span className="text-[#f97316]">4年間で40年分</span>のキャリアネットワークを構築する、<br />
               <span className="text-[#3b82f6]">最後のチャンス</span>です。
             </p>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Why Discord Section */}
+      <section className={`${DESIGN_SYSTEM.spacing.section.padding} bg-gradient-to-br from-purple-50 to-purple-100`}>
+        <div className={`${DESIGN_SYSTEM.spacing.container.maxWidth} ${DESIGN_SYSTEM.spacing.container.padding}`}>
+          <h2 className={`${DESIGN_SYSTEM.typography.student.headline.medium} text-center ${DESIGN_SYSTEM.spacing.element.margin.large} text-[#1f2937]`}>
+            私たちが<span className="text-[#7c3aed]">Discordにこだわる理由</span>
+          </h2>
+          
+          <div className={`${DESIGN_SYSTEM.spacing.element.padding.large} bg-white rounded-xl shadow-lg max-w-4xl mx-auto`}>
+            <div className="flex items-start space-x-4 mb-6">
+              <div className="flex-shrink-0">
+                <Heart className="w-12 h-12 text-[#7c3aed]" />
+              </div>
+              <div className="flex-1">
+                <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.medium} ${DESIGN_SYSTEM.spacing.element.margin.small} text-[#7c3aed]`}>
+                  双方向のコミュニケーション
+                </h3>
+                <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-[#374151] leading-relaxed`}>
+                  LINEの公式アカウントやメルマガのような一方通行のコミュニケーションではなく、質問したい時に答えてくれる誰かが身近にいると心強い、という私たちの経験から、オンラインでも距離が縮められるDiscordにこだわっています。
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4 mb-6">
+              <div className="flex-shrink-0">
+                <Zap className="w-12 h-12 text-[#f97316]" />
+              </div>
+              <div className="flex-1">
+                <h3 className={`${DESIGN_SYSTEM.typography.student.subheading.medium} ${DESIGN_SYSTEM.spacing.element.margin.small} text-[#f97316]`}>
+                  初心者の方への配慮
+                </h3>
+                <p className={`${DESIGN_SYSTEM.typography.student.body.medium} text-[#374151] leading-relaxed`}>
+                  使い慣れない方もいらっしゃることは重々承知しています。私たちは長く皆様をサポートし関わっていきたいと思っておりますので、今まで使ったことのない方に寄り添って使い方からサポートします。
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center pt-4 border-t border-gray-200">
+              <p className={`${DESIGN_SYSTEM.typography.student.body.large} text-[#7c3aed] font-semibold`}>
+                よろしければ仲間になってくださると幸いです
+              </p>
+            </div>
           </div>
         </div>
       </section>

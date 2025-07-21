@@ -1,9 +1,11 @@
 ---
-title: "女性エンジニアの活躍を加速！TECH PLAY Career Conference #2 Women in Tech レポート"
-date: "2025-06-19T00:13:36.692Z"
-category: "キャリア"
-slug: "tech-play-career-conference-2-women-in-tech--1750292016692"
-excerpt: "2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催する「TECH PLAY Career Conference #2 Women in Tech」が開催されました。本イベントは、女性エンジニアのキャリア開発と活躍促進を目的とし..."
+title: '女性エンジニアの活躍を加速！TECH PLAY Career Conference #2 Women in Tech レポート'
+date: '2025-06-19T00:13:36.692Z'
+category: キャリア
+slug: tech-play-career-conference-2-women-in-tech--1750292016692
+excerpt: >-
+  2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成支援サービス『TECH PLAY』が主催する「TECH PLAY
+  Career Conference #2 Women in Tech」が開催されました。本イベントは、女性エンジニアのキャリア開発と活躍促進を目的とし...
 ---
 
 # 女性エンジニアの活躍を加速！TECH PLAY Career Conference #2 Women in Tech レポート
@@ -68,3 +70,18 @@ excerpt: "2025年2月26日、PERSOL INNOVATIONが提供するIT・DX人材育成
 ## まとめ
 
 「TECH PLAY Career Conference #2 Women in Tech」は、女性エンジニアのキャリア成功のための貴重な情報を提供する場となりました。成功事例、スキルアップ方法、そして現在の業界動向を理解することで、自身のキャリアプランを描き、積極的に行動することが重要です。  継続的な学習と積極的なネットワーク構築を心掛け、自身のキャリアを積極的に切り開いていきましょう。  PERSOL INNOVATIONをはじめとする企業の支援も活用し、女性エンジニアの活躍がさらに促進されることを期待します。
+
+
+## 参考情報
+
+本記事は最新の転職・キャリア市場動向と業界情報に基づいて作成しています。
+
+参考となる情報源：
+1. **厚生労働省** - 雇用統計・労働市場データ
+   URL: https://www.mhlw.go.jp/
+2. **リクルート キャリア総研** - 転職市場レポート
+   URL: https://www.recruit-career.co.jp/
+3. **経済産業省** - IT人材需給予測
+   URL: https://www.meti.go.jp/
+
+*※本記事の情報は執筆時点でのものであり、最新の市場動向については各機関の公式発表をご確認ください。*

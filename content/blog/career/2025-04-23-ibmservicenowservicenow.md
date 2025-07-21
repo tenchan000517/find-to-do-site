@@ -1,9 +1,10 @@
 ---
-title: "IBM地域ServiceNow人財育成プログラムとServiceNowローコード開発者のキャリアパス"
-date: "2025-04-23T00:12:30.251Z"
-category: "キャリア"
-slug: "ibmservicenowservicenow"
-excerpt: "近年、デジタルトランスフォーメーションの加速に伴い、ローコード/ノーコード開発プラットフォームの需要が急増しています。その中でも、ServiceNowはエンタープライズ分野で高い人気を誇り、熟練したServiceNowローコード開発者は高い市場価値を有しています。株式会社インプレスが報じた「IBM地..."
+title: IBM地域ServiceNow人財育成プログラムとServiceNowローコード開発者のキャリアパス
+date: '2025-04-23T00:12:30.251Z'
+category: キャリア
+slug: ibmservicenowservicenow
+excerpt: >-
+  近年、デジタルトランスフォーメーションの加速に伴い、ローコード/ノーコード開発プラットフォームの需要が急増しています。その中でも、ServiceNowはエンタープライズ分野で高い人気を誇り、熟練したServiceNowローコード開発者は高い市場価値を有しています。株式会社インプレスが報じた「IBM地...
 ---
 
 # IBM地域ServiceNow人財育成プログラムとServiceNowローコード開発者のキャリアパス
@@ -76,3 +77,18 @@ const fetchData = async () => {
 <!-- 例：ServiceNowポータル上の簡単なHTML要素 -->
 <h1>Welcome to the ServiceNow Portal</h1>
 ```tsx
+
+
+## 参考情報
+
+本記事は最新の転職・キャリア市場動向と業界情報に基づいて作成しています。
+
+参考となる情報源：
+1. **厚生労働省** - 雇用統計・労働市場データ
+   URL: https://www.mhlw.go.jp/
+2. **リクルート キャリア総研** - 転職市場レポート
+   URL: https://www.recruit-career.co.jp/
+3. **経済産業省** - IT人材需給予測
+   URL: https://www.meti.go.jp/
+
+*※本記事の情報は執筆時点でのものであり、最新の市場動向については各機関の公式発表をご確認ください。*

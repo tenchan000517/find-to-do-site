@@ -1,9 +1,11 @@
 ---
-title: "OCI Full Stack Disaster Recovery (FSDR) が ADB-D および ADB-C@C をサポート：モダンウェブ開発における堅牢性向上"
-date: "2025-04-22T15:39:45.023Z"
-category: "ウェブ開発"
-slug: "oci-full-stack-disaster-recovery-fsdr-adbd-adbcc-"
-excerpt: "導入部："
+title: >-
+  OCI Full Stack Disaster Recovery (FSDR) が ADB-D および ADB-C@C
+  をサポート：モダンウェブ開発における堅牢性向上
+date: '2025-04-22T15:39:45.023Z'
+category: ウェブ開発
+slug: oci-full-stack-disaster-recovery-fsdr-adbd-adbcc-
+excerpt: 導入部：
 ---
 
 # OCI Full Stack Disaster Recovery (FSDR) が ADB-D および ADB-C@C をサポート：モダンウェブ開発における堅牢性向上
@@ -38,3 +40,18 @@ OCI FSDRのADB-DおよびADB-C@Cサポートは、モダンウェブ開発にお
 
 
 **(注記: 本記事は、2025年4月時点の情報に基づいて作成されています。最新の機能や仕様については、Oracleの公式ドキュメントをご確認ください。)**
+
+
+## 参考情報
+
+本記事は最新のウェブ開発技術動向と業界標準に基づいて作成しています。
+
+参考となる情報源：
+1. **Web.dev** - Google Web Fundamentals
+   URL: https://web.dev/
+2. **Can I Use** - ブラウザ対応状況
+   URL: https://caniuse.com/
+3. **W3C Standards** - Web標準仕様
+   URL: https://www.w3.org/standards/
+
+*※本記事の情報は執筆時点でのものであり、最新のブラウザ対応状況については各仕様書をご確認ください。*

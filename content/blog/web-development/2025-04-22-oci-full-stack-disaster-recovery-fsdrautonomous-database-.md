@@ -1,9 +1,13 @@
 ---
-title: "OCI Full Stack Disaster Recovery (FSDR)とAutonomous Database: ウェブサイトのパフォーマンス向上への道"
-date: "2025-04-22T15:41:44.727Z"
-category: "ウェブ開発"
-slug: "oci-full-stack-disaster-recovery-fsdrautonomous-database-"
-excerpt: "Oracleが2025年2月20日に発表したOCI Full Stack Disaster Recovery (FSDR) のAutonomous Database on Dedicated Exadata Infrastructure (ADB-D) およびAutonomous Database"
+title: >-
+  OCI Full Stack Disaster Recovery (FSDR)とAutonomous Database:
+  ウェブサイトのパフォーマンス向上への道
+date: '2025-04-22T15:41:44.727Z'
+category: ウェブ開発
+slug: oci-full-stack-disaster-recovery-fsdrautonomous-database-
+excerpt: >-
+  Oracleが2025年2月20日に発表したOCI Full Stack Disaster Recovery (FSDR) のAutonomous
+  Database on Dedicated Exadata Infrastructure (ADB-D) およびAutonomous Database
 ---
 
 # OCI Full Stack Disaster Recovery (FSDR)とAutonomous Database: ウェブサイトのパフォーマンス向上への道
@@ -53,3 +57,18 @@ FSDRを実装することで、ADB-DとADB-C@Cの利点を最大限に活用で�
 **まとめ:**
 
 OCI FSDRのADB-DとADB-C@Cへの対応は、ウェブサイトの災害復旧能力とパフォーマンス向上に大きく貢献します。本記事で紹介した実装例とパフォーマンス最適化のポイント、モバイル対応の基本要素を参考に、堅牢で高性能なウェブサイトを構築しましょう。  継続的なモニタリングと最適化によって、ユーザーに最高のエクスペリエンスを提供し、ビジネスの成功を支えることが可能になります。  今後のOracleからのアップデートにも注目し、常に最適な環境を維持することが重要です。
+
+
+## 参考情報
+
+本記事は最新のウェブ開発技術動向と業界標準に基づいて作成しています。
+
+参考となる情報源：
+1. **Web.dev** - Google Web Fundamentals
+   URL: https://web.dev/
+2. **Can I Use** - ブラウザ対応状況
+   URL: https://caniuse.com/
+3. **W3C Standards** - Web標準仕様
+   URL: https://www.w3.org/standards/
+
+*※本記事の情報は執筆時点でのものであり、最新のブラウザ対応状況については各仕様書をご確認ください。*
