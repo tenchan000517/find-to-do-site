@@ -377,7 +377,7 @@ export default function DiscordPage() {
         <AnimatedCharacters />
 
         {/* Content */}
-        <div className="relative z-30 min-h-screen flex items-end justify-center px-4 pb-28">
+        <div className="relative z-50 min-h-screen flex items-end justify-center px-1 pb-28">
           <div className="text-center max-w-sm md:max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -899,7 +899,7 @@ export default function DiscordPage() {
         className="relative py-16 px-6 pb-24 bg-indigo-400"
       >
         <div className="max-w-sm mx-auto">
-          <div className="bg-white rounded-2xl py-6 px-6 shadow-lg text-center">
+          <div className="bg-white rounded-2xl py-6 px-4 shadow-lg text-center">
           <div className="mb-4">
             <Image
               src="/characters/iida_communication.png"
@@ -911,7 +911,7 @@ export default function DiscordPage() {
           </div>
           
           <div className="space-y-6 mb-10">
-            <h2 className="text-xl md:text-2xl font-bold leading-tight text-gray-800">
+            <h2 className="text-xl md:text-2xl font-bold leading-tight text-gray-800 -mx-3">
               私たちは<br />
               あなたが仲間になってくれることを<br />
               心から楽しみにしています！
@@ -936,7 +936,7 @@ export default function DiscordPage() {
             
             <div className="text-xs md:text-sm text-gray-600 text-center">
               <span>※FIND to DOはサービスではなくコミュニティですので<br />参加に費用はかかりません</span><br />
-              <span className="text-xs text-gray-600 mt-2 block">※参加先はFIND to DOの運営母体であるDiscordの<br />「ZERO to ONEサポート」です</span>
+              <span className="text-xs text-gray-600 mt-1 block">※参加先はFIND to DOの運営母体であるDiscordの<br />「ZERO to ONEサポート」です</span>
             </div>
           </div>
           </div>
@@ -1164,7 +1164,7 @@ export default function DiscordPage() {
             
             {/* 注釈 */}
             <div className="text-center mt-6 px-2">
-              <div className="text-base text-gray-600 leading-relaxed">
+              <div className="text-base text-gray-600 leading-relaxed -mx-4">
                 ※各メンバーは実在の人物の経験・実績・実話を<br />
                 元にして生まれたクロニクルキャラクターです
               </div>
@@ -1197,7 +1197,7 @@ export default function DiscordPage() {
 
             <div className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                話題ごとのコミュニケーション
+                自由な参加スタイル
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 雑談、質問、作業報告など、話題ごとにチャンネルを分けて参加することができ、興味のある話題だけを選んで通知を受け取ることができます。
@@ -1306,7 +1306,7 @@ export default function DiscordPage() {
         className="relative py-16 px-6 pb-24 bg-indigo-400"
       >
         <div className="max-w-sm mx-auto">
-          <div className="bg-white rounded-2xl py-6 px-6 shadow-lg text-center">
+          <div className="bg-white rounded-2xl py-6 px-4 shadow-lg text-center">
             <div className="mb-4">
               <Image
                 src="/characters/iida.png"
@@ -1318,7 +1318,7 @@ export default function DiscordPage() {
             </div>
             
             <div className="space-y-6 mb-10">
-              <h2 className="text-xl md:text-2xl font-bold leading-tight text-gray-800">
+              <h2 className="text-xl md:text-2xl font-bold leading-tight text-gray-800 -mx-3">
                 あなたが仲間になってくれることを<br />
                 心から楽しみにしています！
               </h2>
@@ -1332,8 +1332,8 @@ export default function DiscordPage() {
               <div className="bg-gray-50 p-6 rounded-2xl">
                 <p className="text-base md:text-lg font-medium leading-relaxed text-gray-800">
                   「自分には何もない」から<br />
-                  「自分にはこれがある」が見つかる<br />
-                  コミュニティ
+                  「<span className="text-amber-500">自分にはこれがある</span>」<br />
+                  が見つかるコミュニティ
                 </p>
               </div>
             </div>
@@ -1350,7 +1350,7 @@ export default function DiscordPage() {
               
               <div className="text-xs md:text-sm text-gray-600 text-center">
                 <span>※FIND to DOはサービスではなくコミュニティですので<br />参加に費用はかかりません</span><br />
-                <span className="text-xs text-gray-600 mt-2 block">※参加先はFIND to DOの運営母体であるDiscordの<br />「ZERO to ONEサポート」です</span>
+                <span className="text-xs text-gray-600 mt-1 block">※参加先はFIND to DOの運営母体であるDiscordの<br />「ZERO to ONEサポート」です</span>
               </div>
             </div>
           </div>

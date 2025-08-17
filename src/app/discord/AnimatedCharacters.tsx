@@ -46,11 +46,11 @@ export default function AnimatedCharacters() {
     }, []);
 
     const characters = [
-        { id: '1', imgSrc: '/hero/iida.png', alt: 'IIDA', rotate: 0 },
-        { id: '2', imgSrc: '/hero/misaki.png', alt: 'MISAKI', rotate: 0 },
-        { id: '3', imgSrc: '/hero/king.png', alt: 'KING', rotate: 0 },
-        { id: '4', imgSrc: '/hero/kikuyo.png', alt: 'KIKUYO', rotate: 0 },
-        { id: '5', imgSrc: '/hero/ten.png', alt: 'TEN', rotate: 0 },
+        { id: '1', imgSrc: '/characters/iida.png', alt: 'IIDA', rotate: 0, zIndex: 15 },
+        { id: '2', imgSrc: '/characters/misaki_point.png', alt: 'MISAKI', rotate: 0, zIndex: 20 },
+        { id: '3', imgSrc: '/characters/king.png', alt: 'KING', rotate: 0, zIndex: 10 },
+        { id: '4', imgSrc: '/characters/kikuyo_point.png', alt: 'KIKUYO', rotate: 0, zIndex: 20 },
+        { id: '5', imgSrc: '/characters/ten_point.png', alt: 'TEN', rotate: 0, zIndex: 10 },
     ];
 
     const containerVariants = {
@@ -130,6 +130,7 @@ export default function AnimatedCharacters() {
                             variants={characterVariants}
                             style={{
                                 ...(isMobile ? mobilePositions[character.id] : desktopPositions[character.id]),
+                                zIndex: character.zIndex,
                                 ...(character.id === '1' ? { 
                                     marginTop: isMobile ? '-112px' : '-160px',  // 高さの半分 (224px/2, 320px/2)
                                     marginLeft: isMobile ? '-112px' : '-160px'  // 幅の半分
