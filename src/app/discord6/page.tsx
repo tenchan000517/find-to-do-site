@@ -56,8 +56,8 @@ export default function Discord6Page() {
         <AnimatedCharacters />
 
         {/* Content */}
-        <div className="relative z-30 min-h-screen flex items-end justify-center px-4 pb-40">
-          <div className="text-center max-w-sm mx-auto">
+        <div className="relative z-30 min-h-screen flex items-end justify-center px-4 pb-28">
+          <div className="text-center max-w-sm md:max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -78,87 +78,334 @@ export default function Discord6Page() {
           initial={{ opacity: 0 }}
           animate={{ opacity: scrollY < 50 ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+          className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30"
         >
           <div className="animate-bounce">
-            <svg className="w-6 h-6 text-white" fill="none" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 border border-white/30 shadow-lg">
+              <svg className="w-6 h-6 text-white drop-shadow-md" fill="none" strokeWidth="2.5" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
           </div>
         </motion.div>
       </section>
 
       {/* NEW: FIND to DO Overview - 30秒で理解 */}
-      <section className="py-20 px-6" style={{
-        background: 'linear-gradient(135deg, #fff7ed 0%, #fed7aa 50%, #fdba74 100%)'
+      <section className="py-20 px-6 bg-white" style={{
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px)',
+        backgroundSize: '20px 20px'
       }}>
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
-            <div className="mb-8">
+            <div className="mb-8 -mx-6">
               <Image
-                src="/characters/iida_goodjob.png"
-                alt="IIDA"
-                width={100}
-                height={100}
-                className="mx-auto"
+                src="/hero/about_find_to_do.png"
+                alt="About FIND to DO"
+                width={300}
+                height={400}
+                className="w-full h-auto"
               />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              FIND to DOとは？
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              30秒で分かる基本情報
-            </p>
+            <div className="mb-8 text-left">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                ワイワイ楽しく話したり、オンラインで交流したり、イベントをしたり参加したり、ゲームをしたり作ったり、相談したり相談されたりしながら自分の好きなことを発見していくコミュニティです。
+              </p>
+            </div>
+            
+            <div className="mb-8 text-left">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                好きなことや興味を持った仕事を実際にしてみて体験し、お金をもらいながら学び、手を動かして得た経験と知識から自分の「得意」を見つけます。
+              </p>
+            </div>
+            
+            <div className="mb-8 text-left">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                みんなでみんなの0から1を応援しあう、あなたのサードプレイスとして、一緒に成長していける仲間が待っています。
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">💬</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  Discordベースのオンラインコミュニティ
+          <div className="mb-12">
+            <div className="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 rounded-2xl py-4 px-0 border border-blue-200 shadow-sm">
+              <p className="text-lg text-blue-800 font-medium text-center leading-relaxed">
+                講座や教材のようなサービスではなく<br />
+                FIND to DOはあなたの一生涯の<br />
+                サードプレイスでありたいコミュニティです
+              </p>
+            </div>
+          </div>
+
+
+          {/* FIND to DOの流れ */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <div className="relative inline-block pb-2">
+                <h3 className="text-2xl font-bold text-gray-800 relative">
+                  FIND to DOの流れ
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-400 rounded-full"></div>
+                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-blue-300 rounded-full"></div>
+                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4 h-1 bg-blue-200 rounded-full"></div>
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  LINEやSlackのようなチャットアプリ「Discord」を使った、24時間365日アクセス可能なコミュニティです
-                </p>
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">👥</span>
+            <div className="space-y-1">
+              {/* 01 */}
+              <div className="bg-white border border-gray-200 shadow-md">
+                <div className="flex">
+                  <div className="bg-blue-400 text-white font-bold text-2xl min-w-[60px] flex items-center justify-center">
+                    01
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">気軽にコミュニティに参加</h3>
+                    <hr className="border-gray-300 mb-2" />
+                    <p className="text-base text-gray-600">成長したい人が集まる温かい場所</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  Instagram編集部が運営
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  IIDAをはじめとする5人の専門家チームが、それぞれの経験と専門性を活かしてコミュニティを運営しています
+              </div>
+              
+              {/* 矢印01→02 */}
+              <div className="flex justify-center -my-2">
+                <svg className="w-16 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 12">
+                  <path d="M7 2l5 8 5-8z" />
+                </svg>
+              </div>
+              
+              {/* 02 */}
+              <div className="bg-white border border-gray-200 shadow-md">
+                <div className="flex">
+                  <div className="bg-blue-400 text-white font-bold text-2xl min-w-[60px] flex items-center justify-center">
+                    02
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">日々の会話や学びに参加</h3>
+                    <hr className="border-gray-300 mb-2" />
+                    <p className="text-base text-gray-600">見てるだけでも、たまに発言でもOK</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* 矢印02→03 */}
+              <div className="flex justify-center -my-2">
+                <svg className="w-16 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 12">
+                  <path d="M7 2l5 8 5-8z" />
+                </svg>
+              </div>
+              
+              {/* 03 */}
+              <div className="bg-white border border-gray-200 shadow-md">
+                <div className="flex">
+                  <div className="bg-blue-400 text-white font-bold text-2xl min-w-[60px] flex items-center justify-center">
+                    03
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">興味があれば実際の仕事に挑戦</h3>
+                    <hr className="border-gray-300 mb-2" />
+                    <p className="text-base text-gray-600">全くの未経験からでもサポートを受けながら実践</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* 矢印03→04 */}
+              <div className="flex justify-center -my-2">
+                <svg className="w-16 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 12">
+                  <path d="M7 2l5 8 5-8z" />
+                </svg>
+              </div>
+              
+              {/* 04 */}
+              <div className="bg-white border border-gray-200 shadow-md">
+                <div className="flex">
+                  <div className="bg-blue-400 text-white font-bold text-2xl min-w-[60px] flex items-center justify-center">
+                    04
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">スキルアップ＋実績＋収入</h3>
+                    <hr className="border-gray-300 mb-2" />
+                    <p className="text-base text-gray-600">自分のペースで「得意」を発見</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* 矢印04→05 */}
+              <div className="flex justify-center -my-2">
+                <svg className="w-16 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 12">
+                  <path d="M7 2l5 8 5-8z" />
+                </svg>
+              </div>
+              
+              {/* 05 */}
+              <div className="bg-white border border-gray-200 shadow-md">
+                <div className="flex">
+                  <div className="bg-blue-400 text-white font-bold text-2xl min-w-[60px] flex items-center justify-center">
+                    05
+                  </div>
+                  <div className="flex-1 p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">「自分にはこれがある！」</h3>
+                    <hr className="border-gray-300 mb-2" />
+                    <p className="text-base text-gray-600">「得意」を活かし理想のキャリアを実現</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* FIND → DO 循環図 */}
+          <div className="mb-12 relative">
+            <div className="bg-white rounded-3xl p-8 shadow-lg">
+              <div className="relative h-64">
+                {/* 中心 */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="px-4 py-3 rounded-xl flex items-center justify-center shadow-lg" style={{
+                    background: 'linear-gradient(135deg, #9BA9FE 0%, #7C8CFC 100%)'
+                  }}>
+                    <span className="text-white font-bold text-base text-center leading-tight whitespace-nowrap">
+                      FIND to DO
+                    </span>
+                  </div>
+                </div>
+                
+                {/* 好きを見つける - 上 */}
+                <div className="absolute top-[-20px] left-1/2 transform -translate-x-1/2">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    <span className="text-center">好きを<br />見つける</span>
+                  </div>
+                </div>
+                
+                {/* 興味を持った仕事をやってみる - 右 */}
+                <div className="absolute top-1/2 right-[-20px] transform -translate-y-1/2">
+                  <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    <span className="text-center">仕事を<br />やってみる</span>
+                  </div>
+                </div>
+                
+                {/* 得意が見つかる - 下 */}
+                <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    <span className="text-center">得意が<br />見つかる</span>
+                  </div>
+                </div>
+                
+                {/* 得意を活かして行動する - 左 */}
+                <div className="absolute top-1/2 left-[-20px] transform -translate-y-1/2">
+                  <div className="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    <span className="text-center">得意を<br />仕事に活かす</span>
+                  </div>
+                </div>
+                
+                {/* 矢印 */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                  {/* 上から右への矢印（右上：末端を短く） */}
+                  <path d="M 145 15 Q 180 25 195 60" fill="none" stroke="#e5e7eb" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                  {/* 右から下への矢印（右下：先端を短く） */}
+                  <path d="M 195 140 Q 180 175 145 185" fill="none" stroke="#e5e7eb" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                  {/* 下から左への矢印（左下：末端を短く） */}
+                  <path d="M 55 185 Q 15 175 0 140" fill="none" stroke="#e5e7eb" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                  {/* 左から上への矢印（左上：先端を短く） */}
+                  <path d="M 0 58 Q 15 25 55 15" fill="none" stroke="#e5e7eb" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                  
+                  {/* FIND文字 - 右上矢印の制御点近く */}
+                  <text x="195" y="30" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
+                  
+                  {/* DO文字 - 右下矢印の制御点近く */}
+                  <text x="195" y="175" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">DO</text>
+                  
+                  {/* FIND文字 - 左下矢印の制御点近く */}
+                  <text x="-5" y="175" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
+                  
+                  {/* DO文字 - 左上矢印の制御点近く */}
+                  <text x="5" y="30" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">DO</text>
+                  
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#e5e7eb" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <p className="text-base text-gray-700 font-medium">
+                  フォーマットのない最適化された時代に<br />
+                  発見（FIND）と行動（DO）の間にある<br />
+                  <span className="text-blue-600 font-bold">あなただけのキャリアパスを共に創ります</span>
                 </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {/* コミュニティの本質 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    24時間365日開かれたコミュニティ
+                  </h3>
+                  <p className="text-base text-gray-700 leading-relaxed">
+                    講座や教材ではなく、あなたのサードプレイスとして。いつでも仲間と繋がれる場所
+                  </p>
+                </div>
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">💼</span>
+            {/* 実践的サポート */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  実際の仕事紹介システム
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  コミュニティ内で、実際のクライアント案件や仕事を紹介。学びながら報酬を得られる仕組みを提供しています
-                </p>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    学びながらお金をもらう仕組み
+                  </h3>
+                  <p className="text-base text-gray-700 leading-relaxed">
+                    お金を払って学ぶのではなく、実践から学びながら報酬を得る。それが本当の成長
+                  </p>
+                </div>
               </div>
             </div>
+            
+            {/* 伴走型支援 */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    一生涯の仲間ができる
+                  </h3>
+                  <p className="text-base text-gray-700 leading-relaxed">
+                    就職・起業・転職、どんなキャリアでも。人生の転機に寄り添う仲間との出会い
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* ポイントメッセージ */}
+          <div className="mt-10 p-6 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 rounded-2xl border border-amber-200">
+            <p className="text-base text-amber-800 font-medium text-center leading-relaxed">
+              やってみないと「何がわからないかわからない」<br />
+              そんな不安を解決するのがコミュニティの存在<br />
+              <span className="text-lg font-bold">そのためにFIND to DOは存在します</span>
+            </p>
           </div>
         </div>
       </section>
