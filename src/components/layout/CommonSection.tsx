@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Code, Briefcase } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 type Service = {
     id: string;
@@ -43,6 +44,12 @@ const services: Service[] = [
 ];
 
 export function CommonSection() {
+    const pathname = usePathname();
+
+    // discord6ページではコモンセクションを非表示
+    if (pathname === '/discord6') {
+        return null;
+    }
     return (
         <section className="relative py-20">
             {/* 背景画像 */}

@@ -5,11 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
+  const pathname = usePathname();
+
+  // discord6ページではヘッダーを非表示
+  if (pathname === '/discord6') {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => {

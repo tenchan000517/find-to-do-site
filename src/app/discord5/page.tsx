@@ -2,10 +2,8 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import AnimatedCharacters from './AnimatedCharacters';
 
-export default function Discord6Page() {
+export default function Discord5Page() {
   const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
@@ -15,82 +13,61 @@ export default function Discord6Page() {
   }, []);
 
   return (
-    <>
-      {/* discord6ページ専用スタイル：ヘッダー分の余白を除去 */}
-      <style jsx global>{`
-        main { 
-          padding-top: 0 !important; 
-        }
-      `}</style>
-      <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Background Images */}
-        <div className="absolute inset-0">
-          {/* PC Background */}
-          <div className="hidden md:block absolute inset-0">
+      <section className="relative min-h-screen flex items-center justify-center" style={{
+        background: 'linear-gradient(135deg, #f8f9ff 0%, #ede9fe 25%, #ddd6fe 50%, #c4b5fd 75%, #a78bfa 100%)'
+      }}>
+        <div className="relative z-10 text-center px-6 py-8 max-w-sm mx-auto">
+          <div className="mb-8">
             <Image
-              src="/hero/pc_bg.png"
-              alt="Background"
-              fill
-              className="object-cover"
-              priority
+              src="/characters/iida.png"
+              alt="IIDA"
+              width={120}
+              height={120}
+              className="mx-auto"
             />
           </div>
-          {/* Mobile Background */}
-          <div className="md:hidden absolute inset-0">
-            <Image
-              src="/hero/sp_bg.png"
-              alt="Background"
-              fill
-              className="object-cover"
-              priority
-            />
+          
+          <div className="space-y-6 mb-8">
+            <div className="text-lg text-gray-700 font-medium leading-relaxed">
+              ありのままの自分で大丈夫
+            </div>
+            <h1 className="text-2xl font-bold leading-tight text-gray-800">
+              「自分には何もない」から<br />
+              「自分にはこれがある」が<br />
+              見つかるコミュニティ
+            </h1>
           </div>
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-purple-600/10 to-blue-900/20" />
-        </div>
-
-        {/* Animated Characters */}
-        <AnimatedCharacters />
-
-        {/* Content */}
-        <div className="relative z-30 min-h-screen flex items-end justify-center px-4 pb-40">
-          <div className="text-center max-w-sm mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-10"
+          
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            24時間365日開かれたコミュニティで、<br />
+            実践しながら報酬を得て、<br />
+            一生涯の仲間とキャリアを築く
+          </p>
+          
+          <div className="space-y-4">
+            <a
+              href="https://discord.gg/xQM6NgmwPk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
             >
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight text-white drop-shadow-lg text-center">
-                「自分には何もない」から<br />
-                「<span className="text-amber-400">自分にはこれがある</span>」が<br />
-                見つかるコミュニティ
-              </h1>
-            </motion.div>
+              コミュニティに参加する
+            </a>
+            
+            <div className="flex items-center justify-center space-x-6 text-lg text-gray-600">
+              <span>完全無料</span>
+              <span>いつでも退会OK</span>
+            </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: scrollY < 50 ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
-        >
-          <div className="animate-bounce">
-            <svg className="w-6 h-6 text-white" fill="none" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </motion.div>
       </section>
 
-      {/* NEW: FIND to DO Overview - 30秒で理解 */}
+      {/* FIND to DO Understanding */}
       <section className="py-20 px-6" style={{
-        background: 'linear-gradient(135deg, #fff7ed 0%, #fed7aa 50%, #fdba74 100%)'
+        background: 'linear-gradient(135deg, #fdfbff 0%, #f3f0ff 50%, #ede9fe 100%)'
       }}>
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
@@ -104,85 +81,10 @@ export default function Discord6Page() {
               />
             </div>
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              FIND to DOとは？
+              FIND to DOが大切にしていること
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              30秒で分かる基本情報
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">💬</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  Discordベースのオンラインコミュニティ
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  LINEやSlackのようなチャットアプリ「Discord」を使った、24時間365日アクセス可能なコミュニティです
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">👥</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  Instagram編集部が運営
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  IIDAをはじめとする5人の専門家チームが、それぞれの経験と専門性を活かしてコミュニティを運営しています
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-sm" style={{
-              border: '1px solid #e5e7eb'
-            }}>
-              <div className="text-center space-y-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
-                  <span className="text-2xl">💼</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  実際の仕事紹介システム
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  コミュニティ内で、実際のクライアント案件や仕事を紹介。学びながら報酬を得られる仕組みを提供しています
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem Statement - AI時代の不安 */}
-      <section className="py-20 px-6" style={{
-        background: 'linear-gradient(135deg, #fdfbff 0%, #f3f0ff 50%, #ede9fe 100%)'
-      }}>
-        <div className="max-w-sm mx-auto">
-          <div className="text-center mb-16">
-            <div className="mb-8">
-              <Image
-                src="/characters/misaki_worry.png"
-                alt="MISAKI"
-                width={100}
-                height={100}
-                className="mx-auto"
-              />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              AI時代だからこそ生まれる不安
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              技術が進歩しても解決されない課題
+            <p className="text-xl text-gray-700 font-medium leading-relaxed">
+              人の夢と希望のブースターになる
             </p>
           </div>
 
@@ -211,69 +113,58 @@ export default function Discord6Page() {
         </div>
       </section>
 
-      {/* コミュニティの価値 */}
+      {/* 有料コミュニティとの違い */}
       <section className="py-20 px-6" style={{
-        background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%)'
+        background: 'linear-gradient(135deg, #fffbf3 0%, #fef7e7 50%, #fef3cd 100%)'
       }}>
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
-            <div className="mb-8">
-              <Image
-                src="/characters/king_point.png"
-                alt="KING"
-                width={100}
-                height={100}
-                className="mx-auto"
-              />
-            </div>
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              FIND to DOの価値
+              よくある有料オンラインサロンとは<br />
+              根本的に違います
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              人の夢と希望のブースターになる
+              FIND to DOは完全に新しいコミュニティの形です
             </p>
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                挑戦と発見の循環サイクル
+            <div className="bg-gradient-to-r from-red-50 to-red-100 p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-red-800 mb-4">
+                一般的な有料コミュニティ
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                DO → FIND → DO → FIND の循環で、好きを見つけ、仕事をやってみて、得意を発見し、それを活かして行動する。
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                学びながら報酬を得る仕組み
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                興味を持った仕事をやってみる。お金を払って学ぶのではなく、学びながらお金をもらう。やってみないと「何がわからないかわからない」を解決します。
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                一生涯の仲間との成長
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                就職・起業・転職、あなたのキャリアに伴走する仲間がいる。サービスではなくコミュニティとして、長期的な関係を築きます。
-              </p>
+              <ul className="text-lg text-red-700 space-y-3">
+                <li>月額数千円〜数万円の費用</li>
+                <li>限定情報の一方的な提供</li>
+                <li>主催者と参加者の上下関係</li>
+                <li>見るだけ・学ぶだけの受け身</li>
+              </ul>
             </div>
             
-            <div className="mt-12 p-8 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl">
-              <p className="text-lg text-green-800 font-medium text-center leading-relaxed">
-                フォーマットのない最適化された時代に、<br />
-                発見と行動の間にある、<br />
-                あなただけのキャリアパスを共に創ります
+            <div className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-green-800 mb-4">
+                FIND to DO コミュニティ
+              </h3>
+              <ul className="text-lg text-green-700 space-y-3">
+                <li>参加・発言・全チャンネル完全無料</li>
+                <li>実践しながら報酬を得られる</li>
+                <li>対等な仲間として一緒に成長</li>
+                <li>自分のペースで能動的に参加</li>
+              </ul>
+            </div>
+            
+            <div className="mt-12 p-8 bg-white rounded-2xl shadow-sm">
+              <p className="text-lg text-gray-800 font-medium text-center leading-relaxed">
+                お金を払って学ぶのではなく、<br />
+                実践しながらお金をもらう。<br />
+                これが FIND to DO です。
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5-Step Flow - より具体化 */}
+      {/* 5-Step Flow */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
@@ -295,7 +186,7 @@ export default function Discord6Page() {
                   気軽にコミュニティに参加
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Discordコミュニティで成長したい人が集まる温かい場所。まずは挨拶から始めましょう。
+                  成長したい人が集まる温かい場所
                 </p>
               </div>
             </div>
@@ -309,7 +200,7 @@ export default function Discord6Page() {
                   日々の会話や学びに参加
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  チャンネルでの情報交換や質問、他メンバーの経験談を聞く。見てるだけでも価値があります。
+                  見てるだけでも、たまに発言でもOK
                 </p>
               </div>
             </div>
@@ -323,7 +214,7 @@ export default function Discord6Page() {
                   興味があれば実際の仕事に挑戦
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  全くの未経験からでもサポートを受けながら実践。具体的な仕事内容は参加後にご案内します。
+                  全くの未経験からでもサポートを受けながら実践
                 </p>
               </div>
             </div>
@@ -337,7 +228,7 @@ export default function Discord6Page() {
                   スキルアップ＋実績＋収入
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  自分のペースで「得意」を発見。実践を通じてスキルアップと実績を積み重ねます。
+                  自分のペースで「得意」を発見
                 </p>
               </div>
             </div>
@@ -351,7 +242,7 @@ export default function Discord6Page() {
                   「自分にはこれがある！」
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  発見した「得意」を活かして、就職・転職・起業など理想のキャリアパスを実現します。
+                  「得意」を活かして理想のキャリアを実現
                 </p>
               </div>
             </div>
@@ -366,17 +257,16 @@ export default function Discord6Page() {
         </div>
       </section>
 
-      {/* Editorial Team - 文脈付きで紹介 */}
+      {/* Editorial Team - 雑誌風デザイン完全再現 */}
       <section className="py-20 px-6" style={{
         background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)'
       }}>
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              あなたをサポートする編集部メンバー
+              Instagram編集部メンバー紹介
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Instagram運営で培った経験を活かし、<br />
               5人の専門家があなたのキャリアをサポート
             </p>
             <div className="text-base text-gray-600 leading-relaxed">
@@ -680,58 +570,56 @@ export default function Discord6Page() {
         </div>
       </section>
 
-      {/* Discord詳細 - 前提が理解された後で */}
+      {/* Discordって何？ Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              なぜDiscordを使うのか？
+              Discordって何？
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              コミュニティプラットフォームとしての<br />
-              Discordの優位性
+              「Discord」を初めて聞く方へ、<br />
+              分かりやすくご説明します
             </p>
           </div>
 
           <div className="space-y-8">
             <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                LINEやSlackと同じチャットツール
+                LINEのようなチャットアプリです
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                メッセージのやり取りができる、馴染みのあるコミュニケーションツールです。世界中で3億人以上が利用しています。
+                メッセージのやり取りができる、LINEやSlackのようなコミュニケーションツールです。世界中で3億人以上が利用しています。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                双方向のコミュニケーション
+                企業や大学でも活用されています
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                一方通行のメルマガではなく、質問したい時に答えてくれる誰かが身近にいる。リアルタイムでサポートを受けられます。
+                ゲーマー向けのイメージがあるかもしれませんが、実際には多くの企業、教育機関、コミュニティで正式に利用されている信頼性の高いツールです。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                企業・教育機関での実績
+                無料で安全に使えます
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                多くの企業や大学でも正式に導入されている信頼性の高いツール。セキュリティも万全で安心して利用できます。
-              </p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-8 rounded-2xl shadow-sm">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                24時間365日アクセス可能
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                時間や場所を選ばず、スマホ1つでコミュニティにアクセス。あなたのペースで参加できる環境です。
+                基本機能は完全無料。セキュリティも万全で、個人情報の管理も厳重に行われています。退会もいつでも簡単にできます。
               </p>
             </div>
           </div>
-          
-          <div className="mt-12 text-center">
+        </div>
+      </section>
+
+      {/* Why Discord */}
+      <section className="py-20 px-6" style={{
+        background: 'linear-gradient(135deg, #fdfbff 0%, #f3f0ff 50%, #ede9fe 100%)'
+      }}>
+        <div className="max-w-sm mx-auto">
+          <div className="text-center mb-16">
             <div className="mb-8">
               <Image
                 src="/characters/iida_communication.png"
@@ -741,25 +629,53 @@ export default function Discord6Page() {
                 className="mx-auto"
               />
             </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              使い慣れない方には、使い方から丁寧にサポートします。<br />
-              技術的な不安は一切心配いりません。
-            </p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              私たちがDiscordにこだわる理由
+            </h2>
+          </div>
+
+          <div className="space-y-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                双方向のコミュニケーション
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                LINEの公式アカウントやメルマガのような一方通行ではなく、質問したい時に答えてくれる誰かが身近にいると心強い、という私たちの経験から。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                初心者の方への配慮
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                使い慣れない方もいらっしゃることは重々承知しています。私たちは長く皆様をサポートし関わっていきたいと思っておりますので、使い方からサポートします。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                ビジネス利用の実績
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                世界中で3億人以上が利用し、多くの企業や教育機関でも正式に導入されている、信頼性の高いコミュニケーションツールです。
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 参加方法 */}
+      {/* Step-by-Step Join */}
       <section className="py-20 px-6" style={{
         background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%)'
       }}>
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              簡単3ステップで参加
+              段階的参加方法
             </h2>
             <p className="text-lg text-gray-700">
-              今すぐ始められます
+              あなたのペースで無理なく参加できます
             </p>
           </div>
 
@@ -767,43 +683,130 @@ export default function Discord6Page() {
             <div className="bg-white p-8 rounded-2xl shadow-sm">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center">
-                  <span className="text-lg font-bold text-blue-600">1</span>
+                  <span className="text-lg font-bold text-blue-600">0</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Discordアプリをダウンロード</h3>
+                <h3 className="text-xl font-bold text-gray-800">まず理解する</h3>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                App Store / Google PlayまたはPCで「Discord」をダウンロード。無料で簡単にインストールできます。
+                FIND to DOとは何か、Discordとは何かを理解。このページを読むだけでもOKです。
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-sm">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center">
-                  <span className="text-lg font-bold text-green-600">2</span>
+                  <span className="text-lg font-bold text-green-600">1</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">招待リンクをクリック</h3>
+                <h3 className="text-xl font-bold text-gray-800">アプリをインストール</h3>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                下のボタンからコミュニティに参加。最初は見学だけでも全く問題ありません。
+                スマホやPCにDiscordアプリをダウンロード。使い方が分からない方には個別にサポートします。
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-sm">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center">
-                  <span className="text-lg font-bold text-purple-600">3</span>
+                  <span className="text-lg font-bold text-purple-600">2</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">自己紹介で挨拶</h3>
+                <h3 className="text-xl font-bold text-gray-800">コミュニティに参加</h3>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                #自己紹介チャンネルで簡単に挨拶。編集部メンバーが温かくお迎えします。
+                招待リンクからコミュニティに参加。最初は見るだけでも全く問題ありません。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center">
+                  <span className="text-lg font-bold text-pink-600">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">発言してみる</h3>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                自己紹介や質問から始めてみる。間違いを恐れる必要はありません。温かいコミュニティです。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center">
+                  <span className="text-lg font-bold text-yellow-600">4</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">活用する</h3>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                実際の仕事に挑戦したり、イベントに参加したり、あなたのペースでキャリアを築いていく。
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Support System */}
+      <section className="py-20 px-6" style={{
+        background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%)'
+      }}>
+        <div className="max-w-sm mx-auto">
+          <div className="text-center mb-16">
+            <div className="mb-8">
+              <Image
+                src="/characters/misaki_smile.png"
+                alt="MISAKI"
+                width={100}
+                height={100}
+                className="mx-auto"
+              />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              手厚いサポート体制
+            </h2>
+            <p className="text-lg text-gray-700">
+              一人ひとりを大切にする、具体的なサポート
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                24時間以内の返信保証
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                質問や相談には必ず24時間以内に編集部メンバーが返信します。一人で悩む時間を最小限に。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                個別メンター制度
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                希望者には専任のメンターを割り当て。あなたの目標に合わせた個別のキャリア設計をサポートします。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                技術・設定サポート
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Discordの使い方が分からない、設定に困ったなど、技術的な問題も丁寧にサポートします。
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                失敗OK環境
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                うまくいかなくても大丈夫。失敗から学ぶことを重視し、挑戦を応援するコミュニティです。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ - Discord不安解消重視 */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-16">
@@ -811,53 +814,62 @@ export default function Discord6Page() {
               よくあるご質問
             </h2>
             <p className="text-lg text-gray-700">
-              参加前の不安を解消
+              Discord参加への不安を解消
             </p>
           </div>
 
           <div className="space-y-8">
             <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Q. 参加に費用はかかりますか？
+                Q. Discordって安全ですか？
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                A. いいえ、完全無料です。FIND to DOは講座ではなく、あなたのサードプレイスになりたいコミュニティです。
+                A. はい、安全です。世界中で3億人以上が利用する信頼性の高いプラットフォームで、企業や教育機関でも正式に利用されています。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Q. 初心者でも大丈夫ですか？
+                Q. 参加に費用はかかりますか？
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                A. もちろんです。Discordの使い方から仕事の進め方まで、先輩メンバーが丁寧にサポートします。
+                A. いいえ、完全無料です。FIND to DOは講座や教材ではなく、あなたのサードプレイスになりたいコミュニティです。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Q. 毎日参加しないといけませんか？
+                Q. スマホだけでも参加できますか？
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                A. いいえ、自由です。気が向いた時だけ、週1回だけでも価値があります。自分のペースで大丈夫です。
+                A. はい、スマホアプリで完全に参加可能です。PCがなくても全く問題ありません。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Q. どんな仕事ができますか？
+                Q. 毎日参加しないといけませんか？
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                A. ライティング、デザイン、データ分析、企画など様々。あなたの興味に合わせて、未経験からでもサポートします。
+                A. いいえ、自由です。週1回、5分だけでも価値があります。自分のペースで大丈夫です。
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-8 rounded-2xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Q. 参加に資格や条件はありますか？
+                Q. 使い方が分からなくても大丈夫？
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                A. ありません。誰でも歓迎です。学生も社会人も、年齢も経験も一切関係ありません。
+                A. もちろんです。初心者向けの説明から個別サポートまで、使い方を一から丁寧にお教えします。
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                Q. どんな仕事ができますか？
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                A. ライティング、デザイン、分析、企画など様々。あなたの興味に合わせて、未経験からでもサポートします。
               </p>
             </div>
           </div>
@@ -886,9 +898,9 @@ export default function Discord6Page() {
             </h2>
             
             <p className="text-xl leading-relaxed opacity-95">
-              Discordコミュニティで、<br />
+              24時間365日開かれたコミュニティで、<br />
               一生続けられるサークルのような<br />
-              サードプレイスを一緒に作りましょう
+              サードプレイスです
             </p>
             
             <div className="bg-white bg-opacity-20 p-8 rounded-2xl backdrop-blur-sm">
@@ -918,21 +930,6 @@ export default function Discord6Page() {
           </div>
         </div>
       </section>
-
-      {/* Fixed Floating CTA Button */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
-        <div className="max-w-sm mx-auto">
-          <a
-            href="https://discord.gg/xQM6NgmwPk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-          >
-            コミュニティに参加する
-          </a>
-        </div>
-      </div>
     </div>
-    </>
   );
 }

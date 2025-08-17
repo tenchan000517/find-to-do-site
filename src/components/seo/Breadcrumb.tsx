@@ -28,6 +28,11 @@ const pathNameMap: { [key: string]: string } = {
 
 export function Breadcrumb() {
   const pathname = usePathname();
+
+  // discord6ページではパンくずナビを非表示
+  if (pathname === '/discord6') {
+    return null;
+  }
   
   // パスを分割してパンくずリストを生成
   const pathSegments = pathname.split('/').filter(segment => segment);
