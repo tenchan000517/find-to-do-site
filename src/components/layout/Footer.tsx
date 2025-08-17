@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const footerLinks = [
   {
@@ -20,7 +21,7 @@ const footerLinks = [
     links: [
       { label: '会社概要', href: '/about' },
       { label: 'ニュース＆ブログ', href: '/news-blog' },
-      { label: '資料ダウンロード', href: '/documents' },
+      // { label: '資料ダウンロード', href: '/documents' }, // 未実装のためコメントアウト
       { label: 'お問い合わせ', href: '/contact' }
     ]
   },
@@ -51,6 +52,12 @@ const socialLinks = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  
+  // Discordページでは非表示
+  if (pathname === '/discord') {
+    return null;
+  }
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">

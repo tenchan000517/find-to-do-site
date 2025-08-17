@@ -29,8 +29,8 @@ const pathNameMap: { [key: string]: string } = {
 export function Breadcrumb() {
   const pathname = usePathname();
 
-  // discord6ページではパンくずナビを非表示
-  if (pathname === '/discord6') {
+  // discordページではパンくずナビを非表示
+  if (pathname === '/discord') {
     return null;
   }
   

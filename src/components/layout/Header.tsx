@@ -13,8 +13,8 @@ export const Header = () => {
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const pathname = usePathname();
 
-  // discord6ページではヘッダーを非表示
-  if (pathname === '/discord6') {
+  // discordページではヘッダーを非表示
+  if (pathname === '/discord') {
     return null;
   }
 

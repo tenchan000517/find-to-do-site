@@ -45,6 +45,7 @@ next-env.d.ts
 
 /doc/
 .vercel
+/docs/
 
 # test and debug files
 /temp-test-files/
