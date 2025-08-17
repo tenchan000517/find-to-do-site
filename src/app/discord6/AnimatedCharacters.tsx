@@ -47,10 +47,10 @@ export default function AnimatedCharacters() {
 
     const characters = [
         { id: '1', imgSrc: '/hero/iida.png', alt: 'IIDA', rotate: 0 },
-        { id: '2', imgSrc: '/hero/misaki.png', alt: 'MISAKI', rotate: 12 },
-        { id: '3', imgSrc: '/hero/king.png', alt: 'KING', rotate: -10 },
-        { id: '4', imgSrc: '/hero/kikuyo.png', alt: 'KIKUYO', rotate: 8 },
-        { id: '5', imgSrc: '/hero/ten.png', alt: 'TEN', rotate: -12 },
+        { id: '2', imgSrc: '/hero/misaki.png', alt: 'MISAKI', rotate: 0 },
+        { id: '3', imgSrc: '/hero/king.png', alt: 'KING', rotate: 0 },
+        { id: '4', imgSrc: '/hero/kikuyo.png', alt: 'KIKUYO', rotate: 0 },
+        { id: '5', imgSrc: '/hero/ten.png', alt: 'TEN', rotate: 0 },
     ];
 
     const containerVariants = {
@@ -85,19 +85,19 @@ export default function AnimatedCharacters() {
     };
 
     const desktopPositions: { [key: string]: PositionProps } = {
-        '1': { top: '15%', left: '10%' },
-        '2': { top: '20%', right: '12%' },
-        '3': { bottom: '25%', left: '8%' },
-        '4': { bottom: '20%', right: '15%' },
-        '5': { top: '40%', left: '25%', },
+        '1': { top: '40%', left: '50%' },
+        '2': { top: '55%', left: '20%' },
+        '3': { top: '5%', right: '5%' },
+        '4': { top: '55%', right: '20%' },
+        '5': { top: '5%', left: '5%' },
     };
 
     const mobilePositions: { [key: string]: PositionProps } = {
-        '1': { top: '10%', left: '5%' },
-        '2': { top: '15%', right: '5%' },
-        '3': { bottom: '35%', left: '3%' },
-        '4': { bottom: '30%', right: '8%' },
-        '5': { top: '35%', left: '20%' },
+        '1': { top: '35%', left: '50%' },
+        '2': { top: '45%', left: '-1%' },
+        '3': { top: '2%', right: '-1%' },
+        '4': { top: '45%', right: '-1%' },
+        '5': { top: '2%', left: '-1%' },
     };
 
     const [isMobile, setIsMobile] = useState(false);
@@ -125,15 +125,23 @@ export default function AnimatedCharacters() {
                     return (
                         <motion.div
                             key={character.id}
-                            className="absolute w-24 h-24 md:w-36 md:h-36"
+                            className="absolute w-56 h-56 md:w-80 md:h-80"
                             custom={index}
                             variants={characterVariants}
-                            style={isMobile ? mobilePositions[character.id] : desktopPositions[character.id]}
+                            style={{
+                                ...(isMobile ? mobilePositions[character.id] : desktopPositions[character.id]),
+                                ...(character.id === '1' ? { 
+                                    marginTop: isMobile ? '-112px' : '-160px',  // 高さの半分 (224px/2, 320px/2)
+                                    marginLeft: isMobile ? '-112px' : '-160px'  // 幅の半分
+                                } : {})
+                            }}
                         >
                             <div style={{
                                 width: '100%',
                                 height: '100%',
-                                transform: `rotate(${character.rotate}deg)`
+                                ...(character.id === '2' || character.id === '3' || character.id === '4' || character.id === '5' ? { 
+                                    transform: 'scale(0.95)'  // MISAKI、KING、KIKUYO、TENを5%小さく
+                                } : {})
                             }}>
                                 <Image
                                     src={character.imgSrc}

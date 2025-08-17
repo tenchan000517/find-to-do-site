@@ -7,6 +7,26 @@ import AnimatedCharacters from './AnimatedCharacters';
 
 export default function Discord6Page() {
   const [scrollY, setScrollY] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const storyContent = [
+    {
+      title: "人の夢と希望のブースターになる",
+      content: "わからないことをすぐ相談できる人がいて、困った時に手を差し伸べてくれる仲間がいる。AI時代だからこそ「不安」は取り残される。そんな不安を解決するのが、コミュニティの存在です。"
+    },
+    {
+      title: "挑戦と発見の循環を、共に創る",
+      content: "あなたの挑戦が新しい発見を生み、新しい発見が次の挑戦を呼び起こす。そのサイクルをあなたと共に創り続けます。フォーマットのない最適化された時代に、あなただけのキャリアパスを共に創ります。"
+    },
+    {
+      title: "好きから自信につながる4ステップ",
+      content: "「見つける」「行動する」「挑戦する」を通じて、キャリアの準備にいつも寄り添い伴走します。FIND to DOはサービスではなくコミュニティです。就職・起業・転職、あなたのキャリアに伴走します。"
+    }
+  ];
+  
+  const handleSlideChange = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+  };
   
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -334,78 +354,101 @@ export default function Discord6Page() {
             </div>
           </div>
 
-          <div className="space-y-6">
-            {/* コミュニティの本質 */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
+        </div>
+      </section>
+
+      {/* FIND to DO Story Slider - ビジョン・ミッション・コミュニティ */}
+      <section className="py-20 px-6" style={{
+        background: 'linear-gradient(135deg, #f8faff 0%, #f1f5ff 50%, #e8f2ff 100%)'
+      }}>
+        <div className="max-w-sm mx-auto">
+
+          {/* Image Slider with Centered Peek */}
+          <div className="relative mb-8">
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ 
+                  transform: `translateX(calc(7.5% + ${-currentSlide * 70}% - ${currentSlide * 12}px))`,
+                  gap: '12px'
+                }}
+                id="storySlider"
+              >
+                {/* Slide 1: Vision */}
+                <div className="w-[70%] flex-shrink-0 mr-3">
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/hero/find_to_do_vision.png"
+                      alt="FIND to DO Vision - 人の夢と希望のブースターになる"
+                      width={300}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
-                    24時間365日開かれたコミュニティ
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    講座や教材ではなく、あなたのサードプレイスとして。いつでも仲間と繋がれる場所
-                  </p>
+                {/* Slide 2: Mission */}
+                <div className="w-[70%] flex-shrink-0 mr-3">
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/hero/find_to_do_mission.png"
+                      alt="FIND to DO Mission - 挑戦と発見の循環を共に創る"
+                      width={300}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+                {/* Slide 3: Community */}
+                <div className="w-[70%] flex-shrink-0 mr-3">
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/hero/find_to_do_community.png"
+                      alt="FIND to DO Community - 好きから自信につながる4ステップ"
+                      width={300}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             
-            {/* 実践的サポート */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
-                    学びながらお金をもらう仕組み
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    お金を払って学ぶのではなく、実践から学びながら報酬を得る。それが本当の成長
-                  </p>
-                </div>
-              </div>
+            {/* Navigation Dots */}
+            <div className="flex justify-center space-x-2 mt-6">
+              {storyContent.map((_, index) => (
+                <button 
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    currentSlide === index ? 'bg-blue-400' : 'bg-gray-300'
+                  }`}
+                  onClick={() => handleSlideChange(index)}
+                ></button>
+              ))}
             </div>
             
-            {/* 伴走型支援 */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
-                    一生涯の仲間ができる
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    就職・起業・転職、どんなキャリアでも。人生の転機に寄り添う仲間との出会い
-                  </p>
-                </div>
-              </div>
+            {/* Swipe Hint */}
+            <div className="text-center mt-4">
+              <p className="text-sm text-gray-500">
+                ← スワイプして他のストーリーを見る →
+              </p>
             </div>
           </div>
-          
-          {/* ポイントメッセージ */}
-          <div className="mt-10 p-6 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 rounded-2xl border border-amber-200">
-            <p className="text-base text-amber-800 font-medium text-center leading-relaxed">
-              やってみないと「何がわからないかわからない」<br />
-              そんな不安を解決するのがコミュニティの存在<br />
-              <span className="text-lg font-bold">そのためにFIND to DOは存在します</span>
-            </p>
+
+          {/* Current Story Summary */}
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                {storyContent[currentSlide].title}
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed text-center">
+                {storyContent[currentSlide].content}
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
