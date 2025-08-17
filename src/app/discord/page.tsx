@@ -343,7 +343,10 @@ export default function DiscordPage() {
           padding-top: 0 !important; 
         }
       `}</style>
-      <div className="min-h-screen bg-white overflow-x-hidden">
+      <div className="min-h-screen bg-white overflow-x-hidden" style={{
+        WebkitOverflowScrolling: 'touch',
+        willChange: 'scroll-position'
+      }}>
       
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden">
@@ -577,10 +580,10 @@ export default function DiscordPage() {
               <div className="relative h-64">
                 {/* 中心 */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                  <div className="px-4 py-3 rounded-xl flex items-center justify-center shadow-lg" style={{
+                  <div className="px-3 py-2 rounded-xl flex items-center justify-center shadow-lg" style={{
                     background: 'linear-gradient(135deg, #9BA9FE 0%, #7C8CFC 100%)'
                   }}>
-                    <span className="text-white font-bold text-base text-center leading-tight whitespace-nowrap">
+                    <span className="text-white font-bold text-sm text-center leading-tight whitespace-nowrap">
                       FIND to DO
                     </span>
                   </div>
@@ -626,13 +629,13 @@ export default function DiscordPage() {
                   <path d="M 0 58 Q 15 25 55 15" fill="none" stroke="#e5e7eb" strokeWidth="2" markerEnd="url(#arrowhead)" />
                   
                   {/* FIND文字 - 右上矢印の制御点近く */}
-                  <text x="195" y="30" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
+                  <text x="175" y="30" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
                   
                   {/* DO文字 - 右下矢印の制御点近く */}
                   <text x="195" y="175" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">DO</text>
                   
                   {/* FIND文字 - 左下矢印の制御点近く */}
-                  <text x="-5" y="175" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
+                  <text x="15" y="175" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">FIND</text>
                   
                   {/* DO文字 - 左上矢印の制御点近く */}
                   <text x="5" y="30" fill="#6b7280" fontSize="14" fontWeight="bold" textAnchor="middle">DO</text>
@@ -645,7 +648,7 @@ export default function DiscordPage() {
                 </svg>
               </div>
               
-              <div className="mt-8 text-center">
+              <div className="mt-8 text-center -mx-4">
                 <p className="text-base text-gray-700 font-medium">
                   フォーマットのない最適化された時代に<br />
                   発見（FIND）と行動（DO）の間にある<br />
@@ -732,7 +735,8 @@ export default function DiscordPage() {
             {/* Left Arrow */}
             <button 
               onClick={handlePrevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-opacity duration-200"
+              style={{ willChange: 'opacity' }}
             >
               <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -742,7 +746,8 @@ export default function DiscordPage() {
             {/* Right Arrow */}
             <button 
               onClick={handleNextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-opacity duration-200"
+              style={{ willChange: 'opacity' }}
             >
               <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -1049,7 +1054,8 @@ export default function DiscordPage() {
             {/* Left Arrow */}
             <button 
               onClick={handleEditorialPrevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-opacity duration-200"
+              style={{ willChange: 'opacity' }}
             >
               <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1059,7 +1065,8 @@ export default function DiscordPage() {
             {/* Right Arrow */}
             <button 
               onClick={handleEditorialNextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-opacity duration-200"
+              style={{ willChange: 'opacity' }}
             >
               <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
