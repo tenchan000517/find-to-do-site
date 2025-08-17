@@ -7,7 +7,10 @@ import AnimatedCharacters from './AnimatedCharacters';
 
 export default function Discord6Page() {
   const [scrollY, setScrollY] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(2); // 初期位置を2に変更（真の最初のスライド）
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   const storyContent = [
     {
@@ -23,9 +26,90 @@ export default function Discord6Page() {
       content: "「見つける」「行動する」「挑戦する」を通じて、キャリアの準備にいつも寄り添い伴走します。FIND to DOはサービスではなくコミュニティです。就職・起業・転職、あなたのキャリアに伴走します。"
     }
   ];
+
+  // 無限ループ用の拡張スライド配列 [2, 3, 1, 2, 3, 1, 2]
+  const extendedSlides = [
+    storyContent[1], // 2枚目
+    storyContent[2], // 3枚目
+    storyContent[0], // 1枚目
+    storyContent[1], // 2枚目
+    storyContent[2], // 3枚目
+    storyContent[0], // 1枚目
+    storyContent[1]  // 2枚目
+  ];
+
+  const slideImages = ['mission', 'community', 'vision', 'mission', 'community', 'vision', 'mission'];
   
   const handleSlideChange = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
+    // ドットクリック時は実際のインデックス（2,3,4）に変換
+    const slideMap = [2, 3, 4]; // 1枚目→index2, 2枚目→index3, 3枚目→index4
+    setCurrentSlide(slideMap[slideIndex]);
+  };
+
+  const handlePrevSlide = () => {
+    if (currentSlide === 2) {
+      // 1枚目で<を押した場合：アニメーション完了後に瞬間移動
+      setCurrentSlide(1); // ダミーの3へアニメーション
+      
+      setTimeout(() => {
+        setIsTransitioning(true); // トランジション無効化
+        setCurrentSlide(4); // 真の3枚目へ瞬間移動
+        
+        // 次のフレームでトランジション復活
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 10);
+      }, 300); // アニメーション完了後（300ms）に瞬間移動
+    } else {
+      setCurrentSlide(prev => prev - 1);
+    }
+  };
+
+  const handleNextSlide = () => {
+    if (currentSlide === 4) {
+      // 3枚目で>を押した場合：アニメーション完了後に瞬間移動
+      setCurrentSlide(5); // ダミーの1へアニメーション
+      
+      setTimeout(() => {
+        setIsTransitioning(true); // トランジション無効化
+        setCurrentSlide(2); // 真の1枚目へ瞬間移動
+        
+        // 次のフレームでトランジション復活
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 10);
+      }, 300); // アニメーション完了後（300ms）に瞬間移動
+    } else {
+      setCurrentSlide(prev => prev + 1);
+    }
+  };
+
+  // スワイプ検出
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0); // リセット
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      // 左スワイプ = 次のスライド（矢印の>と同じ）
+      handleNextSlide();
+    }
+    
+    if (isRightSwipe) {
+      // 右スワイプ = 前のスライド（矢印の<と同じ）
+      handlePrevSlide();
+    }
   };
   
   useEffect(() => {
@@ -358,58 +442,63 @@ export default function Discord6Page() {
       </section>
 
       {/* FIND to DO Story Slider - ビジョン・ミッション・コミュニティ */}
-      <section className="py-20 px-6" style={{
+      <section className="py-20" style={{
         background: 'linear-gradient(135deg, #f8faff 0%, #f1f5ff 50%, #e8f2ff 100%)'
       }}>
-        <div className="max-w-sm mx-auto">
+        <div className="mx-auto">
 
           {/* Image Slider with Centered Peek */}
           <div className="relative mb-8">
+            {/* Left Arrow */}
+            <button 
+              onClick={handlePrevSlide}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+            >
+              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Right Arrow */}
+            <button 
+              onClick={handleNextSlide}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-70 hover:bg-opacity-90 rounded-full p-3 shadow-lg transition-all duration-200"
+            >
+              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
             <div className="overflow-hidden">
               <div 
-                className="flex transition-transform duration-300 ease-in-out"
+                className={`flex ${isTransitioning ? 'transition-none' : 'transition-transform duration-300 ease-in-out'}`}
                 style={{ 
-                  transform: `translateX(calc(7.5% + ${-currentSlide * 70}% - ${currentSlide * 12}px))`,
+                  transform: currentSlide === 1 
+                    ? `translateX(calc(12% + ${-currentSlide * 70}% - ${currentSlide * 12}px))`
+                    : currentSlide === 2
+                    ? `translateX(calc(12% + ${-currentSlide * 70}% - ${(currentSlide + 1) * 12}px))`
+                    : `translateX(calc(12% + ${-currentSlide * 70}% - ${(currentSlide + 2) * 12}px))`,
                   gap: '12px'
                 }}
                 id="storySlider"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
-                {/* Slide 1: Vision */}
-                <div className="w-[70%] flex-shrink-0 mr-3">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/hero/find_to_do_vision.png"
-                      alt="FIND to DO Vision - 人の夢と希望のブースターになる"
-                      width={300}
-                      height={400}
-                      className="w-full h-auto"
-                    />
+                {/* 拡張スライド配列をレンダリング [3, 1, 2, 3, 1] */}
+                {slideImages.map((imageType, index) => (
+                  <div key={index} className="w-[70%] flex-shrink-0 mr-3">
+                    <div className="rounded-2xl overflow-hidden shadow-lg">
+                      <Image
+                        src={`/hero/find_to_do_${imageType}.png`}
+                        alt={`Slide ${index}`}
+                        width={300}
+                        height={400}
+                        className="w-full h-auto"
+                      />
+                    </div>
                   </div>
-                </div>
-                {/* Slide 2: Mission */}
-                <div className="w-[70%] flex-shrink-0 mr-3">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/hero/find_to_do_mission.png"
-                      alt="FIND to DO Mission - 挑戦と発見の循環を共に創る"
-                      width={300}
-                      height={400}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-                {/* Slide 3: Community */}
-                <div className="w-[70%] flex-shrink-0 mr-3">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/hero/find_to_do_community.png"
-                      alt="FIND to DO Community - 好きから自信につながる4ステップ"
-                      width={300}
-                      height={400}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             
@@ -419,23 +508,18 @@ export default function Discord6Page() {
                 <button 
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    currentSlide === index ? 'bg-blue-400' : 'bg-gray-300'
+                    (index === 0 && currentSlide === 2) || 
+                    (index === 1 && currentSlide === 3) || 
+                    (index === 2 && currentSlide === 4) ? 'bg-blue-400' : 'bg-gray-300'
                   }`}
                   onClick={() => handleSlideChange(index)}
                 ></button>
               ))}
             </div>
-            
-            {/* Swipe Hint */}
-            <div className="text-center mt-4">
-              <p className="text-sm text-gray-500">
-                ← スワイプして他のストーリーを見る →
-              </p>
-            </div>
           </div>
 
           {/* Current Story Summary */}
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-blue-100 mx-6">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 20 }}
@@ -443,10 +527,10 @@ export default function Discord6Page() {
               transition={{ duration: 0.4 }}
             >
               <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
-                {storyContent[currentSlide].title}
+                {extendedSlides[currentSlide].title}
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed text-center">
-                {storyContent[currentSlide].content}
+                {extendedSlides[currentSlide].content}
               </p>
             </motion.div>
           </div>
