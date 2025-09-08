@@ -46,8 +46,8 @@ const services: Service[] = [
 export function CommonSection() {
     const pathname = usePathname();
 
-    // discordページではコモンセクションを非表示
-    if (pathname === '/discord') {
+    // discordページとevent-formページではコモンセクションを非表示
+    if (pathname === '/discord' || pathname === '/event-form') {
         return null;
     }
     return (

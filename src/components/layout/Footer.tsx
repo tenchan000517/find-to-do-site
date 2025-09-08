@@ -54,8 +54,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
   
-  // Discordページでは非表示
-  if (pathname === '/discord') {
+  // Discordページとevent-formページでは非表示
+  if (pathname === '/discord' || pathname === '/event-form') {
     return null;
   }
 
